@@ -11,7 +11,13 @@ VALUES
     ('holdup'),
     ('lock_gear');
 
+
+-- selects all from the users table
 SELECT * FROM user;
+
+-- deletes from the users table
+DELETE FROM user
+WHERE user_name = "blueshark";
 
 INSERT INTO experience (climb_type, rocktype, climb_level) 
 VALUES
@@ -26,4 +32,6 @@ VALUES
     ('free solo', 'info', 10),
     ('boulder', 'info', 9);
 
+
+-- selects all from experience table
 SELECT * FROM experience;
