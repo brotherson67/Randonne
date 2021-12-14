@@ -1,14 +1,14 @@
 -- A database is a collection of interrelated data. This data is stored in one or more tables that are related to one another.
 
-DROP DATABASE IF EXISTS hiking_db;
-CREATE DATABASE hiking_db;
+DROP DATABASE IF EXISTS climbing_db;
+CREATE DATABASE climbing_db;
 
-USE hiking_db;
+USE climbing_db;
 
 --  drops all the tables if they exist then creates the tables
-DROP TABLE IF EXISTS department;
-DROP TABLE IF EXISTS roles;
-DROP TABLE IF EXISTS employee;
+DROP TABLE IF EXISTS user;
+DROP TABLE IF EXISTS gear;
+DROP TABLE IF EXISTS social;
 
 -- A table is composed of rows and columns. A column represents a field. A row represents a record.
 CREATE TABLE user(
@@ -20,6 +20,7 @@ CREATE TABLE experience(
   climb_type VARCHAR(30) NOT NULL,
   rocktype VARCHAR(30) NOT NULL,
   climb_level INTEGER NOT NULL,
+  rocktype VARCHAR(30) NOT NULL,
 
 );
 CREATE TABLE gear(
@@ -30,14 +31,18 @@ CREATE TABLE gear(
   harness BOOLEAN,
   dry_rope BOOLEAN,
   helmet BOOLEAN,
-  locking_carabiners BOOLEAN,
-
+  locking_carabiners BOOLEAN
 );
 CREATE TABLE social(
   id INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  \_name VARCHAR(30) NOT NULL
-  description TEXT,
+  social_level VARCHAR(30) NOT NULL,
+  description TEXT
+);
 
+CREATE TABLE work(
+  id INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  schedule VARCHAR(30) NOT NULL,
+  description TEXT
 );
 
 
