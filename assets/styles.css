@@ -1,0 +1,18 @@
+.navbar {
+    background-color: transparent;
+}
+
+#heroimg {
+    background-size: cover;
+    background-position: center center;
+}
+
+.container {
+    position: relative;
+    text-align: center;
+    color: white;
+}
+
+.herotxt {
+    position: absolute;
+}
