@@ -26,7 +26,7 @@ CREATE TABLE experience(
 
 CREATE TABLE gear(
   id INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  clips VARCHAR(30) NOT NULL,
+  clips BOOLEAN NOT NULL,
   climbing_shoes BOOLEAN NOT NULL,
   chalk BOOLEAN NOT NULL,
   harness BOOLEAN NOT NULL,
@@ -37,7 +37,7 @@ CREATE TABLE gear(
 
 CREATE TABLE social(
   id INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  social_level VARCHAR(30) NOT NULL,
+  social_level INTEGER NOT NULL,
   description TEXT
 );
 
