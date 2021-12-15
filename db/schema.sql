@@ -14,7 +14,8 @@ DROP TABLE IF EXISTS work;
 -- A table is composed of rows and columns. A column represents a field. A row represents a record.
 CREATE TABLE user(
   id INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  user_name VARCHAR(30) NOT NULL
+  user_name VARCHAR(30) NOT NULL,
+  created_at DATETIME DEFAULT CURRENT_TIMESTAMP
 );
 CREATE TABLE experience(
   id INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY,
