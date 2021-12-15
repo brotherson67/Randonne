@@ -49,7 +49,6 @@ app.get('/api/user', (req, res) => {
 
 
 // GET a single user 
-// Get a single candidate
 app.get('/api/user/:id', (req, res) => {
     const sql = `SELECT * FROM user WHERE id = ?`;
     const params = [req.params.id];
@@ -66,12 +65,26 @@ app.get('/api/user/:id', (req, res) => {
       });
     });
 // Delete a user
-// db.query(`DELETE FROM user WHERE id = ?`, 1, (err, result) => {
-//     if (err) {
-//       console.log(err);
-//     }
-//     console.log(result);
-//   });
+app.delete('/api/user/:id', (req, res) => {
+    const sql = `DELETE FROM user WHERE id = ?`;
+    const params = [req.params.id];
+  
+    db.query(sql, params, (err, result) => {
+      if (err) {
+        res.statusMessage(400).json({ error: res.message });
+      } else if (!result.affectedRows) {
+        res.json({
+          message: 'User not found'
+        });
+      } else {
+        res.json({
+          message: 'deleted',
+          changes: result.affectedRows,
+          id: req.params.id
+        });
+      }
+    });
+});
 
 // create a new user
 // const sql = `INSERT INTO user (id, user_name)
