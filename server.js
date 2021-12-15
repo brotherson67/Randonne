@@ -1,6 +1,6 @@
 const express = require('express');
 const mysql = require('mysql2');
-
+const inputCheck = require('./utils/inputCheck');
 
 const PORT = process.env.PORT || 3001;
 const app = express();
@@ -64,6 +64,7 @@ app.get('/api/user/:id', (req, res) => {
         });
       });
     });
+
 // Delete a user
 app.delete('/api/user/:id', (req, res) => {
     const sql = `DELETE FROM user WHERE id = ?`;
@@ -83,6 +84,28 @@ app.delete('/api/user/:id', (req, res) => {
           id: req.params.id
         });
       }
+    });
+});
+// Create a user
+app.post('/api/user', ({ body }, res) => {
+    const errors = inputCheck(body, 'user_name');
+    if (errors) {
+      res.status(400).json({ error: errors });
+      return;
+    }
+    const sql = `INSERT INTO user (user_name)
+    VALUES (?)`;
+    const params = [body.user_name];
+
+    db.query(sql, params, (err, result) => {
+    if (err) {
+        res.status(400).json({ error: err.message });
+        return;
+    }
+    res.json({
+        message: 'success',
+        data: body
+    });
     });
 });
 
