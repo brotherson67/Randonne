@@ -2,13 +2,13 @@
     * collaboration between climbers
     * shows different levels of grading system
     * Each person has a profile with climbing preferences
-    * set prefered area
+    * set preferred area
     * type of gear 
     * type of climb
     * messages or message board
     * climber experience 
     * set climbing parties 
-    * 
+
 
 
 
