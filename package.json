@@ -20,5 +20,10 @@
   "homepage": "https://github.com/brotherson67/Randonne#readme",
   "devDependencies": {
     "jest": "^27.4.5"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "mysql2": "^2.3.3",
+    "sequelize": "^6.12.0-beta.3"
   }
 }

@@ -1,3 +1,7 @@
+-- RUN in the command line in mysql shell
+-- source db/schema.sql
+-- source db/seeds.sql
+
 -- A database is a collection of interrelated data. This data is stored in one or more tables that are related to one another.
 
 DROP DATABASE IF EXISTS climbing_db;
@@ -12,11 +16,13 @@ DROP TABLE IF EXISTS social;
 DROP TABLE IF EXISTS work;
 
 -- A table is composed of rows and columns. A column represents a field. A row represents a record.
+-------- need to still add email and password to the user table -----------------
 CREATE TABLE user(
   id INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY,
   user_name VARCHAR(30) NOT NULL,
   created_at DATETIME DEFAULT CURRENT_TIMESTAMP
 );
+
 CREATE TABLE experience(
   id INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY,
   climb_type VARCHAR(30) NOT NULL,
@@ -49,11 +55,6 @@ CREATE TABLE work(
 
 
 -- A query is a request for data from a database table or a combination of tables.
-
-
--- RUN in the command line in mysql shell
--- source db/schema.sql
--- source db/seeds.sql
 
 -- RUN a few queries
 -- SELECT * FROM experience;
