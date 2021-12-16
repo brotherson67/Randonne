@@ -7,6 +7,7 @@ const inputCheck = require('../../utils/inputCheck');
 
 // db.query(`SELECT * FROM gear`, (err, rows) => {
 //     console.log(rows);
+    
 // });
 // db.query(`SELECT * FROM gear WHERE id = 1`, (err, row) => {
 //     if (err) {
