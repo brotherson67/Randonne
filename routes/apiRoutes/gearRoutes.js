@@ -44,7 +44,7 @@ router.delete('/gear/:id', (req, res) => {
         res.statusMessage(400).json({ error: res.message });
       } else if (!result.affectedRows) {
         res.json({
-          message: 'Work not found'
+          message: 'User gear not found'
         });
       } else {
         res.json({
@@ -55,16 +55,16 @@ router.delete('/gear/:id', (req, res) => {
       }
     });
 });
-// Create a new user gear list
+// Create a new user gear list -- fixed syntax errors but haven't tested the route in insomnia yet
 router.post('/gear', ({ body }, res) => {
-    const errors = inputCheck(body, 'schedule', 'description');
+    const errors = inputCheck(body, 'clips', 'climbing_shoes', 'chalk', 'harness', 'dry_rope', 'helmet', 'locking_carabiners');
     if (errors) {
       res.status(400).json({ error: errors });
       return;
     }
-    const sql = `INSERT INTO work (schedule, description)
-    VALUES (?, ?)`;
-    const params = [body.schedule, body.description];
+    const sql = `INSERT INTO gear (clips, climbing_shoes, chalk, harness, dry_rope, helmet, locking_carabiners)
+    VALUES (?,?,?,?,?,?,?)`;
+    const params = [body.clips, body.climbing_shoes, body.chalk, body.harness, body.dry_rope, body.helmet, body.locking_carabiners];
 
     db.query(sql, params, (err, result) => {
     if (err) {
