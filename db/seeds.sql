@@ -55,6 +55,7 @@ VALUES
 -- selects all from gear table
 SELECT * FROM gear;
 
+-- need to add foreign keys
 INSERT INTO social (social_level, description) 
 VALUES
     (3, 'quiet'),
