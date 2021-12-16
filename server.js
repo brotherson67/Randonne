@@ -1,7 +1,8 @@
 const express = require('express');
-const db = require('./db/connection');
+const db = require('./config/connection');
 const inputCheck = require('./utils/inputCheck');
 const apiRoutes = require('./controllers/apiRoutes');
+const routes = require('./controllers');
 const path = require('path');
 
 //set up handlebars as template 
