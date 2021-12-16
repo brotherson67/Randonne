@@ -1,4 +1,5 @@
-const router = require("./apiRoutes/gearRoutes");
+// const router = require("./apiRoutes/gearRoutes");/
+const router = require('express').Router();
 
 // router.get('/', (req, res) => {
 //     res.render('homepage', {
@@ -12,3 +13,4 @@ const router = require("./apiRoutes/gearRoutes");
 //     });
 // });
 
+module.exports = router;

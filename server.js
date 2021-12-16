@@ -9,11 +9,8 @@ const path = require('path');
 const exphbs = require('express-handlebars');
 const hbs = exphbs.create({});
 
-
-
 const PORT = process.env.PORT || 3001;
 const app = express();
-
 
 
 // Express middleware
@@ -25,8 +22,7 @@ app.use('/api', apiRoutes);
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
 
-
-
+//
 app.get('/', (req, res) => {
     res.json({
       message: 'Hello World'
