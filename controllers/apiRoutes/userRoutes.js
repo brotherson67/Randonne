@@ -1,12 +1,11 @@
 const express = require('express');
 const router = express.Router();
-const db = require('../../db/connection');
+const db = require('../../config/connection');
 const inputCheck = require('../../utils/inputCheck');
 
-
-// Get all gear
-router.get('/gear', (req, res) => {
-    const sql = `SELECT * FROM gear`;
+// Get all users
+router.get('/user', (req, res) => {
+    const sql = `SELECT * FROM user`;
     db.query(sql, (err, rows) => {
         if (err) {
             res.status(500).json({ error: err.message });
@@ -18,9 +17,9 @@ router.get('/gear', (req, res) => {
           });
         });
 });
-// GET a single users gear option 
-router.get('/gear/:id', (req, res) => {
-    const sql = `SELECT * FROM gear WHERE id = ?`;
+// // GET a single user 
+router.get('/user/:id', (req, res) => {
+    const sql = `SELECT * FROM user WHERE id = ?`;
     const params = [req.params.id];
   
     db.query(sql, params, (err, row) => {
@@ -34,9 +33,9 @@ router.get('/gear/:id', (req, res) => {
         });
       });
 });
-// Delete users gear
-router.delete('/gear/:id', (req, res) => {
-    const sql = `DELETE FROM work WHERE id = ?`;
+// // Delete a user
+router.delete('/user/:id', (req, res) => {
+    const sql = `DELETE FROM user WHERE id = ?`;
     const params = [req.params.id];
   
     db.query(sql, params, (err, result) => {
@@ -44,7 +43,7 @@ router.delete('/gear/:id', (req, res) => {
         res.statusMessage(400).json({ error: res.message });
       } else if (!result.affectedRows) {
         res.json({
-          message: 'User gear not found'
+          message: 'User not found'
         });
       } else {
         res.json({
@@ -55,16 +54,16 @@ router.delete('/gear/:id', (req, res) => {
       }
     });
 });
-// Create a new user gear list -- fixed syntax errors but haven't tested the route in insomnia yet
-router.post('/gear', ({ body }, res) => {
-    const errors = inputCheck(body, 'clips', 'climbing_shoes', 'chalk', 'harness', 'dry_rope', 'helmet', 'locking_carabiners');
+// // Create a user
+router.post('/user', ({ body }, res) => {
+    const errors = inputCheck(body, 'user_name');
     if (errors) {
       res.status(400).json({ error: errors });
       return;
     }
-    const sql = `INSERT INTO gear (clips, climbing_shoes, chalk, harness, dry_rope, helmet, locking_carabiners)
-    VALUES (?,?,?,?,?,?,?)`;
-    const params = [body.clips, body.climbing_shoes, body.chalk, body.harness, body.dry_rope, body.helmet, body.locking_carabiners];
+    const sql = `INSERT INTO user (user_name)
+    VALUES (?)`;
+    const params = [body.user_name];
 
     db.query(sql, params, (err, result) => {
     if (err) {
