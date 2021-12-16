@@ -17,7 +17,7 @@ router.get('/work', (req, res) => {
           });
         });
 });
-// // GET a single work 
+// GET a single work 
 router.get('/work/:id', (req, res) => {
     const sql = `SELECT * FROM work WHERE id = ?`;
     const params = [req.params.id];
@@ -33,7 +33,7 @@ router.get('/work/:id', (req, res) => {
         });
       });
 });
-// // Delete a work
+// Delete a work
 router.delete('/work/:id', (req, res) => {
     const sql = `DELETE FROM work WHERE id = ?`;
     const params = [req.params.id];
@@ -54,7 +54,7 @@ router.delete('/work/:id', (req, res) => {
       }
     });
 });
-// // Create a work
+// Create a work
 router.post('/work', ({ body }, res) => {
     const errors = inputCheck(body, 'schedule', 'description');
     if (errors) {
