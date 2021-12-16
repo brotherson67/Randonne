@@ -1,0 +1,29 @@
+{
+  "name": "randonne",
+  "version": "1.0.0",
+  "description": "## Description:   enter description here",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/brotherson67/Randonne.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/brotherson67/Randonne/issues"
+  },
+  "homepage": "https://github.com/brotherson67/Randonne#readme",
+  "devDependencies": {
+    "jest": "^27.4.5"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "mysql2": "^2.3.3",
+    "sequelize": "^6.12.0-beta.3"
+  }
+}
