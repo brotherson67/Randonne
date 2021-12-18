@@ -16,30 +16,30 @@ DROP TABLE IF EXISTS social;
 DROP TABLE IF EXISTS work;
 
 -- A table is composed of rows and columns. A column represents a field. A row represents a record.
--------- need to still add email and password to the user table -----------------
-CREATE TABLE user(
-  id INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  user_name VARCHAR(30) NOT NULL,
-  created_at DATETIME DEFAULT CURRENT_TIMESTAMP
-);
 
-CREATE TABLE experience(
-  id INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  climb_type VARCHAR(30) NOT NULL,
-  rocktype VARCHAR(30) NOT NULL,
-  climb_level INTEGER NOT NULL
-);
+-- CREATE TABLE user(
+--   id INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY,
+--   user_name VARCHAR(30) NOT NULL,
+--   created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+-- );
 
-CREATE TABLE gear(
-  id INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  clips BOOLEAN NOT NULL,
-  climbing_shoes BOOLEAN NOT NULL,
-  chalk BOOLEAN NOT NULL,
-  harness BOOLEAN NOT NULL,
-  dry_rope BOOLEAN NOT NULL,
-  helmet BOOLEAN NOT NULL,
-  locking_carabiners BOOLEAN NOT NULL
-);
+-- CREATE TABLE experience(
+--   id INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY,
+--   climb_type VARCHAR(30) NOT NULL,
+--   rock_type VARCHAR(30) NOT NULL,
+--   climb_level INTEGER NOT NULL
+-- );
+
+-- CREATE TABLE gear(
+--   id INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY,
+--   clips BOOLEAN NOT NULL,
+--   climbing_shoes BOOLEAN NOT NULL,
+--   chalk BOOLEAN NOT NULL,
+--   harness BOOLEAN NOT NULL,
+--   dry_rope BOOLEAN NOT NULL,
+--   helmet BOOLEAN NOT NULL,
+--   locking_carabiners BOOLEAN NOT NULL
+-- );
 
 CREATE TABLE social(
   id INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY,
