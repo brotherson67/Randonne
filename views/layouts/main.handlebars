@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Randonne</title>
-    <link rel="stylesheet" href="assets/styles.css">
+    <link rel="stylesheet" href="./styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
@@ -15,6 +15,8 @@
 
 <body>
   <div class ="wrapper">
+    <img id="heroimg" src="./images/cave2.png" alt="climber in Maple Canyon Cave">
+        <h2 class="herotxt"> Better together</h2>
     <header>
       <nav class="navbar sticky-top navbar-light bg-light">
           {{#if loggedIn}}
@@ -25,6 +27,8 @@
       </nav>
     </header>
     <main>
+      <button data-tf-slider="m6Q8fgEI" data-tf-width="550" data-tf-iframe-props="title=Membership Application (copy)" style="all:unset;font-family:Helvetica,Arial,sans-serif;display:inline-block;max-width:100%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;background-color:#0445AF;color:#FFFFFF;font-size:20px;border-radius:25px;padding:0 33px;font-weight:bold;height:50px;cursor:pointer;line-height:50px;text-align:center;margin:0;text-decoration:none;">Launch me</button><script src="//embed.typeform.com/next/embed.js"></script>
+
           {{{ body }}}
     </main>
       <footer>
