@@ -41,17 +41,17 @@ USE climbing_db;
 --   locking_carabiners BOOLEAN NOT NULL
 -- );
 
-CREATE TABLE social(
-  id INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  social_level INTEGER NOT NULL,
-  description TEXT
-);
+-- CREATE TABLE social(
+--   id INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY,
+--   social_level INTEGER NOT NULL,
+--   description TEXT
+-- );
 
-CREATE TABLE work(
-  id INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  schedule VARCHAR(30) NOT NULL,
-  description TEXT
-);
+-- CREATE TABLE work(
+--   id INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY,
+--   schedule VARCHAR(30) NOT NULL,
+--   description TEXT
+-- );
 
 
 -- A query is a request for data from a database table or a combination of tables.
