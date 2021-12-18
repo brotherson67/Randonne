@@ -10,10 +10,10 @@ CREATE DATABASE climbing_db;
 USE climbing_db;
 
 --  drops all the tables if they exist then creates the tables
-DROP TABLE IF EXISTS user;
-DROP TABLE IF EXISTS gear;
-DROP TABLE IF EXISTS social;
-DROP TABLE IF EXISTS work;
+-- DROP TABLE IF EXISTS user;
+-- DROP TABLE IF EXISTS gear;
+-- DROP TABLE IF EXISTS social;
+-- DROP TABLE IF EXISTS work;
 
 -- A table is composed of rows and columns. A column represents a field. A row represents a record.
 
