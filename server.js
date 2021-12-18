@@ -2,15 +2,14 @@ const express = require('express');
 const db = require('./config/connection');
 const inputCheck = require('./utils/inputCheck');
 const apiRoutes = require('./controllers/apiRoutes');
-const routes = require('./controllers');
+// const routes = require('./controllers');
 const path = require('path');
 
 //set up handlebars as template 
 const exphbs = require('express-handlebars');
 const hbs = exphbs.create({});
 
-app.engine('handlebars', hbs.engine);
-app.set('view engine', 'handlebars');
+
 
 const PORT = process.env.PORT || 3001;
 const app = express();
@@ -23,7 +22,8 @@ app.use(express.json());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/api', apiRoutes);
-
+app.engine('handlebars', hbs.engine);
+app.set('view engine', 'handlebars');
 
 
 
