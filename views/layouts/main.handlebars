@@ -16,19 +16,12 @@
 <body>
   <div class ="wrapper">
     <header>
-      <nav class="navbar sticky-top navbar-light bg-light">
-        <h3>Randonne</h3>
-        <h6>Climb with friends!</h6>
-          {{#if loggedIn}}
-          <button id="logout" class="btn-no-style">logout</button>
-            {{else}}
-          <a href="/login">login</a>
-          {{/if}}
-          <button data-tf-slider="m6Q8fgEI" data-tf-width="550" data-tf-iframe-props="title=Membership Application (copy)" style="all:unset;font-family:Helvetica,Arial,sans-serif;display:inline-block;max-width:100%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;background-color:#0445AF;color:#FFFFFF;font-size:20px;border-radius:25px;padding:0 33px;font-weight:bold;height:50px;cursor:pointer;line-height:50px;text-align:center;margin:0;text-decoration:none;">Signup</button>
-      </nav>
+     {{> nav }}
        <div class="card">
          <img id="heroimg" class="card-img-top" src="./images/cave2.png" alt="climber in Maple Canyon Cave" style="">
-        <h2 class="card-title">Better together</h2>
+        <div>
+          {{> login }}
+        </div> 
       </div>
     </header>
     <main>
@@ -39,7 +32,7 @@
       <footer>
           Lorem ipsum dolor, sit amet consectetur adipisicing elit. A consectetur hic ipsa harum, pariatur officia perspiciatis quis dignissimos beatae accusamus placeat ratione omnis architecto voluptatibus eligendi! Minus ab a quo.
       </footer>
-      <script src="//embed.typeform.com/next/embed.js"></script>
+      {{!-- <script src="//embed.typeform.com/next/embed.js"></script> --}}
     </body>
   </div>
 
