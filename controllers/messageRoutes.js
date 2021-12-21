@@ -2,6 +2,8 @@ const router = require('express').Router();
 const sequelize = require('../config/connection');
 
 
-router.get('/message', (req, res) => {
-    res.send('<h2>Welcome</h2>');
-  });
+router.get('/', (req, res) => {
+    res.render('message');
+});
+
+module.exports = router;
