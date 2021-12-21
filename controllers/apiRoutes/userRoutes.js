@@ -55,6 +55,23 @@ router.delete('/user/:id', (req, res) => {
     });
 });
 // // Create a user
+router.post('/', (req, res) => {
+  // expects {username: 'plain', email: 'plain@demon.com', password: 'password1234'}
+  User.create({
+    username: req.body.username,
+    email: req.body.email,
+    password: req.body.password
+  })
+    .then(dbUserData => {
+      req.session.save(() => {
+        req.session.user_id = dbUserData.id;
+        req.session.username = dbUserData.username;
+        req.session.loggedIn = true;
+    
+        res.json(dbUserData);
+      });
+})
+});
 router.post('/user', ({ body }, res) => {
     const errors = inputCheck(body, 'user_name');
     if (errors) {
@@ -75,6 +92,7 @@ router.post('/user', ({ body }, res) => {
         data: body
     });
     });
+    
 });
 
 

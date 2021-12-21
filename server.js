@@ -5,6 +5,10 @@ const apiRoutes = require('./controllers/apiRoutes');
 const routes = require('./controllers');
 const path = require('path');
 
+const session = require('express-session');
+
+const SequelizeStore = require('connect-session-sequelize')(session.Store);
+
 
 //set up handlebars as template 
 const exphbs = require('express-handlebars');
@@ -14,14 +18,24 @@ const hbs = exphbs.create({});
 const PORT = process.env.PORT || 3001;
 const app = express();
 
-// used with socket.io
-const http = require('http');
-const server = http.createServer(app);
+const sess = {
+  secret: 'Super secret secret',
+  cookie: {},
+  resave: false,
+  saveUninitialized: true,
+  store: new SequelizeStore({
+    db: sequelize
+  })
+};
+// // used with socket.io
+// const http = require('http');
+// const server = http.createServer(app);
 
 // Express middleware
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(session(sess));
 
 app.use('/', routes);
 //configure handlebars to be default view engine
