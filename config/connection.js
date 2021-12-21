@@ -7,8 +7,8 @@ const db = mysql.createConnection(
       // Your MySQL username,
       user: 'root',
       // Your MySQL password
-      password: 'blueSalamander',
-      database: 'climbing'
+      password: 'bridgetcodes',
+      database: 'climbing_db'
     },
     console.log('Connected to the climbing database.')
   );

@@ -24,6 +24,7 @@ app.use(express.json());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
+//configure handlebars to be default view engine
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
 
