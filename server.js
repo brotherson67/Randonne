@@ -5,16 +5,18 @@ const apiRoutes = require('./controllers/apiRoutes');
 const routes = require('./controllers');
 const path = require('path');
 
+
 //set up handlebars as template 
 const exphbs = require('express-handlebars');
 const hbs = exphbs.create({});
 
 
-
 const PORT = process.env.PORT || 3001;
 const app = express();
 
-
+// used with socket.io
+const http = require('http');
+const server = http.createServer(app);
 
 // Express middleware
 app.use(express.urlencoded({ extended: false }));
