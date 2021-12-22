@@ -1,5 +1,7 @@
 const router = require('express').Router();
-const { User, Gear, Experience, Social, Work, userProfile } = require('../../models');
+const { User,
+  //  Gear, Experience, Social, Work, userProfile 
+  } = require('../../models');
 const db = require('../../config/connection');
 const inputCheck = require('../../utils/inputCheck');
 
@@ -21,27 +23,28 @@ router.get('/:id', (req, res) => {
     attributes: { exclude: ['password'] },
     where: {
       id: req.params.id
-    },
-    include: [
-      {
-        model: Post,
-        attributes: ['id', 'title', 'post_url', 'created_at']
-      },
-      {
-        model: Comment,
-        attributes: ['id', 'comment_text', 'created_at'],
-        include: {
-          model: Post,
-          attributes: ['title']
-        }
-      },
-      {
-        model: Post,
-        attributes: ['title'],
-        through: Vote,
-        as: 'voted_posts'
-      }
-    ]
+    }
+    // ,
+    // include: [
+    //   {
+    //     model: Post,
+    //     attributes: ['id', 'title', 'post_url', 'created_at']
+    //   },
+    //   {
+    //     model: Comment,
+    //     attributes: ['id', 'comment_text', 'created_at'],
+    //     include: {
+    //       model: Post,
+    //       attributes: ['title']
+    //     }
+    //   },
+    //   {
+    //     model: Post,
+    //     attributes: ['title'],
+    //     through: Vote,
+    //     as: 'voted_posts'
+    //   }
+    // ]
   })
     .then(dbUserData => {
       if (!dbUserData) {
