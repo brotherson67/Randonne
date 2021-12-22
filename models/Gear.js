@@ -1,4 +1,4 @@
-const { Model, Datatypes } = require('sequelize');
+const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
 class Gear extends Model {}
@@ -52,5 +52,3 @@ Gear.init (
     
 module.exports = Gear;
 
-
-////lets see what happens 
