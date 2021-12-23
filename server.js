@@ -1,7 +1,15 @@
 const express = require('express');
-const db = require('./db/connection');
+const db = require('./config/connection');
 const inputCheck = require('./utils/inputCheck');
-const apiRoutes = require('./routes/apiRoutes');
+const apiRoutes = require('./controllers/apiRoutes');
+// const routes = require('./controllers');
+const path = require('path');
+
+//set up handlebars as template 
+const exphbs = require('express-handlebars');
+const hbs = exphbs.create({});
+
+
 
 const PORT = process.env.PORT || 3001;
 const app = express();
@@ -11,9 +19,11 @@ const app = express();
 // Express middleware
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
+app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/api', apiRoutes);
-
+app.engine('handlebars', hbs.engine);
+app.set('view engine', 'handlebars');
 
 
 

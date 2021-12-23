@@ -1,11 +1,12 @@
 const express = require('express');
 const router = express.Router();
-const db = require('../../db/connection');
+const db = require('../../config/connection');
 const inputCheck = require('../../utils/inputCheck');
 
-// Get all users
-router.get('/user', (req, res) => {
-    const sql = `SELECT * FROM user`;
+
+// Get all experience
+router.get('/experience', (req, res) => {
+    const sql = `SELECT * FROM experience`;
     db.query(sql, (err, rows) => {
         if (err) {
             res.status(500).json({ error: err.message });
@@ -17,9 +18,9 @@ router.get('/user', (req, res) => {
           });
         });
 });
-// // GET a single user 
-router.get('/user/:id', (req, res) => {
-    const sql = `SELECT * FROM user WHERE id = ?`;
+// GET a single user experience 
+router.get('/experience/:id', (req, res) => {
+    const sql = `SELECT * FROM experience WHERE id = ?`;
     const params = [req.params.id];
   
     db.query(sql, params, (err, row) => {
@@ -33,9 +34,9 @@ router.get('/user/:id', (req, res) => {
         });
       });
 });
-// // Delete a user
-router.delete('/user/:id', (req, res) => {
-    const sql = `DELETE FROM user WHERE id = ?`;
+// Delete a user experience
+router.delete('/experience/:id', (req, res) => {
+    const sql = `DELETE FROM experience WHERE id = ?`;
     const params = [req.params.id];
   
     db.query(sql, params, (err, result) => {
@@ -43,7 +44,7 @@ router.delete('/user/:id', (req, res) => {
         res.statusMessage(400).json({ error: res.message });
       } else if (!result.affectedRows) {
         res.json({
-          message: 'User not found'
+          message: 'User experience not found'
         });
       } else {
         res.json({
@@ -54,16 +55,16 @@ router.delete('/user/:id', (req, res) => {
       }
     });
 });
-// // Create a user
-router.post('/user', ({ body }, res) => {
-    const errors = inputCheck(body, 'user_name');
+// Create a new user experience
+router.post('/experience', ({ body }, res) => {
+    const errors = inputCheck(body, 'climb_type', 'rocktype', 'climb_level');
     if (errors) {
       res.status(400).json({ error: errors });
       return;
     }
-    const sql = `INSERT INTO user (user_name)
-    VALUES (?)`;
-    const params = [body.user_name];
+    const sql = `INSERT INTO experience (climb_type, rocktype, climb_level)
+    VALUES (?, ?)`;
+    const params = [body.climb_type, body.rocktype, body.climb_level];
 
     db.query(sql, params, (err, result) => {
     if (err) {
@@ -76,6 +77,5 @@ router.post('/user', ({ body }, res) => {
     });
     });
 });
-
 
 module.exports = router;

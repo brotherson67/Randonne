@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const db = require('../../db/connection');
+const db = require('../../config/connection');
 const inputCheck = require('../../utils/inputCheck');
 
 // Get all work
@@ -17,7 +17,7 @@ router.get('/work', (req, res) => {
           });
         });
 });
-// // GET a single work 
+// GET a single work 
 router.get('/work/:id', (req, res) => {
     const sql = `SELECT * FROM work WHERE id = ?`;
     const params = [req.params.id];
@@ -33,9 +33,9 @@ router.get('/work/:id', (req, res) => {
         });
       });
 });
-// // Delete a work
+// Delete a work
 router.delete('/work/:id', (req, res) => {
-    const sql = `DELETE FROM user WHERE id = ?`;
+    const sql = `DELETE FROM work WHERE id = ?`;
     const params = [req.params.id];
   
     db.query(sql, params, (err, result) => {
@@ -54,7 +54,7 @@ router.delete('/work/:id', (req, res) => {
       }
     });
 });
-// // Create a work
+// Create a work
 router.post('/work', ({ body }, res) => {
     const errors = inputCheck(body, 'schedule', 'description');
     if (errors) {

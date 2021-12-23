@@ -1,0 +1,58 @@
+.navbar {
+    background-color: transparent;
+}
+
+ul {
+    justify-content: left;
+}
+
+#heroimg {
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+    padding: 0px 50px 50px;
+}
+
+.hero {
+    position: relative;
+    text-align: center;
+    color: white;
+    display: flex;
+    /* justify-content: center; */
+    flex-wrap: wrap;
+    align-items: flex-start;
+}
+
+.herotxt {
+    position: absolute;
+}
+
+.hero-form {
+    border: 3px solid #465A3D;
+    background-color: #fff;
+    color: #465A3D;
+    padding: 20px;
+    width: 20%;
+    position: absolute;
+    border-radius: 5px;
+    float: left;
+    margin: 5%;
+}
+
+.form-input {
+    display: block;
+    font-size: 16px;
+    color: #465A3D;
+    width: 100%;
+    margin-bottom: 15px;
+    background-color: rgba(255,255,255,0.75);
+
+}
+
+.hero-form button {
+    color:#465A3D;
+    Background-color: #fff;
+    border: 2px, solid;
+    padding: 10 px 20px;
+    font-size: 16 px;
+}
