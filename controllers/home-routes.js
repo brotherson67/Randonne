@@ -5,26 +5,27 @@ const { Social, Gear, User  } = require('../models');
 // get all matches for homepage -- change to get matches 
 router.get('/', (req, res) => {
   console.log('======================');
-  Social.findAll({
+  User.findAll({
     attributes: [
       'id',
       'climb_type',
       'description'
-    ],
-    include: [
-      {
-        model: Gear,
-        attributes: ['id'],
-        include: {
-          model: User,
-          attributes: ['username']
-        }
-      },
-      {
-        model: User,
-        attributes: ['username']
-      }
     ]
+    // ,
+    // include: [
+    //   {
+    //     model: Gear,
+    //     attributes: ['id'],
+    //     include: {
+    //       model: Social,
+    //       attributes: ['id']
+    //     }
+    //   },
+    //   {
+    //     model: User,
+    //     attributes: ['username']
+    //   }
+    // ]
   })
     .then(dbPostData => {
       const posts = dbPostData.map(post => post.get({ plain: true }));
