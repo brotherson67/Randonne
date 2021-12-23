@@ -21,25 +21,6 @@ router.get('/:id', (req, res) => {
     where: {
       id: req.params.id
     },
-    // include: [
-    //   {
-    //     model: Gear,
-    //     attributes: ['id', 'climbing_shoes', 'chalk', 'harness', 'dry_rope', 'helmet', 'locking_carabiners']
-    //   },
-    //   {
-    //     model: Experience,
-    //     attributes: ['id', 'rocktype', 'climb_level'],
-        // include: {
-        //   model: Social,
-        //   attributes: ['social_level', 'description']
-        // }
-      // }
-      // ,
-      // {
-      //   model: Work,
-      //   attributes: ['id', 'schedule', 'description'],
-      // }
-    // ]
   })
     .then(dbUserData => {
       if (!dbUserData) {

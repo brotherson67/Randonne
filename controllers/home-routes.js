@@ -17,10 +17,6 @@ router.get('/', (req, res) => {
         model: Profile,
         attributes: ['id'],
       },
-    //   {
-    //     model: User,
-    //     attributes: ['username']
-    //   }
     ]
   })
     .then(dbPostData => {
@@ -79,6 +75,6 @@ router.get('/login', (req, res) => {
     return;
   }
 
-  res.render('login');
+  res.render('./partials/login');
 });
 module.exports = router;

@@ -1,80 +1,139 @@
 const router = require('express').Router();
-const { userProfile } = require('../../models');
-const express = require('express');
-const db = require('../../config/connection');
-const inputCheck = require('../../utils/inputCheck');
+const { User, Profile 
+  } = require('../../models');
 
-
-router.get('/profile', (req, res) => {
-    const sql = `SELECT * FROM profile`;
-    db.query(sql, (err, rows) => {
-        if (err) {
-            res.status(500).json({ error: err.message });
-            return;
-          }
-          res.json({
-            message: 'success',
-            data: rows
-          });
-        });
-});
-// // GET a single profile 
-router.get('/profile/:id', (req, res) => {
-    const sql = `SELECT * FROM profile WHERE id = ?`;
-    const params = [req.params.id];
-  
-    db.query(sql, params, (err, row) => {
-        if (err) {
-          res.status(400).json({ error: err.message });
-          return;
-        }
-        res.json({
-          message: 'success',
-          data: row
-        });
-      });
-});
-
-router.delete('/profile/:id', (req, res) => {
-    const sql = `DELETE FROM profile WHERE id = ?`;
-    const params = [req.params.id];
-  
-    db.query(sql, params, (err, result) => {
-      if (err) {
-        res.statusMessage(400).json({ error: res.message });
-      } else if (!result.affectedRows) {
-        res.json({
-          message: 'profile not found'
-        });
-      } else {
-        res.json({
-          message: 'deleted',
-          changes: result.affectedRows,
-          id: req.params.id
-        });
-      }
+// Get all users
+router.get('/', (req, res) => {
+  Profile.findAll({
+    attributes: { exclude: ['password'] }
+  })
+    .then(dbUserData => res.json(dbUserData))
+    .catch(err => {
+      console.log(err);
+      res.status(500).json(err);
     });
 });
-// // Create a profile
-router.post('/profile', ({ body }, res) => {
-    const errors = inputCheck(body, 'profile_name');
-    if (errors) {
-      res.status(400).json({ error: errors });
+// // GET a single Profile profile
+router.get('/:id', (req, res) => {
+  Profile.findOne({
+    attributes: { exclude: ['password'] },
+    where: {
+      id: req.params.id
+    },
+  })
+    .then(dbUserData => {
+      if (!dbUserData) {
+        res.status(404).json({ message: 'No user found with this id' });
+        return;
+      }
+      res.json(dbUserData);
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(500).json(err);
+    });
+});
+
+// // Create a user
+router.post('/', (req, res) => {
+  // expects {username: 'Plaindemon', email: 'plain@demon.com', password: 'password0000'}
+  Profile.create({username: req.body.username,
+    email: req.body.email,
+    password: req.body.password
+  })
+    .then(dbProfileData => {
+      req.session.save(() => {
+        req.session.user_id = dbUserData.id;
+        req.session.username = dbUserData.username;
+        req.session.loggedIn = true;
+  
+        res.json(dbUserData);
+      });
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(500).json(err);
+    });
+});
+
+router.post('/login', (req, res) => {
+  // expects {email: 'plain@demon.com', password: 'password0000'}
+  Profile.findOne({
+    where: {
+      id: req.body.id
+    }
+  }).then(dbUserData => {
+    if (!dbUserData) {
+      res.status(400).json({ message: 'No user with that email address!' });
       return;
     }
-    const sql = `INSERT INTO profile (profile_name)
-    VALUES (?)`;
-    const params = [body.user_name];
 
-    db.query(sql, params, (err, result) => {
-    if (err) {
-        res.status(400).json({ error: err.message });
-        return;
+    const validPassword = dbUserData.checkPassword(req.body.password);
+
+    if (!validPassword) {
+      res.status(400).json({ message: 'Incorrect password!' });
+      return;
     }
-    res.json({
-        message: 'success',
-        data: body
+
+    req.session.save(() => {
+      req.session.user_id = dbUserData.id;
+      req.session.username = dbUserData.username;
+      req.session.loggedIn = true;
+  
+      res.json({ user: dbUserData, message: 'You are now logged in!' });
     });
+  });
+});
+
+router.post('/logout', (req, res) => {
+  if (req.session.loggedIn) {
+    req.session.destroy(() => {
+      res.status(204).end();
+    });
+  }
+  else {
+    res.status(404).end();
+  }
+});
+
+router.put('/:id', (req, res) => {
+  // expects {username: 'Plaindemon', email: 'plain@demon.com', password: 'password0000'}
+
+  // pass in req.body instead to only update what's passed through
+  Profile.update(req.body, {
+    where: {
+      id: req.params.id
+    }
+  })
+    .then(dbUserData => {
+      if (!dbUserData) {
+        res.status(404).json({ message: 'No user found with this id' });
+        return;
+      }
+      res.json(dbUserData);
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(500).json(err);
+    });
+});
+
+router.delete('/:id', (req, res) => {
+  Profile.destroy({
+    where: {
+      id: req.params.id
+    }
+  })
+    .then(dbUserData => {
+      if (!dbUserData) {
+        res.status(404).json({ message: 'No user found with this id' });
+        return;
+      }
+      res.json(dbUserData);
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(500).json(err);
     });
 });
 
