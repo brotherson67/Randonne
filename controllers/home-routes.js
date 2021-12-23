@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const sequelize = require('../config/connection');
-const { Social, Gear, User, Profile  } = require('../models');
+const { User, Profile  } = require('../models');
 
 // get all matches for homepage -- change to get matches 
 router.get('/', (req, res) => {
@@ -58,7 +58,7 @@ router.get('/profile/:id', (req, res) => {
 
       const post = dbPostData.get({ plain: true });
 
-      res.render('profile', {
+      res.render('./profile', {
         post,
         loggedIn: req.session.loggedIn
       });

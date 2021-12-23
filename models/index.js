@@ -6,6 +6,10 @@ User.hasOne(Profile, {
     onDelete: 'SET NULL'
 });
 
+Profile.belongsTo(User, {
+    foreignKey: 'user_id'
+});
+
 
 module.exports = {
     Profile,
