@@ -1,17 +1,14 @@
-const mysql = require('mysql2');
+const Sequelize = require('sequelize');
 
-// Connect to database
-const db = mysql.createConnection(
-    {
-      host: '127.0.0.1',
-      // Your MySQL username,
-      user: 'root',
-      // Your MySQL password
-      password: 'bridgetcodes',
-      database: 'climbing_db'
-    },
-    console.log('Connected to the climbing database.')
-  );
+require('dotenv').config();
 
-//  
-module.exports = db;
+// create connection to our db
+const sequelize = process.env.JAWSDB_URL
+  ? new Sequelize(process.env.JAWSDB_URL)
+  : new Sequelize(process.env.DB_NAME, process.env.DB_USER, process.env.DB_PW, {
+      host: 'localhost',
+      dialect: 'mysql',
+      port: 3306
+    });
+
+module.exports = sequelize;
