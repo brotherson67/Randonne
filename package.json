@@ -22,6 +22,7 @@
     "jest": "^27.4.5"
   },
   "dependencies": {
+    "bcrypt": "^5.0.1",
     "connect-session-sequelize": "^7.1.2",
     "dotenv": "^10.0.0",
     "express": "^4.17.2",
@@ -30,6 +31,6 @@
     "handlebars": "^4.7.7",
     "mysql": "^2.18.1",
     "mysql2": "^2.3.3",
-    "sequelize": "^6.12.0"
+    "sequelize": "^6.12.2"
   }
 }

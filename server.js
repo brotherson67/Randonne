@@ -1,18 +1,25 @@
 // const express = require('express');
-// // const db = require('./config/connection');
-// const inputCheck = require('./utils/inputCheck');
-// const apiRoutes = require('./controllers/apiRoutes');
-// const routes = require('./controllers');
-// const path = require('path');
-// const sequelize = require('./config/connection');
+const sequelize = require('./config/connection');
+const inputCheck = require('./utils/inputCheck');
+const apiRoutes = require('./controllers/api');
+const routes = require('./controllers');
+const path = require('path');
 
-// //set up handlebars as template 
+const session = require('express-session');
+// const SequelizeStore = require('connect-session-sequelize')(session.Store);
+var Promise = global.Promise || require('promise');
+
+var express = require('express'),
+    exphbs  = require('express-handlebars'); // "express-handlebars"
+
+//set up handlebars as template 
 // const exphbs = require('express-handlebars');
-// const hbs = exphbs.create({
-//   layoutsDir: path.join(__dirname, "views/layouts"),
-//   partialsDir: path.join(__dirname, "views/partials")
-// });
-
+// Create `ExpressHandlebars` instance with a default layout.
+var hbs = exphbs.create({
+  layoutsDir: path.join(__dirname, "views/layouts"),
+  partialsDir: path.join(__dirname, "views/partials")
+  
+});
 
 // const PORT = process.env.PORT || 3001;
 // const app = express();
@@ -53,6 +60,7 @@ const exphbs = require('express-handlebars');
 const app = express();
 const PORT = process.env.PORT || 3001;
 
+<<<<<<< HEAD
 const sequelize = require('./config/connection');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
@@ -65,6 +73,17 @@ const sess = {
     db: sequelize
   })
 };
+=======
+// const sess = {
+//   secret: 'Super secret secret',
+//   cookie: {},
+//   resave: false,
+//   saveUninitialized: true,
+//   store: new SequelizeStore({
+//     db: 
+//   })
+// };
+>>>>>>> develop
 
 app.use(session(sess));
 
@@ -73,9 +92,19 @@ app.use(session(sess));
 // app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
 
+<<<<<<< HEAD
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
+=======
+// Express middleware
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+app.use(express.static(path.join(__dirname, 'public')));
+// app.use(session(sess));
+
+
+>>>>>>> develop
 
 app.use(require('./controllers/'));
 
@@ -83,3 +112,19 @@ app.listen(PORT, () => {
   console.log(`App listening on port ${PORT}!`);
   sequelize.sync({ force: false });
 });
+<<<<<<< HEAD
+=======
+
+// Start server after DB connection
+// sequelize.sync(err => {
+//     if (err) throw err;
+//     console.log('Database connected.');
+//     app.listen(PORT, () => {
+//     console.log(`Server running on port ${PORT}`);
+//   });
+// });
+
+sequelize.sync({ force: false }).then(() => {
+  app.listen(PORT, () => console.log('Now listening'));
+});
+>>>>>>> develop
