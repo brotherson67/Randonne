@@ -8,7 +8,10 @@ const path = require('path');
 
 //set up handlebars as template 
 const exphbs = require('express-handlebars');
-const hbs = exphbs.create({});
+const hbs = exphbs.create({
+  layoutsDir: path.join(__dirname, "views/layouts"),
+  partialsDir: path.join(__dirname, "views/partials")
+});
 
 
 const PORT = process.env.PORT || 3001;
