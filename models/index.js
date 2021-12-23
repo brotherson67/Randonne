@@ -7,21 +7,21 @@ const Work = require('./Work');
 const Profile = require('./Profile');
 
 // create associations
-User.hasMany(Gear, {
-    // foreignKey: 'user_id'
+Gear.belongsTo(User, {
+    as: 'gear', 
+    
 });
+// Gear.belongsTo(Social, {});
 
-User.hasMany(Experience, {
+Experience.belongsTo(User, {
     // foreignKey: 'experience_id'
 });
 
-User.hasMany(Social, {
+Social.belongsTo(User, {
     // foreignKey: 'social'
 });
 
-User.hasMany(Work, {
-    // foreignKey: 'work'
-});
+Work.belongsTo(User, {});
 Profile.belongsTo(User, {});
 
 
