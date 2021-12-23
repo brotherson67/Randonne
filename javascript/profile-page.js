@@ -1,19 +1,8 @@
 
+document.getElementById("#profile-submit").addEventListener('click', submitButton);
 
-//this is not working 
-async function submit() {
-    const response = await fetch ('/api/user/submit', {
-        method: 'post', 
-        headers: { 'Content-Type': 'application/json'}
-    });
-    if (response.ok) {
-        document.location.replace('/')
-    } else {
-        alert(response.statusText);
-    }
-}
+function submitButton () {console.log('clicked');}
 
-document.querySelector('#details-button').addEventListener('click', submit);
 
 
 
