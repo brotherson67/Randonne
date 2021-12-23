@@ -36,7 +36,7 @@ router.get('/gear/:id', (req, res) => {
 });
 // Delete users gear
 router.delete('/gear/:id', (req, res) => {
-    const sql = `DELETE FROM work WHERE id = ?`;
+    const sql = `DELETE FROM gear WHERE id = ?`;
     const params = [req.params.id];
   
     db.query(sql, params, (err, result) => {

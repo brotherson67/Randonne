@@ -6,5 +6,6 @@ router.use(require('./userRoutes'));
 // router.use(require('./socialRoutes'));
 // router.use(require('./gearRoutes'));
 // router.use(require('./experienceRoutes'));
+// router.use(require('./messageRoutes'));
 
 module.exports = router;

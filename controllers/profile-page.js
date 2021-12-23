@@ -1,9 +1,11 @@
 const router = require('express').Router();
 const sequelize = require('../config/connection');
-const { User } = require('../models');
+const { userProfile } = require('../models');
+
 
 router.get('/', (req, res) => {
-    res.render('homepage');
-});
+    res.render('profile-page');
+  });
 
-module.exports = router;
+
+  module.exports = router;
