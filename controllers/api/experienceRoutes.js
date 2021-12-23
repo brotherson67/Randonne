@@ -57,12 +57,12 @@ router.delete('/experience/:id', (req, res) => {
 });
 // Create a new user experience
 router.post('/experience', ({ body }, res) => {
-    const errors = inputCheck(body, 'climb_type', 'rocktype', 'climb_level');
+    const errors = inputCheck(body, 'id', 'rocktype', 'climb_level');
     if (errors) {
       res.status(400).json({ error: errors });
       return;
     }
-    const sql = `INSERT INTO experience (climb_type, rocktype, climb_level)
+    const sql = `INSERT INTO experience ('id', 'rocktype', 'climb_level')
     VALUES (?, ?)`;
     const params = [body.climb_type, body.rocktype, body.climb_level];
 

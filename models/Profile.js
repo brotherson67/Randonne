@@ -24,9 +24,6 @@ Profile.init(
         user_experience: {
             type: DataTypes.BOOLEAN,
         },
-        user_setting: {
-            type: DataTypes.BOOLEAN,
-        },
         has_gear: {
             type: DataTypes.BOOLEAN,
             allowNull: true,
@@ -37,7 +34,14 @@ Profile.init(
         },
         location: {
             type: DataTypes.INTEGER,
-        }
+        },
+        // user_id: {
+        //     type: DataTypes.INTEGER,
+        //     references: {
+        //         model: 'user',
+        //         key: 'id'
+        //     }
+        // }
     },
     {
         sequelize,

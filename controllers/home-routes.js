@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const sequelize = require('../config/connection');
-const { Social, Gear, User  } = require('../models');
+const { Social, Gear, User, Profile  } = require('../models');
 
 // get all matches for homepage -- change to get matches 
 router.get('/', (req, res) => {
@@ -8,24 +8,20 @@ router.get('/', (req, res) => {
   User.findAll({
     attributes: [
       'id',
-      'climb_type',
-      'description'
+      'username',
+      'email'
     ]
-    // ,
-    // include: [
-    //   {
-    //     model: Gear,
-    //     attributes: ['id'],
-    //     include: {
-    //       model: Social,
-    //       attributes: ['id']
-    //     }
-    //   },
+    ,
+    include: [
+      {
+        model: Profile,
+        attributes: ['id'],
+      },
     //   {
     //     model: User,
     //     attributes: ['username']
     //   }
-    // ]
+    ]
   })
     .then(dbPostData => {
       const posts = dbPostData.map(post => post.get({ plain: true }));
@@ -41,33 +37,22 @@ router.get('/', (req, res) => {
     });
 });
 
-// get single post
-router.get('/post/:id', (req, res) => {
-  Post.findOne({
+// get single profile
+router.get('/profile/:id', (req, res) => {
+  Profile.findOne({
     where: {
       id: req.params.id
     },
     attributes: [
-      'id',
-      'post_url',
-      'title',
-      'created_at',
-      [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'), 'vote_count']
+      'profile_image',
+      'user_location',
+      'user_phone',
+      'user_experience',
+      'has_gear',
+      'social',
+      'location'
+      [sequelize.literal('(SELECT (*) FROM user WHERE profile.id = user.profile_id)')]
     ],
-    include: [
-      {
-        model: Comment,
-        attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
-        include: {
-          model: User,
-          attributes: ['username']
-        }
-      },
-      {
-        model: User,
-        attributes: ['username']
-      }
-    ]
   })
     .then(dbPostData => {
       if (!dbPostData) {
@@ -77,7 +62,7 @@ router.get('/post/:id', (req, res) => {
 
       const post = dbPostData.get({ plain: true });
 
-      res.render('single-post', {
+      res.render('profile', {
         post,
         loggedIn: req.session.loggedIn
       });
