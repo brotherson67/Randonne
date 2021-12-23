@@ -1,32 +1,30 @@
 // import all models
 const User = require('./User');
 const Gear = require('./Gear');
-
 const Social = require('./Social');
 const Experience = require('./Experience');
 const Work = require('./Work');
-const userProfile = require('./userProfile');
+const Profile = require('./Profile');
+
 // create associations
 User.hasMany(Gear, {
-    foreignKey: 'user_id'
+    // foreignKey: 'user_id'
 });
 
 User.hasMany(Experience, {
-    foreignKey: 'experience_id'
-})
+    // foreignKey: 'experience_id'
+});
 
 User.hasMany(Social, {
-    foreignKey: 'social_id'
-})
+    // foreignKey: 'social'
+});
 
 User.hasMany(Work, {
-    foreignKey: 'work_id'
-})
-User.belongsTo(userProfile, {
-    foreignKey: 'user_id'
-})
+    // foreignKey: 'work'
+});
+Profile.belongsTo(User, {});
 
 
 
 
-module.exports = { User, Gear, Social, Experience };
+module.exports = { User, Gear, Social, Experience, Profile };

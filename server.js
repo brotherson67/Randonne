@@ -1,5 +1,5 @@
 // const express = require('express');
-const db = require('./config/connection');
+const sequelize = require('./config/connection');
 const inputCheck = require('./utils/inputCheck');
 const apiRoutes = require('./controllers/api');
 const routes = require('./controllers');
@@ -55,10 +55,14 @@ app.use((req, res) => {
 });
 
 // Start server after DB connection
-db.connect(err => {
-    if (err) throw err;
-    console.log('Database connected.');
-    app.listen(PORT, () => {
-    console.log(`Server running on port ${PORT}`);
-  });
+// sequelize.sync(err => {
+//     if (err) throw err;
+//     console.log('Database connected.');
+//     app.listen(PORT, () => {
+//     console.log(`Server running on port ${PORT}`);
+//   });
+// });
+
+sequelize.sync({ force: false }).then(() => {
+  app.listen(PORT, () => console.log('Now listening'));
 });

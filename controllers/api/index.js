@@ -1,11 +1,11 @@
 const router = require('express').Router();
 
-const userRoutes = require('./userRoutes.js');
+const userRoutes = require('./userRoutes');
 const workRoutes = require('./workRoutes');
-const socialRoutes = require('./socialRoutes.js');
-const gearRoutes = require('./gearRoutes.js');
-const experienceRoutes = require('./experienceRoutes.js');
-const messageRoutes = require('./messageRoutes.js');
+const socialRoutes = require('./socialRoutes');
+const gearRoutes = require('./gearRoutes');
+const experienceRoutes = require('./experienceRoutes');
+// const messageRoutes = require('./messageRoutes.js');
 
 
 router.use('/users', userRoutes);
