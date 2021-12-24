@@ -10,19 +10,10 @@ Profile.init(
             allowNull: false,
             primaryKey: true,
             autoIncrement: true
-        }
-        ,
+        },
         profile_image: {
             type: DataTypes.STRING,
             allowNull: true
-        },
-        user_id: {
-            type: DataTypes.STRING,
-            allowNull: false,
-            references: {
-                model: 'user',
-                key: 'id'
-              }
         },
         user_location: {
             type: DataTypes.STRING,
@@ -31,20 +22,31 @@ Profile.init(
             type: DataTypes.INTEGER,
         },
         user_experience: {
-          type: DataTypes.BOOLEAN,
+            type: DataTypes.BOOLEAN,
         },
         has_gear: {
             type: DataTypes.BOOLEAN,
             allowNull: true,
-        }
+        },
+        social: {
+            type: DataTypes.BOOLEAN,
+            allowNull: false,
+        },
+        location: {
+            type: DataTypes.INTEGER,
+        },
+        // user_id: {
+        //     type: DataTypes.INTEGER,
+        //     references: {
+        //         model: 'user',
+        //         key: 'id'
+        //     }
+        // }
     },
     {
         sequelize,
-        timestamps: false,
-        freezeTableName: true,
-        underscored: true,
-        modelName: 'profile'
-      }
+        modelName: 'Profile'
+    }
 )
 
 module.exports = Profile;

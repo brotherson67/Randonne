@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const sequelize = require('../config/connection');
-const { Social, Gear, User  } = require('../models');
+const { User, Profile  } = require('../models');
 
 // get all matches for homepage -- change to get matches 
 router.get('/', (req, res) => {
@@ -9,25 +9,15 @@ router.get('/', (req, res) => {
     attributes: [
       'id',
       'username',
-      'email',
-      
-
+      'email'
     ]
-    // ,
-    // include: [
-    //   {
-    //     model: Gear,
-    //     attributes: ['id'],
-    //     include: {
-    //       model: Social,
-    //       attributes: ['id']
-    //     }
-    //   },
-    //   {
-    //     model: User,
-    //     attributes: ['username']
-    //   }
-    // ]
+    ,
+    include: [
+      {
+        model: Profile,
+        attributes: ['id'],
+      },
+    ]
   })
     .then(dbPostData => {
       const posts = dbPostData.map(post => post.get({ plain: true }));
@@ -43,52 +33,41 @@ router.get('/', (req, res) => {
     });
 });
 
-// get single post
-// router.get('/post/:id', (req, res) => {
-//   Post.findOne({
-//     where: {
-//       id: req.params.id
-//     },
-//     attributes: [
-//       'id',
-//       'post_url',
-//       'title',
-//       'created_at',
-//       [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'), 'vote_count']
-//     ],
-//     include: [
-//       {
-//         model: Comment,
-//         attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
-//         include: {
-//           model: User,
-//           attributes: ['username']
-//         }
-//       },
-//       {
-//         model: User,
-//         attributes: ['username']
-//       }
-//     ]
-//   })
-//     .then(dbPostData => {
-//       if (!dbPostData) {
-//         res.status(404).json({ message: 'No post found with this id' });
-//         return;
-//       }
+// get single profile
+router.get('/profile/:id', (req, res) => {
+  Profile.findOne({
+    where: {
+      id: req.params.id
+    },
+    attributes: [
+      'profile_image',
+      'user_location',
+      'user_phone',
+      'user_experience',
+      'has_gear',
+      'social',
+      'location'
+      [sequelize.literal('(SELECT (*) FROM user WHERE profile.id = user.profile_id)')]
+    ],
+  })
+    .then(dbPostData => {
+      if (!dbPostData) {
+        res.status(404).json({ message: 'No post found with this id' });
+        return;
+      }
 
 //       const post = dbPostData.get({ plain: true });
 
-//       res.render('single-post', {
-//         post,
-//         loggedIn: req.session.loggedIn
-//       });
-//     })
-//     .catch(err => {
-//       console.log(err);
-//       res.status(500).json(err);
-//     });
-// });
+      res.render('./profile', {
+        post,
+        loggedIn: req.session.loggedIn
+      });
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(500).json(err);
+    });
+});
 
 router.get('/login', (req, res) => {
   if (req.session.loggedIn) {
@@ -96,6 +75,6 @@ router.get('/login', (req, res) => {
     return;
   }
 
-  res.render('login');
+  res.render('./partials/login');
 });
 module.exports = router;
