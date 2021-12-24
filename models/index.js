@@ -11,9 +11,9 @@ Gear.hasMany(User, {
     as: 'gear', 
 
 });
-Gear.belongsTo(Social, {
-    as: 'gear'
-});
+// Gear.belongsTo(Social, {
+//     as: 'gear'
+// });
 
 Experience.belongsTo(User, {
     // foreignKey: 'experience_id'
