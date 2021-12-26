@@ -4,19 +4,23 @@
 <div>Logged in</div>
 
 {{else}}
-<form class="login-form">
+<div class ="container">
+<form class="signup-form">
   <div>
-    <label for="email-login">email:</label>
-    <input type="text" id="email-login" />
+    <label for="username-signup">username:</label>
+    <input type="text" id="username-signup" />
   </div>
   <div>
-    <label for="password-login">password:</label>
-    <input type="password" id="password-login"/>
+    <label for="email-signup">email:</label>
+    <input type="text" id="email-signup" />
   </div>
   <div>
-    <button type="submit">login</button>
+    <label for="password-signup">password:</label>
+    <input type="password" id="password-signup" />
   </div>
-</form>
+  <div>
+    <button type="submit">signup</button>
+  </div>
 
 {{/if}}
 </div>

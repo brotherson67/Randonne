@@ -10,8 +10,7 @@ router.get('/', (req, res) => {
       'id',
       'username',
       'email'
-    ]
-    ,
+    ],
     include: [
       {
         model: Profile,
@@ -19,11 +18,11 @@ router.get('/', (req, res) => {
       },
     ]
   })
-    .then(dbPostData => {
-      const posts = dbPostData.map(post => post.get({ plain: true }));
+    .then(dbUserData => {
+      const users = dbUserData.map(user => user.get({ plain: true }));
 
       res.render('homepage', {
-        posts,
+        users,
         loggedIn: req.session.loggedIn
       });
     })
@@ -46,12 +45,12 @@ router.get('/profile/:id', (req, res) => {
       'user_experience',
       'has_gear',
       'social',
-      'location'
+      'location',
       [sequelize.literal('(SELECT (*) FROM user WHERE profile.id = user.profile_id)')]
     ],
   })
-    .then(dbPostData => {
-      if (!dbPostData) {
+    .then(dbProfileData => {
+      if (!dbProfileData) {
         res.status(404).json({ message: 'No post found with this id' });
         return;
       }
@@ -59,7 +58,7 @@ router.get('/profile/:id', (req, res) => {
 //       const post = dbPostData.get({ plain: true });
 
       res.render('./profile', {
-        post,
+        profile,
         loggedIn: req.session.loggedIn
       });
     })
