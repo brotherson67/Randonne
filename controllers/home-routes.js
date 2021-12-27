@@ -50,16 +50,16 @@ router.get('/profile/:id', (req, res) => {
       [sequelize.literal('(SELECT (*) FROM user WHERE profile.id = user.profile_id)')]
     ],
   })
-    .then(dbPostData => {
-      if (!dbPostData) {
+    .then(dbProfileData => {
+      if (!dbProfileData) {
         res.status(404).json({ message: 'No post found with this id' });
         return;
       }
 
-//       const post = dbPostData.get({ plain: true });
+      const profile = dbProfileData.get({ plain: true });
 
       res.render('./profile', {
-        post,
+        profile,
         loggedIn: req.session.loggedIn
       });
     })
@@ -74,7 +74,7 @@ router.get('/login', (req, res) => {
     res.redirect('/');
     return;
   }
-
+  console.log('logged in?')
   res.render('./partials/login');
 });
 module.exports = router;

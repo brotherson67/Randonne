@@ -1,7 +1,5 @@
 const router = require('express').Router();
-const { User,
-   Gear, Experience, Social, Profile 
-  } = require('../../models');
+const { User, Profile } = require('../../models');
 
 // Get all users
 router.get('/', (req, res) => {
@@ -20,7 +18,22 @@ router.get('/:id', (req, res) => {
     attributes: { exclude: ['password'] },
     where: {
       id: req.params.id
-    },
+    }
+    ,
+    include: [
+      {
+        model: Profile,
+        attributes: [
+        'profile_image',
+        'user_location',
+        'user_phone',
+        'user_experience',
+        'has_gear',
+        'social',
+        'location'
+        ]
+      }
+    ]
   })
     .then(dbUserData => {
       if (!dbUserData) {
