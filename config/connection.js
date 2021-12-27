@@ -1,7 +1,8 @@
-// const mysql = require('mysql2');
+require('dotenv').config();
+const mysql = require('mysql2');
 const Sequelize = require('sequelize');
 // Connect to database
-const sequelize = new Sequelize('climbing_db', 'root', 'blueSalamander', 
+const sequelize = new Sequelize('climbing_db', 'root', 'SQLPassword97', 
     {
       host: '127.0.0.1',
       dialect: 'mysql',
@@ -15,5 +16,5 @@ const sequelize = new Sequelize('climbing_db', 'root', 'blueSalamander',
     console.log('Connected to the climbing database.')
   );
 
-//  
+
 module.exports = sequelize;
