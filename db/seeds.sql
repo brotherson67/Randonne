@@ -1,4 +1,4 @@
-INSERT INTO user (user_name) 
+INSERT INTO user (username) 
 VALUES
     ('plaindemon'),
     ('blueshark'),

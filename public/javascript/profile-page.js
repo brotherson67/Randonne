@@ -1,3 +1,5 @@
+const { default: ModelManager } = require("sequelize/dist/lib/model-manager");
+
 var q1 = document.getElementById('#question1');
 var q2 = document.getElementById('#question2');
 var q3 = document.getElementById('#question3');
@@ -23,28 +25,47 @@ function submitButton (event) {
         var newProfile = {
             name: name.val().trim(),
             photo: image.val().trim(),
-            score: [
-                q1.val(),
-                q2.val(),
-                q3.val(),
+            score: 
+                q1.val() +
+                q2.val() +
+                q3.val() +
                 q4.val(),
-                q5.val().trim()
-            ]
+            location: q5.val().trim()
         };
 
-    var url = window.location.origin;
+}};
 
-    //receive responses after post request 
-    //ask how to fo this 
-        http.open("POST", url + '/api/profile', newProfile);
-        //ask what to do here
-        xhttp.setRequestHeader("content type", "");
-        xhttp.send("profile");
-    
-        
-    }
+//get variables for modal
+var modal = document.getElementById('#question-modal');
+var btn = document.getElementById('#modal-open');
+var close = document.getElementById('#modal-close');
 
+function openModal() {
+    modal.style.display('block');
 }
+
+btn.addEventListener('click', openModal);
+
+
+function closeModal() {
+    modal.style.display('none');
+}
+
+close.addEventListener('click', closeModal);
+
+
+//close on outside click
+document.addEventListener('click', outsideModal);
+function outsideModal(event) {
+  
+    if (event.target.closest(window)){
+        return;    
+    }
+    else if (!event.target.closest(".modal")) {
+       modal.style.display = 'none'
+    }
+}
+
 
 
 

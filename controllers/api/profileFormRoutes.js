@@ -2,12 +2,8 @@ const router = require('express').Router();
 const { Profile } = require('../../models');
 
 // Get all Pros
-router.get('/profile', (req, res) => {
-  Profile.findAll({
-    where: {
-      id: req.params.id
-    },
-  })
+router.get('/', (req, res) => {
+  Profile.findAll()
     .then(dbProfileData => res.json(dbProfileData))
     .catch(err => {
       console.log(err);
@@ -22,7 +18,7 @@ router.get('/:id', (req, res) => {
       id: req.params.id
     },
   })
-    .then(dbProfilData => {
+    .then(dbProfileData => {
       if (!dbProfileData) {
         res.status(404).json({ message: 'No Profile found with this id' });
         return;
@@ -71,13 +67,13 @@ router.post('/profile', (req, res) => {
     where: {
       id: req.body.id
     }
-  }).then(dbProfiData => {
-    if (!dbProfilData) {
+  }).then(dbProfileData => {
+    if (!dbProfileData) {
       res.status(400).json({ message: 'No Profil with that email address!' });
       return;
     }
 
-    const validPassword = dbProfiData.checkPassword(req.body.password);
+    const validPassword = dbProfileData.checkPassword(req.body.password);
 
     if (!validPassword) {
       res.status(400).json({ message: 'Incorrect password!' });
@@ -85,8 +81,8 @@ router.post('/profile', (req, res) => {
     }
 
     req.session.save(() => {
-      req.session.Profil_id = dbProfilData.id;
-      req.session.Profilname = dbProfilData.Profilname;
+      req.session.Profile_id = dbProfilData.id;
+      req.session.ProfileName = dbProfilData.Profilname;
       req.session.loggedIn = true;
   
       res.json({ Profile: dbProfileData, message: 'You are now logged in!' });
@@ -114,7 +110,7 @@ router.put('/:id', (req, res) => {
       id: req.params.id
     }
   })
-    .then(dbProfilData => {
+    .then(dbProfileData => {
       if (!dbProfileData) {
         res.status(404).json({ message: 'No Profile found with this id' });
         return;
@@ -133,7 +129,7 @@ router.delete('/:id', (req, res) => {
       id: req.params.id
     }
   })
-    .then(dbProfilData => {
+    .then(dbProfileData => {
       if (!dbProfileData) {
         res.status(404).json({ message: 'No Profile found with this id' });
         return;
