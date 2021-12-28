@@ -1,42 +1,42 @@
-INSERT INTO user (username, email, password)
-VALUES
-    ('plaindemon','plain@demon.com' ,'demonplain1'),
-    ('blueshark', 'blue@shark.com','sharkblue1' ),
-    ('greenberry','green@berry.com','berrygreen1'),
-    ('1000_Autumns','1000@autumns.com','autumns1000' ),
-    ('petalday', 'petal@day.com', 'daypetal1'),
-    ('crispy_shots','crispy@shots.com' , 'shotscrispy1'),
-    ('climbing_rocks', 'climbing@rocks.com', 'rocksclimbing1'),
-    ('climber1','climber@1.com','1climb'),
-    ('holdup', 'hold@up.com', 'uphold1'),
-    ('lock_gear', 'lock@gear.com' , 'gearlock1');
+-- INSERT INTO user (username, email, password)
+-- VALUES
+--     ('plaindemon','plain@demon.com' ,'demonplain1'),
+--     ('blueshark', 'blue@shark.com','sharkblue1' ),
+--     ('greenberry','green@berry.com','berrygreen1'),
+--     ('1000_Autumns','1000@autumns.com','autumns1000' ),
+--     ('petalday', 'petal@day.com', 'daypetal1'),
+--     ('crispy_shots','crispy@shots.com' , 'shotscrispy1'),
+--     ('climbing_rocks', 'climbing@rocks.com', 'rocksclimbing1'),
+--     ('climber1','climber@1.com','1climb'),
+--     ('holdup', 'hold@up.com', 'uphold1'),
+--     ('lock_gear', 'lock@gear.com' , 'gearlock1');
 
 
--- selects all from the users table
-SELECT * FROM user;
+-- -- selects all from the users table
+-- SELECT * FROM user;
 
--- deletes from the users table
--- DELETE FROM user
--- WHERE user_name = "blueshark";
+-- -- deletes from the users table
+-- -- DELETE FROM user
+-- -- WHERE user_name = "blueshark";
 
-INSERT INTO profile (profile_image, user_location, user_phone, user_experience, has_gear, social, location) 
-VALUES
-    ('url', 'slc', 1234567890, 'true', 'false', 'false', 596785),
-    ('url', 'kamas', 0987654321, 'true', 'true', 'true', 6567),
-    ('url', 'parkcity', 2345649876, 'true', 'true', 'false', 4874578),
-    ('url', 'logan', 3452342345, 'false', 'true', 'true', 9586897),
-    ('url', 'slc', 2635464563, 'true', 'true', 'true', 954765487),
-    ('url', 'slc', 9879879999, 'false', 'true', 'false', 659858),
-    ('url', 'provo', 9878766765, 'true', 'false', 'true', 8675765),
-    ('url', 'ogden', 543672789, 'false', 'false', 'false', 564868),
-    ('url', 'provo', 7659872341, 'true', 'false', 'true', 786879),
-    ('url', 'slc', 134526785, 'false', 'true', 'true', 4756876);
-
-
+-- INSERT INTO profile (profile_image, user_location, user_phone, user_experience, has_gear, social, location) 
+-- VALUES
+--     ('url', 'slc', 1234567890, 'true', 'false', 'false', 596785),
+--     ('url', 'kamas', 0987654321, 'true', 'true', 'true', 6567),
+--     ('url', 'parkcity', 2345649876, 'true', 'true', 'false', 4874578),
+--     ('url', 'logan', 3452342345, 'false', 'true', 'true', 9586897),
+--     ('url', 'slc', 2635464563, 'true', 'true', 'true', 954765487),
+--     ('url', 'slc', 9879879999, 'false', 'true', 'false', 659858),
+--     ('url', 'provo', 9878766765, 'true', 'false', 'true', 8675765),
+--     ('url', 'ogden', 543672789, 'false', 'false', 'false', 564868),
+--     ('url', 'provo', 7659872341, 'true', 'false', 'true', 786879),
+--     ('url', 'slc', 134526785, 'false', 'true', 'true', 4756876);
 
 
--- selects all from experience table
-SELECT * FROM profile;
+
+
+-- -- selects all from experience table
+-- SELECT * FROM profile;
 
 
 
