@@ -31,7 +31,21 @@ function successLocation(position){
 
 function errorLocation(position){
     console.log("error")
-    console.log('Unable to find location');
+    console.log('Permission to use location denied');
+    const map2D = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/mapbox/streets-v11',
+        center: [111, 39],
+        zoom: 6
+        });
+    
+    // add geocoding control
+    map2D.addControl(
+        new MapboxGeocoder({
+        accessToken: mapboxgl.accessToken,
+        mapboxgl: mapboxgl
+        })
+    );
 }
 
 // // CREATE 3D MAP OBJECT
