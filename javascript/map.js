@@ -1,14 +1,19 @@
 mapboxgl.accessToken = 'pk.eyJ1IjoibWl0Y2hicm9kZXYiLCJhIjoiY2t4aDZneTVrMjZoNzJya3lodmpsYnQzMSJ9.vYeLQf6nI3N9Zq6Y2ejDIA';
 
+
+let coordinates = {
+    latitude: "",
+    longitude: ""
+}
 navigator.geolocation.getCurrentPosition(successLocation, errorLocation, {
     enableHighAccuracy: true
 })
 
 function successLocation(position){
     console.log(position);
-    const userCurrLat = position.coords.latitude;
+    coordinates.latitude = position.coords.latitude;
     console.log(`User lat ${userCurrLat}`)
-    const userCurrLong = position.coords.longitude;
+    coordinates.longitude = position.coords.longitude;
     console.log(`User long ${userCurrLong}`)
 };
 
@@ -22,7 +27,7 @@ function errorLocation(position){
 const map2D = new mapboxgl.Map({
 container: 'map',
 style: 'mapbox://styles/mapbox/streets-v11',
-center: [0, 0],
+center: [coordinates.longitude, coordinates.latitude],
 zoom: 4
 });
 
