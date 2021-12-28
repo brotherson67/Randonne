@@ -18,21 +18,22 @@ router.get('/:id', (req, res) => {
     attributes: { exclude: ['password'] },
     where: {
       id: req.params.id
-    },
-    include: [
-      {
-        model: Profile,
-        attributes: [
-        'profile_image',
-        'user_location',
-        'user_phone',
-        'user_experience',
-        'has_gear',
-        'social',
-        'location'
-        ]
-      }
-    ]
+    }
+    // ,
+    // include: [
+    //   {
+    //     model: Profile,
+    //     attributes: [
+    //     'profile_image',
+    //     'user_location',
+    //     'user_phone',
+    //     'user_experience',
+    //     'has_gear',
+    //     'social',
+    //     'location'
+    //     ]
+    //   }
+    // ]
   })
     .then(dbUserData => {
       if (!dbUserData) {
