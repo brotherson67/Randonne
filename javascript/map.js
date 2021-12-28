@@ -1,41 +1,35 @@
-// IMPORT ENV
-// require('dotenv').config();
-// IMPORT MAP OBJECT
-// var mapboxgl = require('mapbox-gl/dist/mapbox-gl.js');
-// here the geolocated/latitude and longitude
-
-
-// // get user geolocation
-// navigator.geolocation.getCurrentPosition(success, err, {
-//     enableHighAccuracy: true
-// })
-
-// // get coordinates from location
-// const success = curruserCoord => {
-//     console.log(curruserCoord);
-//     let latitude = position.coords.latitude;
-//     let longitude = position.coords.longitude;
-// }
-
-
-// mapboxgl.accessToken = "pk.eyJ1IjoibWl0Y2hicm9kZXYiLCJhIjoiY2t4aDZneTVrMjZoNzJya3lodmpsYnQzMSJ9.vYeLQf6nI3N9Zq6Y2ejDIA"
-// // CREATE 2D MAP OBJECT
-// const map2 = new mapboxgl.Map({
-// container: 'map',
-// // WE CAN CONTROL THE TYPE OF VIEW USING THIS. 
-// style: 'mapbox://styles/mapbox/streets-v11',
-// center: [0, 0],
-// zoom: 11
-// });
-
-// CANT GET THE ACCESSTOKEN TO WORK USING .env
 mapboxgl.accessToken = 'pk.eyJ1IjoibWl0Y2hicm9kZXYiLCJhIjoiY2t4aDZneTVrMjZoNzJya3lodmpsYnQzMSJ9.vYeLQf6nI3N9Zq6Y2ejDIA';
+
+navigator.geolocation.getCurrentPosition(successLocation, errorLocation, {
+    enableHighAccuracy: true
+})
+
+function successLocation(position){
+    console.log(position);
+};
+
+function errorLocation(position){
+    console.log("error")
+    console.log(position);
+}
+
+// create inital streetview map object
+// CANT GET THE ACCESSTOKEN TO WORK USING .env
 const map2D = new mapboxgl.Map({
 container: 'map',
 style: 'mapbox://styles/mapbox/streets-v11',
 center: [0, 0],
 zoom: 4
 });
+
+console.log(map2D )
+// add geocoding control
+map2D.addControl(
+    new MapboxGeocoder({
+    accessToken: mapboxgl.accessToken,
+    mapboxgl: mapboxgl
+    })
+);
 
 
 
