@@ -72,13 +72,13 @@ router.post('/profile', (req, res) => {
     where: {
       id: req.body.id
     }
-  }).then(dbProfiData => {
-    if (!dbProfilData) {
-      res.status(400).json({ message: 'No Profil with that email address!' });
+  }).then(dbProfileData => {
+    if (!dbProfileData) {
+      res.status(400).json({ message: 'No Profile with that email address!' });
       return;
     }
 
-    const validPassword = dbProfiData.checkPassword(req.body.password);
+    const validPassword = dbProfileData.checkPassword(req.body.password);
 
     if (!validPassword) {
       res.status(400).json({ message: 'Incorrect password!' });
@@ -86,8 +86,8 @@ router.post('/profile', (req, res) => {
     }
 
     req.session.save(() => {
-      req.session.Profil_id = dbProfilData.id;
-      req.session.Profilname = dbProfilData.Profilname;
+      req.session.Profile_id = dbProfileData.id;
+      req.session.Profilename = dbProfileData.Profilename;
       req.session.loggedIn = true;
   
       res.json({ Profile: dbProfileData, message: 'You are now logged in!' });
@@ -115,7 +115,7 @@ router.put('/:id', (req, res) => {
       id: req.params.id
     }
   })
-    .then(dbProfilData => {
+    .then(dbProfileData => {
       if (!dbProfileData) {
         res.status(404).json({ message: 'No Profile found with this id' });
         return;
@@ -134,7 +134,7 @@ router.delete('/:id', (req, res) => {
       id: req.params.id
     }
   })
-    .then(dbProfilData => {
+    .then(dbProfileData => {
       if (!dbProfileData) {
         res.status(404).json({ message: 'No Profile found with this id' });
         return;
