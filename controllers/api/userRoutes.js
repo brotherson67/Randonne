@@ -22,7 +22,15 @@ router.get('/:id', (req, res) => {
     include: [
       {
         model: Profile,
-        attributes: ['id', 'profile_image', 'user_location','user_phone', 'user_experience', 'user_setting', 'has_gear', 'social', 'location']
+        attributes: [
+        'profile_image',
+        'user_location',
+        'user_phone',
+        'user_experience',
+        'has_gear',
+        'social',
+        'location'
+        ]
       }
     ]
   })

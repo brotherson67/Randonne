@@ -1,8 +1,8 @@
 
 <div>
 {{#if loggedIn}}
-<div>Logged in</div>
-
+  <a href="/profile">profile</a>
+  <button id="logout" class="btn-no-style">logout</button>
 {{else}}
 <div class ="container">
 <form class="signup-form">
@@ -21,8 +21,14 @@
   <div>
     <button type="submit">signup</button>
   </div>
-
+</form>
 {{/if}}
 </div>
+{{#if loggedIn}}
+  <script src="/javascript/logout.js"></script>
+{{else}}
+  <script src="/javascript/login.js"></script>
+{{/if}}
 
-<script src="/javascript/login.js"></script>
+
+{{!-- <script src="/javascript/login.js"></script> --}}

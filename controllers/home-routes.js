@@ -55,7 +55,7 @@ router.get('/profile/:id', (req, res) => {
         return;
       }
 
-//       const post = dbPostData.get({ plain: true });
+      const profile = dbProfileData.get({ plain: true });
 
       res.render('./profile', {
         profile,
@@ -73,7 +73,7 @@ router.get('/login', (req, res) => {
     res.redirect('/');
     return;
   }
-
+  console.log('logged in?')
   res.render('./partials/login');
 });
 module.exports = router;
