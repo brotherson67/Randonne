@@ -58,6 +58,7 @@ ul {
 }
 
 .login-wrap {
+    display: flex;
     width: 25%;
     padding: 56px 37px 20px;
     border-radius: 20px;
@@ -69,8 +70,7 @@ ul {
     color: #465A3D;
     bottom: 50%;
     left: 65%;
-    background-color: #fff;
-    
+    background-color: #fff; 
 }
 
 #login-btn {

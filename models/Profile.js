@@ -33,7 +33,7 @@ Profile.init(
             allowNull: false,
         },
         location: {
-            type: DataTypes.INTEGER,
+            type: DataTypes.STRING,
         },
         // user_id: {
         //     type: DataTypes.INTEGER,
