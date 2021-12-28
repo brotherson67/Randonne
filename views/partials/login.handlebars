@@ -4,22 +4,19 @@
   <a href="/profile">profile</a>
   <button id="logout" class="btn-no-style">logout</button>
 {{else}}
-<div class ="container">
-<form class="signup-form">
-  <div>
-    <label for="username-signup">username:</label>
-    <input type="text" id="username-signup" />
-  </div>
-  <div>
-    <label for="email-signup">email:</label>
-    <input type="text" id="email-signup" />
+<form id="login-form">
+  <div class="login-wrap">
+    <div>
+    <label for="email-login">email:</label>
+    <input type="text" id="email-login" />
   </div>
   <div>
     <label for="password-signup">password:</label>
     <input type="password" id="password-signup" />
   </div>
   <div>
-    <button type="submit">signup</button>
+    <button id="login-btn" type="submit">login</button>
+  </div>
   </div>
 </form>
 {{/if}}
@@ -31,4 +28,4 @@
 {{/if}}
 
 
-{{!-- <script src="/javascript/login.js"></script> --}}
+<script src="/javascript/login.js"></script>

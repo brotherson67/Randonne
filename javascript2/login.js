@@ -16,6 +16,8 @@ async function signupFormHandler(event) {
         headers: { 'Content-Type': 'application/json' }
       }).then((response) => {console.log(response)})
     }
+    document.querySelector('.signup-form').addEventListener('submit', signupFormHandler);
+
   }
 
 async function loginFormHandler(event) {
@@ -45,4 +47,3 @@ async function loginFormHandler(event) {
   
 
 
-  document.querySelector('.signup-form').addEventListener('submit', signupFormHandler);

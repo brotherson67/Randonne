@@ -1,6 +1,15 @@
 <nav class="navbar sticky-top navbar-light bg-light">
         <h3>Randonne</h3>
         <h6>Climb with friends!</h6>
-</nav>
+          {{#if loggedIn}}
+          <button id="logout" class="btn-no-style">logout</button>
+            {{else}}
+          <a href="/login">login</a>
+          {{/if}}
+        {{!-- <a href="../map.handlebars">Map</a> --}}
+          <button "modal-open">Find a partner!</button>  
+      </nav>
 
-    
+      <script src="./javascript/profile-page.js"></script>
+      {{!-- <script src="../../javascript/map.js" --}}
+

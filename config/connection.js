@@ -15,5 +15,5 @@ const sequelize = new Sequelize('climbing_db', 'root', 'blueSalamander',
     console.log('Connected to the climbing database.')
   );
 
-//  
+//  ///////////
 module.exports = sequelize;

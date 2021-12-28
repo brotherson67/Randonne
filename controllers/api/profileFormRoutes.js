@@ -2,12 +2,8 @@ const router = require('express').Router();
 const { Profile } = require('../../models');
 
 // Get all Pros
-router.get('/profile', (req, res) => {
-  Profile.findAll({
-    where: {
-      id: req.params.id
-    },
-  })
+router.get('/', (req, res) => {
+  Profile.findAll()
     .then(dbProfileData => res.json(dbProfileData))
     .catch(err => {
       console.log(err);
