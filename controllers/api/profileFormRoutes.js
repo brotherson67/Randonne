@@ -15,14 +15,14 @@ router.get('/profile', (req, res) => {
     });
 });
 // // GET a single Profile profile
-router.get('/:id', (req, res) => {
+router.get('/profile/:id', (req, res) => {
   Profile.findOne({
     attributes: { exclude: ['password'] },
     where: {
       id: req.params.id
     },
   })
-    .then(dbProfilData => {
+    .then(dbProfileData => {
       if (!dbProfileData) {
         res.status(404).json({ message: 'No Profile found with this id' });
         return;
@@ -38,7 +38,8 @@ router.get('/:id', (req, res) => {
 // // Create a Pro
 router.post('/profile', (req, res) => {
   // expects {Profname: 'Plaindemon', email: 'plain@demon.com', password: 'password0000'}
-  Profile.create({profile_image: req.body.profile_image,
+  Profile.create({
+    profile_image: req.body.profile_image,
     user_id: req.body.user_id,
     user_location: req.body.user_location,
     user_phone: req.body.user_phone,
