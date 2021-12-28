@@ -18,13 +18,13 @@ DROP TABLE IF EXISTS profile;
 
 -- A table is composed of rows and columns. A column represents a field. A row represents a record.
 
-CREATE TABLE user(
-  id INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  username VARCHAR(30) NOT NULL,
-  email VARCHAR(30) NOT NULL,
-  password VARCHAR(100) NOT NULL,
-  created_at DATETIME DEFAULT CURRENT_TIMESTAMP
-);
+-- CREATE TABLE user(
+--   id INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY,
+--   username VARCHAR(30) NOT NULL,
+--   email VARCHAR(30) NOT NULL,
+--   password VARCHAR(100) NOT NULL,
+--   created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+-- );
 
 -- CREATE TABLE experience(
 --   id INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY,
@@ -56,21 +56,21 @@ CREATE TABLE user(
 --   description TEXT
 -- );
 
-CREATE TABLE profile(
-    id INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    profile_image VARCHAR(30) NOT NULL,
-    user_location VARCHAR(30) NOT NULL,
-    user_phone INTEGER,
-    user_experience BOOLEAN,
-    has_gear BOOLEAN NOT NULL,
-    social BOOLEAN NOT NULL,
-    location VARCHAR(30)
-);
+-- CREATE TABLE profile(
+--     id INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY,
+--     profile_image VARCHAR(30) NOT NULL,
+--     user_location VARCHAR(30) NOT NULL,
+--     user_phone INTEGER,
+--     user_experience BOOLEAN,
+--     has_gear BOOLEAN NOT NULL,
+--     social BOOLEAN NOT NULL,
+--     location VARCHAR(30)
+-- );
 
 
 -- A query is a request for data from a database table or a combination of tables.
 
 -- RUN a few queries
-SELECT * FROM experience;
-SELECT * FROM gear;
-SELECT * FROM social;
+-- SELECT * FROM experience;
+-- SELECT * FROM gear;
+-- SELECT * FROM social;

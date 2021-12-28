@@ -82,8 +82,8 @@ router.post('/profile', (req, res) => {
     }
 
     req.session.save(() => {
-      req.session.Profile_id = dbProfilData.id;
-      req.session.ProfileName = dbProfilData.Profilname;
+      req.session.Profile_id = dbProfileData.id;
+      req.session.ProfileName = dbProfileData.Profilename;
       req.session.loggedIn = true;
   
       res.json({ Profile: dbProfileData, message: 'You are now logged in!' });

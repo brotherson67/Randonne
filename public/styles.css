@@ -98,6 +98,7 @@ ul {
     border-style: solid;
     border-width: 3px;
     border-radius: 15px;
+    display: block;
 }
 
 .modal-body {
