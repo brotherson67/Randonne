@@ -40,8 +40,6 @@ map2D.addControl(
     })
 );
 
-
-
 // // CREATE 3D MAP OBJECT
 // const map3D = new mapboxgl.Map({
 //     container: 'PUT THE DIV ID FOR OUR MAP HERE',
