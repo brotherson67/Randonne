@@ -57,6 +57,33 @@ ul {
     font-size: 16 px;
 }
 
+.login-wrap {
+    width: 25%;
+    padding: 56px 37px 20px;
+    border-radius: 20px;
+    display: block;
+    box-sizing: border-box;
+    margin-right: 0;
+    float: right;
+    position: fixed;
+    color: #465A3D;
+    bottom: 55%;
+    left: 65%;
+    background-color: #fff;
+    
+}
+
+#login-btn {
+    text-align: center;
+    margin: 0 0 16px;
+    box-sizing: border-box;
+    margin-bottom: 0;
+    border: #465A3D;
+    border-radius: 5px;
+    border: 1px solid;
+    margin: 10px 10px 10px 10px;    
+}
+
 #question-modal {
     position: absolute;
     z-index: 1;
