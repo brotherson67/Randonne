@@ -6,6 +6,10 @@ navigator.geolocation.getCurrentPosition(successLocation, errorLocation, {
 
 function successLocation(position){
     console.log(position);
+    const userCurrLat = position.coords.latitude;
+    console.log(`User lat ${userCurrLat}`)
+    const userCurrLong = position.coords.longitude;
+    console.log(`User long ${userCurrLong}`)
 };
 
 function errorLocation(position){
@@ -22,7 +26,7 @@ center: [0, 0],
 zoom: 4
 });
 
-console.log(map2D )
+console.log(map2D);
 // add geocoding control
 map2D.addControl(
     new MapboxGeocoder({
