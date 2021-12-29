@@ -4,6 +4,7 @@ const { User, Profile  } = require('../models');
 
 // get all matches for homepage -- change to get matches 
 router.get('/', (req, res) => {
+  console.log(req.session);
   console.log('======================');
   User.findAll({
     attributes: [
@@ -69,10 +70,10 @@ router.get('/profile/:id', (req, res) => {
 });
 
 router.get('/login', (req, res) => {
-  // if (req.session.loggedIn) {
-  //   res.redirect('/');
-  //   return;
-  // }
+  if (req.session.loggedIn) {
+    res.redirect('/');
+    return;
+  }
   console.log('logged in?')
   res.render('./partials/login');
 });

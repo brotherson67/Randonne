@@ -15,7 +15,15 @@
           password
         }),
         headers: { 'Content-Type': 'application/json' }
-      }).then((response) => {console.log(response)})
+      });
+      // .then((response) => {console.log(response)})
+      console.log(response);
+       // check the response status
+      if (response.ok) {
+        console.log('success');
+      } else {
+        alert(response.statusText);
+      }
     }
     document.querySelector('.signup-form').addEventListener('submit', signupFormHandler);
 
@@ -39,11 +47,11 @@ async function loginFormHandler(event) {
   
       if (response.ok) {
         document.location.replace('/');
-        console.log('logged in');
-        alert("log in success")
+        // console.log('logged in');
+        // alert("log in success")
       } else {
         alert(response.statusText);
-        console.log("login failed")
+        // console.log("login failed")
       }
     }
     document.querySelector('.login-form').addEventListener('submit', loginFormHandler);

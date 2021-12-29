@@ -1,9 +1,11 @@
-// const mysql = require('mysql2');
+
 const Sequelize = require('sequelize');
+require('dotenv').config();
 // Connect to database
-const sequelize = new Sequelize('climbing_db', 'root', 'blueSalamander', 
+// added env in order to avoid password and pport issues
+const sequelize = new Sequelize(process.env.DB_NAME, process.env.DB_USER, process.env.DB_PW, 
     {
-      host: '127.0.0.1',
+      host: 'localhost',
       dialect: 'mysql',
       port: 3306
       // Your MySQL username,
