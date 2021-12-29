@@ -18,8 +18,6 @@ const profilePage = async function(event) {
         }),
         headers: { 'Content-Type': 'application/json' },
     });
-
-   
 };
 
 
@@ -62,33 +60,33 @@ async function submitButton (event) {
 }};
 
 //get variables for modal
-var modal = document.getElementById('#question-modal');
-var btn = document.getElementById('#modal-open');
-var close = document.getElementById('#modal-close');
+// var modal = document.getElementById('question-modal');
+// var btn = document.getElementById('modal-open');
+// var close = document.getElementById('modal-close');
 
-document.addEventListener("DOMContentLoaded", ()=> {
+// document.addEventListener("DOMContentLoaded", ()=> {
 
-async function openModal() {
-    modal.style.display = "block";
-    console.dir(modal);
-    btn.addEventListener('click', openModal);
-    console.log('button click');
+// async function openModal() {
+//     console.dir(modal);
+//     modal.style.display = "block";
+//     btn.addEventListener('click', openModal);
 
-};
+// };
 
-openModal();
-
-
+// console.log(openModal);
+// // openModal();
 
 
-async function closeModal() {
-    modal.style.display('none');
-    close.addEventListener('click', closeModal);
-    console.log("click")
-};
 
-closeModal();
-});
+
+// async function closeModal() {
+//     modal.style.display('none');
+//     close.addEventListener('click', closeModal);
+//     console.log("click")
+// };
+
+// closeModal();
+// });
 
 
 //close on outside click

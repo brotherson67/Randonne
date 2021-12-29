@@ -3,7 +3,7 @@ const sequelize = require('../config/connection');
 const { User, Profile  } = require('../models');
 
 // get all matches for homepage -- change to get matches 
-router.get('/profiles', (req, res) => {
+router.get('/', (req, res) => {
   console.log('======================');
   User.findAll({
     attributes: [
@@ -91,7 +91,7 @@ router.get('/profile', (req, res) => {
     return;
   }
   console.log('Profile page change success')
-  res.render('./profile');
+  res.render('./profile-page');
 });
 
 router.get('/gear', (req, res) => {
