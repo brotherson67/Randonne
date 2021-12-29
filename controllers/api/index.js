@@ -1,7 +1,7 @@
 const router = require('express').Router();
 
 const userRoutes = require('./userRoutes');
-const profileRoutes = require('./profileFormRoutes');
+const profileRoutes = require('./profileRoutes');
 const mapRoutes = require('./mapRoutes.js');
 
 router.use('/profile', profileRoutes);

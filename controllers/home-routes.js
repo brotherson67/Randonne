@@ -57,7 +57,7 @@ router.get('/profile/:id', (req, res) => {
 
       const profile = dbProfileData.get({ plain: true });
 
-      res.render('./profile-page', {
+      res.render('profile', {
         profile,
         loggedIn: req.session.loggedIn
       });
@@ -69,36 +69,45 @@ router.get('/profile/:id', (req, res) => {
 });
 
 router.get('/login', (req, res) => {
-  if (req.session.loggedIn) {
-    res.redirect('/');
-    return;
-  }
+  // if (req.session.loggedIn) {
+  //   res.redirect('/');
+  //   return;
+  // }
   console.log('logged in?')
   res.render('./partials/login');
 });
+
+router.get('/sign-up', (req, res) => {
+  // if (req.session.loggedIn) {
+  //   res.redirect('/');
+  //   return;
+  // }
+  console.log('logged in?')
+  res.render('./partials/signup');
+});
 router.get('/map', (req, res) => {
-  if (req.session.loggedIn) {
-    res.redirect('/map');
-    return;
-  }
+  // if (req.session.loggedIn) {
+  //   res.redirect('/map');
+  //   return;
+  // }
   console.log('Map location required')
-  res.render('./partials/map');
+  res.render('partials/map');
 });
 
 router.get('/profile', (req, res) => {
-  if (req.session.loggedIn) {
-    res.redirect('/profile');
-    return;
-  }
-  console.log('Profile page change success')
-  res.render('./profile-page');
+  // if (req.session.loggedIn) {
+  //   res.redirect('/profile');
+  //   return;
+  // }
+  console.log('============================ Profile page change success =====================================')
+  res.render('profile');
 });
 
 router.get('/gear', (req, res) => {
-  if (req.session.loggedIn) {
-    res.redirect('/gear');
-    return;
-  }
+  // if (req.session.loggedIn) {
+  //   res.redirect('/gear');
+  //   return;
+  // }
   console.log('Gear Checklist page')
   res.render('./gear');
 });

@@ -18,13 +18,21 @@ const sess = {
   }),
 };
 app.use(session(sess));
+
 const hbs = exphbs.create({ layoutsDir: path.join(__dirname, "views/layouts"), partialsDir: path.join(__dirname, "views/partials") });
+
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(routes);
+
+app.get('/', (req, res) => {
+    res.render('homepage', {layout: 'main'});
+})
+
 sequelize.sync({ force: true }).then(() => {
   app.listen(PORT, () => console.log('Now listening'));
 });

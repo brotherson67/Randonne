@@ -23,21 +23,20 @@
      {{!-- {{ homepage }} --}}
        <div class="card">
          <img id="heroimg" class="card-img-top" src="./images/cave2.png" alt="climber in Maple Canyon Cave" style="">
-          {{> login }}
-          
+          {{!-- {{> login }} --}}
       </div> 
     </header>
     <main>
-          {{!-- {{{ body }}} --}}
+          {{{ body }}}
           {{ profile }}
-           {{> map }}
+           {{!-- {{> map }} --}}
     </main>
 
-      <footer>
-          <a href="/"><button>Copyright</button></a>
-          <a href="/"><button>Privacy Policy</button></a>
-          <a href="/"><button>Contact Us</button></a>
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. A consectetur hic ipsa harum, pariatur officia perspiciatis quis dignissimos beatae accusamus placeat ratione omnis architecto voluptatibus eligendi! Minus ab a quo.
+      <footer  class="navbar bottom navbar-light bg-light">
+          <a href="/"><button class="btn btn-success">Copyright</button></a>
+          <a href="/"><button class="btn btn-success">Privacy Policy</button></a>
+          <a href="/"><button class="btn btn-success">Contact Us</button></a>
+          <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. A consectetur hic ipsa harum, pariatur officia perspiciatis quis dignissimos beatae accusamus placeat ratione omnis architecto voluptatibus eligendi! Minus ab a quo.</p>
       </footer> 
    </div>
    {{#if loggedIn}}
@@ -46,8 +45,9 @@
     <script src='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.js'></script>
      <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.2/mapbox-gl-geocoder.min.js"></script>
      
-      <script src="./javascript/profile-page.js"></script>
+      <script src="./javascript/profile.js"></script>
       <script src="./javascript/map.js"></script>
+      <script src="./javascript/form.js"></script>
     </body>
 
   </html>
