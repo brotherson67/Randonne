@@ -70,7 +70,7 @@ router.post('/profile', (req, res) => {
     }
   }).then(dbProfileData => {
     if (!dbProfileData) {
-      res.status(400).json({ message: 'No Profil with that email address!' });
+      res.status(400).json({ message: 'No Profile with that email address!' });
       return;
     }
 
