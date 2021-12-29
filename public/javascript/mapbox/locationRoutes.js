@@ -1,16 +1,16 @@
-require('dotenv').config;
-const router = require('express').Router;
-// ADD REFERENCE TO MAP CONTAINER HERE
-import MapBoxGeocoder from '@mapbox/mapbox-gl-geocoder';
-import '@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css';
+// require('dotenv').config;
+// const router = require('express').Router;
+// // ADD REFERENCE TO MAP CONTAINER HERE
+// import MapBoxGeocoder from '@mapbox/mapbox-gl-geocoder';
+// import '@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css';
 
-// CREATE geocoder object
-const geocoder = new MapBoxGeocoder ({
-    accessToken: process.env.MAPBOX_API_TOKEN, 
-    mapboxgl: mapboxgl
-})
+// // CREATE geocoder object
+// const geocoder = new MapBoxGeocoder ({
+//     accessToken: process.env.MAPBOX_API_TOKEN, 
+//     mapboxgl: mapboxgl
+// })
 
-// Translate location to latitude/longitude
+// // Translate location to latitude/longitude
 
 
 

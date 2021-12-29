@@ -41,6 +41,7 @@ async function loginFormHandler(event) {
         document.location.replace('/profile');
       } else {
         alert(response.statusText);
+        console.log("login failed")
       }
     }
     document.querySelector('.login-form').addEventListener('submit', loginFormHandler);

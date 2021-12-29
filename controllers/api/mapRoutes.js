@@ -1,8 +1,8 @@
 const router = require('express').Router();
 
 
-router.get('/', (req, res) => {
-    res.render('map');
+router.get('/map', (req, res) => {
+    res.render('./partials/map');
 
 });
 
