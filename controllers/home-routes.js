@@ -76,4 +76,30 @@ router.get('/login', (req, res) => {
   console.log('logged in?')
   res.render('./partials/login');
 });
+router.get('/map', (req, res) => {
+  if (req.session.loggedIn) {
+    res.redirect('/map');
+    return;
+  }
+  console.log('Map location required')
+  res.render('./partials/map');
+});
+
+router.get('/profile', (req, res) => {
+  if (req.session.loggedIn) {
+    res.redirect('/profile');
+    return;
+  }
+  console.log('Profile page change success')
+  res.render('./profile');
+});
+
+router.get('/gear', (req, res) => {
+  if (req.session.loggedIn) {
+    res.redirect('/gear');
+    return;
+  }
+  console.log('Gear Checklist page')
+  res.render('./gear');
+});
 module.exports = router;

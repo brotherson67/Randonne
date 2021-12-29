@@ -3,13 +3,15 @@
         <h6>Climb with friends!</h6>
           {{#if loggedIn}}
           <button id="logout" class="btn-no-style">logout</button>
-            {{else}}
+          
+          {{else}}
+          <a href="/profile">profile</a>
           <a href="/login">login</a>
+          <a href="/sign-up">signup</a>
           {{/if}}
-        {{!-- <a href="../map.handlebars">Map</a> --}}
-          <button "modal-open">Find a partner!</button>  
+          <a href="/gear">Gear Checklist</a>
+          <a href="/map">Map</a>
+          <button id="modal-open">Find a partner!</button>  
       </nav>
 
-      <script src="./javascript/profile-page.js"></script>
-      {{!-- <script src="../../javascript/map.js" --}}
 

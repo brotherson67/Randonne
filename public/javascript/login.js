@@ -1,4 +1,5 @@
-async function signupFormHandler(event) {
+
+  async function signupFormHandler(event) {
     event.preventDefault();
   
     const username = document.querySelector('#username-signup').value.trim();
@@ -16,6 +17,8 @@ async function signupFormHandler(event) {
         headers: { 'Content-Type': 'application/json' }
       }).then((response) => {console.log(response)})
     }
+    document.querySelector('.signup-form').addEventListener('submit', signupFormHandler);
+
   }
 
 async function loginFormHandler(event) {
@@ -38,7 +41,9 @@ async function loginFormHandler(event) {
         document.location.replace('/');
       } else {
         alert(response.statusText);
+        console.log("login failed")
       }
     }
-  document.querySelector('.login-form').addEventListener('submit', loginFormHandler);
-}
+    document.querySelector('.login-form').addEventListener('submit', loginFormHandler);
+  }
+  

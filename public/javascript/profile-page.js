@@ -84,6 +84,7 @@ openModal();
 async function closeModal() {
     modal.style.display('none');
     close.addEventListener('click', closeModal);
+    console.log("click")
 };
 
 closeModal();
