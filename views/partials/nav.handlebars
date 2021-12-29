@@ -4,13 +4,13 @@
         </h3>
         <h6>Climb with friends!</h6>
           {{#if loggedIn}}
-          <a href="/profile">profile</a>
-          <a href="/map">Map</a>
           <a href="/logout"><button id="logout" class="btn-no-style">logout</button></a>
           
           {{else}}
+          <a href="/profile">profile</a>
+          <a href="/map">Map</a>
           
-          <a href="/login">login</a>
+          <a href="/login"><button id="login" class="btn-no-style">login</button></a>
           <a href="/sign-up">signup</a>
           {{/if}}
           <a href="/gear">Gear Checklist</a>
