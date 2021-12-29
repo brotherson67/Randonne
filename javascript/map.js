@@ -17,7 +17,7 @@ function successLocation(position){
         container: 'map',
         style: 'mapbox://styles/mapbox/streets-v11',
         center: [userCurrLong, userCurrLat],
-        zoom: 9
+        zoom: 11
         });
     
     // add geocoding control
@@ -27,6 +27,7 @@ function successLocation(position){
         mapboxgl: mapboxgl
         })
     );
+    console.dir(MapboxGeocoder)
 };
 
 function errorLocation(position){
