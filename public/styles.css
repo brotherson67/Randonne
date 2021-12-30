@@ -17,10 +17,10 @@ a {
 }
 
 #heroimg {
-  background-size: cover;
+  background-size: contain;
   background-position: center center;
   background-attachment: fixed;
-  padding: 0px 50px 50px;
+  padding: 30px 50px 50px;
   background-image: url("./images/topo.svg");
 
 }
@@ -226,6 +226,13 @@ a {
 #title {
     color: #ab8024;
 }
+
+#welcome {
+    color: #fff;
+    position: relative;
+}
+
+
 
 
 
