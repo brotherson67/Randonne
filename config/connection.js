@@ -1,3 +1,4 @@
+require('dotenv').config();
 const mysql = require('mysql2');
 const Sequelize = require('sequelize');
 // Connect to database
@@ -8,9 +9,9 @@ const sequelize = new Sequelize(
   {
     host: 'localhost',
     dialect: 'mysql',
-    port: 3001
+    port: 3306
   }
 );
 
-//  ///////////
+
 module.exports = sequelize;
