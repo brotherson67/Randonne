@@ -106,6 +106,10 @@ router.get('/form', (req, res) => {
   console.log('Find friends page')
   res.render('./findFriends');
 });
+router.get('/signup', (req, res) => {
+  
+  res.render('partials/signup');
+});
 
 router.get('/profile', (req, res) => {
     res.render('profile');
