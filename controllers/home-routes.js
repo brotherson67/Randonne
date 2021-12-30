@@ -72,7 +72,7 @@ router.get('/profile/:id', (req, res) => {
 
 router.get('/login', (req, res) => {
   if (req.session.loggedIn) {
-    res.redirect('/');
+    res.render('/profile');
     return;
   }
   console.log('logged in?')
@@ -106,6 +106,12 @@ router.get('/friends', (req, res) => {
   console.log('Find friends page')
   res.render('./findFriends');
 });
+
+router.get('/profile', (req, res) => {
+    res.render('profile');
+})
+
+
 router.get('/profile/:id', (req, res) => {
   // if (req.session.loggedIn) {
   //   res.redirect('/profile');
