@@ -22,6 +22,8 @@ a {
   background-attachment: fixed;
   padding: 30px 50px 50px;
   background-image: url("./images/topo.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
 
 }
 
@@ -229,7 +231,22 @@ a {
 
 #welcome {
     position: absolute;
-    left: 60%;
+    color: #465a3d;
+   
+}
+
+
+
+.profile-card {
+  padding: 10%;
+  margin-left: 5%;
+  position: fixed;
+  bottom: 10%;
+}
+
+.profile-card {
+  /* background: url("./images/topo.svg"); */
+  background-repeat: no-repeat;
 }
 
 
