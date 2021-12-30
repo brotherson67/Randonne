@@ -46,13 +46,14 @@ router.get('/profile/:id', (req, res) => {
       'user_experience',
       'has_gear',
       'social',
-      'location',
-      [sequelize.literal('(SELECT (*) FROM user WHERE profile.id = user.profile_id)')]
+      'location'
+      // ,
+      // [sequelize.literal('(SELECT (*) FROM user WHERE profile.id = user.profile_id)')]
     ],
   })
     .then(dbProfileData => {
       if (!dbProfileData) {
-        res.status(404).json({ message: 'No post found with this id' });
+        res.status(404).json({ message: 'No profile found with this id' });
         return;
       }
 
@@ -95,13 +96,13 @@ router.get('/map', (req, res) => {
   res.render('partials/map');
 });
 
-router.get('/profile', (req, res) => {
+router.get('/profile/:id', (req, res) => {
   // if (req.session.loggedIn) {
   //   res.redirect('/profile');
   //   return;
   // }
   console.log('============================ Profile page change success =====================================')
-  res.render('profile');
+  res.render('single-profile');
 });
 
 router.get('/gear', (req, res) => {
@@ -112,4 +113,6 @@ router.get('/gear', (req, res) => {
   console.log('Gear Checklist page')
   res.render('./gear');
 });
+
+
 module.exports = router;
