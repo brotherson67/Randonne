@@ -4,9 +4,9 @@ const Sequelize = require('sequelize');
 require('dotenv').config();
 // Connect to database
 const sequelize = new Sequelize(
-  'climbing_db',
-  'root',
-  'SQLPassword97',
+  process.env.DB_NAME,
+  process.env.DB_USER,
+  process.env.DB_PW,
   {
     host: 'localhost',
     dialect: 'mysql',
