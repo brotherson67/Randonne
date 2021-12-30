@@ -36,5 +36,8 @@
     "mysql2": "^2.3.3",
     "seed": "^0.4.4",
     "sequelize": "^6.12.2"
+  },
+  "env": {
+    "SECRET_KEY": ""
   }
 }

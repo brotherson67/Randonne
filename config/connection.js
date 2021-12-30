@@ -1,6 +1,7 @@
 require('dotenv').config();
 const mysql = require('mysql2');
 const Sequelize = require('sequelize');
+require('dotenv').config();
 // Connect to database
 const sequelize = new Sequelize(
   'climbing_db',

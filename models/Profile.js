@@ -19,7 +19,7 @@ Profile.init(
             type: DataTypes.STRING,
         },
         user_phone: {
-            type: DataTypes.INTEGER,
+            type: DataTypes.BIGINT,
         },
         user_experience: {
             type: DataTypes.BOOLEAN,

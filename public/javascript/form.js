@@ -2,7 +2,6 @@
 
 
 
-
 var q1 = document.getElementById('#question1');
 var q2 = document.getElementById('#question2');
 var q3 = document.getElementById('#question3');

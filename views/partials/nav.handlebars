@@ -1,19 +1,22 @@
 <nav class="navbar sticky-top navbar-light bg-light">
-        <h3>Randonne</h3>
+        <h3>
+          <a href="/">Randonne</a>
+        </h3>
         <h6>Climb with friends!</h6>
           {{#if loggedIn}}
-          <button id="logout" class="btn-no-style">logout</button>
+          <a href="/logout"><button id="logout" class="btn-no-style">logout</button></a>
           
           {{else}}
           <a href="/profile">profile</a>
-          <a href="/login">login</a>
+          <a href="/map">Map</a>
+          
+          <a href="/login"><button id="login" class="btn-no-style">login</button></a>
           <a href="/sign-up">signup</a>
           {{/if}}
           <a href="/gear">Gear Checklist</a>
-          <a href="/map">Map</a>
           <button id="modal-open">Find a partner!</button>  
       </nav>
-
-<script src="./javascript/profile-page.js"></script>
+<script src="/javascript/login.js"></script>
+<script src="/javascript/profile-page.js"></script>
 
 
