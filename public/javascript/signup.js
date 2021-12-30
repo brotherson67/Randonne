@@ -19,6 +19,7 @@ async function signupFormHandler(event) {
       console.log(response,"POST");
        // check the response status
       if (response.ok) {
+        // location.redirect("/profile");
         console.log('success');
       } else {
         alert(response.statusText);

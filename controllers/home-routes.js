@@ -60,10 +60,12 @@ router.get('/', (req, res) => {
 //     });
 // });
 // get single profile
-router.get('/profile/:id', (req, res) => {
+router.get('/profile', (req, res) => {
+  let user = req.session.user_id
+  console.log("GET",user)
   Profile.findOne({
     where: {
-      id: req.params.id
+      id: user
     },
     attributes: [
       'profile_image',
@@ -84,7 +86,7 @@ router.get('/profile/:id', (req, res) => {
       }
 
       const profile = dbProfileData.get({ plain: true });
-
+         console.log('Profile',profile)
       res.render('profile', {
         profile,
         loggedIn: req.session.loggedIn
