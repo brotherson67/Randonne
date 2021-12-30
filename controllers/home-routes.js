@@ -103,6 +103,15 @@ router.get('/friends', (req, res) => {
   console.log('Find friends page')
   res.render('./findFriends');
 });
+router.get('/profile', (req, res) => {
+  // if (req.session.loggedIn) {
+  //   res.redirect('/profile');
+  //   return;
+  // }
+  console.log('============================ Profile page change success =====================================')
+  res.render('profile');
+});
+
 router.get('/profile/:id', (req, res) => {
   // if (req.session.loggedIn) {
   //   res.redirect('/profile');
