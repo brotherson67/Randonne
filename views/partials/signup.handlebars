@@ -8,26 +8,32 @@
 {{else}}
 
 
-<div class ="container">
-<form class="signup-form">
-  <div>
-    <label for="username-signup">username:</label>
-    <input type="text" id="username-signup" />
+<form id="login-form">
+  <div class="login-wrap">
+    <h6 class="form-title"> Signup </h6>
+        <div>
+  <input type="text" id="user-login" placeholder="username"/>
+  </div>
+
+    <div>
+    <input type="text" id="email-login" placeholder="email"/>
   </div>
   <div>
-    <label for="email-signup">email:</label>
-    <input type="text" id="email-signup" />
+    <input type="password" id="password" placeholder="password"/>
   </div>
   <div>
-    <label for="password-signup">password:</label>
-    <input type="password" id="password-signup" />
+    <button id="signup-btn" type="submit">Signup</button>
   </div>
-  <div>
-    <button type="submit" class="btn btn-success">signup</button>
   </div>
 </form>
+{{!-- {{/if}} --}}
 </div>
+{{!-- {{#if loggedIn}} --}}
+  <script src="/javascript/logout.js"></script>
+{{!-- {{else}} --}}
+  <script src="/javascript/login.js"></script>
+{{!-- {{/if}} --}}
 <br><br><br>
 <script src="/public/javascript/signup.js"></script>
 {{/if}}
-</div>
+{{!-- </div> --}}

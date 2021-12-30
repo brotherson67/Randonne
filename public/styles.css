@@ -1,11 +1,12 @@
+/* body {
+    background-image: url("./images/topo.svg");
+} */
+
 .navbar {
   background-color: transparent;
   text-decoration: none;
 }
 
-h3 h6 {
-  color: #465a3d;
-}
 
 a {
   justify-content: left;
@@ -20,6 +21,8 @@ a {
   background-position: center center;
   background-attachment: fixed;
   padding: 0px 50px 50px;
+  background-image: url("./images/topo.svg");
+
 }
 
 .hero {
@@ -34,6 +37,28 @@ a {
 
 .herotxt {
   position: absolute;
+}
+
+#user-login {
+    width: 76%;
+    color: rgb(38, 50, 56);
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: 1px;
+    background: rgba(136, 126, 126, 0.04);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    outline: none;
+    box-sizing: border-box;
+    border: 2px solid rgba(0, 0, 0, 0.02);
+    margin-top: 10px;
+    margin-bottom: 50px;
+    margin-left: 46px;
+    text-align: center;
+    margin-bottom: 27px;
+    font-family: "Ubuntu", sans-serif;
+  
 }
 
 #email-login {
@@ -95,6 +120,26 @@ a {
     display: flex;
     margin-left: 34%;
 }
+
+#signup-btn {
+    cursor: pointer;
+    border-radius: 5em;
+    color: #fff;
+    background: linear-gradient(to right, #465a3d, #86B049);
+    border: 0;
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-bottom: 5px;
+    padding-top: 10px;
+    font-family: 'Ubuntu', sans-serif;
+    margin-left: 10%;
+    margin-top: 10px;
+    font-size: 13px;
+    box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.04);
+    display: flex;
+    margin-left: 34%;
+}
+
 /* 
 .login-wrap {
   display: flex;
@@ -171,6 +216,19 @@ a {
   border-style: solid;
   border-width: 0.5px;
 }
+
+.about-text {
+    color: #ab8024;
+    font-size: 30px;
+    margin: 8%;
+}
+
+#title {
+    color: #ab8024;
+}
+
+
+
 #map {
   height: 100vw;
   width: 100vw;
