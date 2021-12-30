@@ -86,6 +86,9 @@ router.get('/sign-up', (req, res) => {
   // }
   console.log('logged in?')
   res.render('./partials/signup');
+      res.redirect('/friends');
+    return;
+
 });
 router.get('/map', (req, res) => {
   // if (req.session.loggedIn) {
