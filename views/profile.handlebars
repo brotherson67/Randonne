@@ -1,8 +1,11 @@
 <link rel="stylesheet" href="./styles.css">
 
+
+{{!-- {{> nav}} --}}
 <h1 id="welcome"> Welcome {{user.name}} </h1>
 
-<div id="card-box" class="card" style="width: 18rem;">
+<div class="profile-card border-secondary mb-3">
+<div class="card" style="width: 18rem;">
   <img src= {{ profile_image }} class="card-img-top" alt="profile picture">
   <div class="card-body">
     <h5 class="card-title">{{name}}</h5>
@@ -17,6 +20,8 @@
   </ul>
  </div>
 </div>
+
+
 
 
 <script src="/public/javascript/profile-page.js"></script>

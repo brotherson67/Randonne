@@ -228,8 +228,8 @@ a {
 }
 
 #welcome {
-    color: #fff;
-    position: relative;
+    position: absolute;
+    left: 60%;
 }
 
 
