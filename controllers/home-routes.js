@@ -109,7 +109,7 @@ router.get('/friends', (req, res) => {
 
 router.get('/profile', (req, res) => {
     res.render('profile');
-})
+});
 
 
 router.get('/profile/:id', (req, res) => {
