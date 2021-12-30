@@ -233,3 +233,11 @@ a {
   height: 100vw;
   width: 100vw;
 }
+
+#partnerBox {
+  padding: 25px;
+}
+
+#partnerBox .form-group{
+  padding: 25px;
+}

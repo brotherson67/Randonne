@@ -95,7 +95,7 @@ router.get('/map', (req, res) => {
   console.log('Map location required')
   res.render('partials/map');
 });
-router.get('/friends', (req, res) => {
+router.get('/form', (req, res) => {
   // if (req.session.loggedIn) {
   //   res.redirect('/map');
   //   return;
