@@ -16,21 +16,12 @@
 --     ('lock_gear', 'lock@gear.com' , 'gearlock1');
 
 
-<<<<<<< HEAD
--- selects all from the users table
--- SELECT * FROM user;
-
--- deletes from the users table
--- DELETE FROM user
--- WHERE user_name = "blueshark";
-=======
 -- -- selects all from the users table
 -- SELECT * FROM user;
 
 -- -- deletes from the users table
 -- -- DELETE FROM user
 -- -- WHERE user_name = "blueshark";
->>>>>>> 4cba384d8def5744abc7613c0926d5770cfdc751
 
 -- INSERT INTO profile (profile_image, user_location, user_phone, user_experience, has_gear, social, location) 
 -- VALUES

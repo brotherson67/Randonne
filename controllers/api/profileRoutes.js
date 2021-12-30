@@ -13,22 +13,35 @@ router.get('/', (req, res) => {
 // // GET a single Profile profile
 router.get('/profile/:id', (req, res) => {
   Profile.findOne({
-    attributes: { exclude: ['password'] },
     where: {
       id: req.params.id
     },
+    attributes: [
+      'profile_image',
+      'user_location',
+      'user_phone',
+      'user_experience',
+      'has_gear',
+      'social',
+      'location'
+    ],
   })
     .then(dbProfileData => {
       if (!dbProfileData) {
         res.status(404).json({ message: 'No Profile found with this id' });
         return;
       }
-      res.json(dbProfileData);
+       // serialize the data
+       const userProfile = dbProfileData.get({ plain: true });
+      // res.json(dbProfileData);
+      // pass data to template
+      res.render('single-profile', { userProfile });
     })
     .catch(err => {
       console.log(err);
       res.status(500).json(err);
     });
+
 });
 
 // // Create a Pro
