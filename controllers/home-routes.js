@@ -95,7 +95,14 @@ router.get('/map', (req, res) => {
   console.log('Map location required')
   res.render('partials/map');
 });
-
+router.get('/friends', (req, res) => {
+  // if (req.session.loggedIn) {
+  //   res.redirect('/map');
+  //   return;
+  // }
+  console.log('Find friends page')
+  res.render('./findFriends');
+});
 router.get('/profile/:id', (req, res) => {
   // if (req.session.loggedIn) {
   //   res.redirect('/profile');

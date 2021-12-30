@@ -26,21 +26,21 @@ router.get('/profile/:id', (req, res) => {
       'location'
     ],
   })
-    .then(dbProfileData => {
-      if (!dbProfileData) {
-        res.status(404).json({ message: 'No Profile found with this id' });
-        return;
-      }
-       // serialize the data
-       const userProfile = dbProfileData.get({ plain: true });
-      // res.json(dbProfileData);
-      // pass data to template
-      res.render('single-profile', { userProfile });
-    })
-    .catch(err => {
-      console.log(err);
-      res.status(500).json(err);
-    });
+  .then(dbProfileData => {
+    if (!dbProfileData) {
+      res.status(404).json({ message: 'No Profile found with this id' });
+      return;
+    }
+      // serialize the data
+      const userProfile = dbProfileData.get({ plain: true });
+    // res.json(dbProfileData);
+    // pass data to template
+    res.render('single-profile', { userProfile });
+  })
+  .catch(err => {
+    console.log(err);
+    res.status(500).json(err);
+  });
 
 });
 

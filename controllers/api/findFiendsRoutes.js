@@ -1,8 +1,10 @@
-const router = require('express').Router();
+// const router = require('express').Router();
 
 
-router.get('/', (req, res) => {
-    res.render('./findFriends')
-});
+// router.get('/', (req, res) => {
+//     res.render('./findFriends')
+// });
 
-module.exports = router;
+// module.exports = router;
+
+// EXPORT CAN BE FOUND IN ../HOME-ROUTES
