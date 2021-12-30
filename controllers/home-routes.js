@@ -5,34 +5,60 @@ const { User, Profile  } = require('../models');
 // get all matches for homepage -- change to get matches 
 router.get('/', (req, res) => {
   console.log(req.session);
-  console.log('======================');
-  User.findAll({
-    attributes: [
-      'id',
-      'username',
-      'email'
-    ],
-    include: [
-      {
-        model: Profile,
-        attributes: ['id'],
-      },
-    ]
-  })
-    .then(dbUserData => {
-      const users = dbUserData.map(user => user.get({ plain: true }));
+  console.log('=========HOME PAGE=============');
+  // User.findAll({
+  //   attributes: [
+  //     'id',
+  //     'username',
+  //     'email'
+  //   ],
+  //   include: [
+  //     {
+  //       model: Profile,
+  //       attributes: ['id'],
+  //     },
+  //   ]
+  // })
+  //   .then(dbUserData => {
+      // const users = dbUserData.map(user => user.get({ plain: true }));
 
       res.render('homepage', {
-        users,
+    
         loggedIn: req.session.loggedIn
-      });
-    })
-    .catch(err => {
-      console.log(err);
-      res.status(500).json(err);
-    });
+         })
+    
 });
 
+// get all matches for homepage -- change to get matches 
+// router.get('/', (req, res) => {
+//   console.log(req.session);
+//   console.log('======================');
+//   User.findAll({
+//     attributes: [
+//       'id',
+//       'username',
+//       'email'
+//     ],
+//     include: [
+//       {
+//         model: Profile,
+//         attributes: ['id'],
+//       },
+//     ]
+//   })
+//     .then(dbUserData => {
+//       const users = dbUserData.map(user => user.get({ plain: true }));
+
+//       res.render('homepage', {
+//         users,
+//         loggedIn: req.session.loggedIn
+//       });
+//     })
+//     .catch(err => {
+//       console.log(err);
+//       res.status(500).json(err);
+//     });
+// });
 // get single profile
 router.get('/profile/:id', (req, res) => {
   Profile.findOne({
@@ -72,7 +98,7 @@ router.get('/profile/:id', (req, res) => {
 
 router.get('/login', (req, res) => {
   if (req.session.loggedIn) {
-    res.render('/profile');
+    res.render('/login');
     return;
   }
   console.log('logged in?')
