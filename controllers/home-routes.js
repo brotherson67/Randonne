@@ -5,39 +5,38 @@ const { User, Profile  } = require('../models');
 // get all matches for homepage -- change to get matches 
 router.get('/', (req, res) => {
   console.log(req.session);
-  console.log('======================');
-  User.findAll({
-    attributes: [
-      'id',
-      'username',
-      'email'
-    ],
-    include: [
-      {
-        model: Profile,
-        attributes: ['id'],
-      },
-    ]
-  })
-    .then(dbUserData => {
-      const users = dbUserData.map(user => user.get({ plain: true }));
+  console.log('=========HOME PAGE=============');
+  // User.findAll({
+  //   attributes: [
+  //     'id',
+  //     'username',
+  //     'email'
+  //   ],
+  //   include: [
+  //     {
+  //       model: Profile,
+  //       attributes: ['id'],
+  //     },
+  //   ]
+  // })
+  //   .then(dbUserData => {
+      // const users = dbUserData.map(user => user.get({ plain: true }));
 
       res.render('homepage', {
-        users,
+    
         loggedIn: req.session.loggedIn
-      });
-    })
-    .catch(err => {
-      console.log(err);
-      res.status(500).json(err);
-    });
+         })
+    
 });
 
+
 // get single profile
-router.get('/profile/:id', (req, res) => {
+router.get('/profile', (req, res) => {
+  let user = req.session.user_id
+  console.log("GET",user)
   Profile.findOne({
     where: {
-      id: req.params.id
+      id: user
     },
     attributes: [
       'profile_image',
@@ -58,8 +57,8 @@ router.get('/profile/:id', (req, res) => {
       }
 
       const profile = dbProfileData.get({ plain: true });
-
-      res.render('profile', {
+         console.log('Profile', profile)
+      res.render('single-profile', {
         profile,
         loggedIn: req.session.loggedIn
       });
@@ -72,7 +71,7 @@ router.get('/profile/:id', (req, res) => {
 
 router.get('/login', (req, res) => {
   if (req.session.loggedIn) {
-    res.redirect('/');
+    res.render('/login');
     return;
   }
   console.log('logged in?')
@@ -80,12 +79,12 @@ router.get('/login', (req, res) => {
 });
 
 router.get('/sign-up', (req, res) => {
-  // if (req.session.loggedIn) {
-  //   res.redirect('/');
-  //   return;
-  // }
-  console.log('logged in?')
+  // console.log('logged in?')
   res.render('./partials/signup');
+  if (req.session.loggedIn) {
+    res.render('/profile');
+    return;
+  }
 });
 router.get('/map', (req, res) => {
   // if (req.session.loggedIn) {
@@ -95,7 +94,7 @@ router.get('/map', (req, res) => {
   console.log('Map location required')
   res.render('partials/map');
 });
-router.get('/friends', (req, res) => {
+router.get('/form', (req, res) => {
   // if (req.session.loggedIn) {
   //   res.redirect('/map');
   //   return;
@@ -103,6 +102,16 @@ router.get('/friends', (req, res) => {
   console.log('Find friends page')
   res.render('./findFriends');
 });
+router.get('/signup', (req, res) => {
+  
+  res.render('partials/signup');
+});
+
+router.get('/profile', (req, res) => {
+    res.render('profile', {layout: 'main2'});
+});
+
+
 router.get('/profile/:id', (req, res) => {
   // if (req.session.loggedIn) {
   //   res.redirect('/profile');
