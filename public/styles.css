@@ -250,11 +250,12 @@ a {
   height: 70%;
 }
 
-/* .background {
-  /* background: url("./images/topo.svg"); */
-  background-repeat: no-repeat;
+/* /* .background {
+  background: url("./images/topo.svg"); */
+ /* background-repeat: no-repeat;
   background-size: cover;
-} */
+}  */
+
 
 .profile-image {
   width: 40%;
@@ -297,6 +298,17 @@ a {
   margin: 5% auto;
   padding: 20px;
   width: 20%;
+  /* float: left; */
+  border-radius: 15px;
+  border-style: solid;
+  border-width: 0.5px;
+}
+
+#profile-box {
+  background-color: #e7dfdd;
+  margin: 10% auto;
+  padding: 20px;
+  /* width: 20%; */
   /* float: left; */
   border-radius: 15px;
   border-style: solid;

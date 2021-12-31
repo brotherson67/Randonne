@@ -1,6 +1,6 @@
 const profilePage = async function(event) {
     event.preventDefault();
-    // const usernameEl = document.getElementById('#username');
+    const usernameEl = document.getElementById('#username');
     const locationEl = document.getElementById('#location');
     const phoneEl = document.getElementById('#phone');
     const experienceEl = document.getElementById('#experience');
@@ -10,7 +10,7 @@ const profilePage = async function(event) {
     const response = await fetch('api/profile', {
         method: 'POST',
         body: JSON.stringify({
-            // username: usernameEl.value,
+            username: usernameEl.value,
             location: locationEl.value,
             phone: phoneEl.value,
             experience: experienceEl.value,

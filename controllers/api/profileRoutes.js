@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Profile } = require('../../models');
+const { Profile, User } = require('../../models');
 
 // Get all Pros
 router.get('/', (req, res) => {
@@ -25,6 +25,15 @@ router.get('/profile/:id', (req, res) => {
       'social',
       'location'
     ],
+    include: [
+      {
+        model: User,
+        attributes: [
+          'username',
+          'email'
+        ]
+      }
+    ]
   })
   .then(dbProfileData => {
     if (!dbProfileData) {
