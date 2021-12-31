@@ -6,37 +6,20 @@ const { User, Profile  } = require('../models');
 router.get('/', (req, res) => {
   console.log(req.session);
   console.log('=========HOME PAGE=============');
-  // User.findAll({
-  //   attributes: [
-  //     'id',
-  //     'username',
-  //     'email'
-  //   ],
-  //   include: [
-  //     {
-  //       model: Profile,
-  //       attributes: ['id'],
-  //     },
-  //   ]
-  // })
-  //   .then(dbUserData => {
-      // const users = dbUserData.map(user => user.get({ plain: true }));
-
-      res.render('homepage', {
-    
-        loggedIn: req.session.loggedIn
-         })
+  res.render('homepage', {
+    loggedIn: req.session.loggedIn
+  })
     
 });
 
 
-// get single profile
+// get single profile - working w handlebars
 router.get('/profile', (req, res) => {
   let user = req.session.user_id
-  console.log("GET",user)
+  console.log("GET", user)
   Profile.findOne({
     where: {
-      id: user
+      id: req.session.id
     },
     attributes: [
       'profile_image',
@@ -46,8 +29,6 @@ router.get('/profile', (req, res) => {
       'has_gear',
       'social',
       'location'
-      // ,
-      // [sequelize.literal('(SELECT (*) FROM user WHERE profile.id = user.profile_id)')]
     ],
   })
     .then(dbProfileData => {
@@ -57,7 +38,7 @@ router.get('/profile', (req, res) => {
       }
 
       const profile = dbProfileData.get({ plain: true });
-         console.log('Profile', profile)
+         console.log('Profile', profile);
       res.render('profile', {
         profile,
         loggedIn: req.session.loggedIn
@@ -68,6 +49,43 @@ router.get('/profile', (req, res) => {
       res.status(500).json(err);
     });
 });
+
+// putting second profile route for getting all profiles -- not working
+// router.get('/profile-all', (req, res) => {
+//   let user = req.session.user_id
+//   console.log("GET", user)
+//   Profile.findAll({
+//     where: {
+//       id: req.session.id
+//     },
+//     attributes: [
+//       'profile_image',
+//       'user_location',
+//       'user_phone',
+//       'user_experience',
+//       'has_gear',
+//       'social',
+//       'location'
+//     ],
+//   })
+//     .then(dbProfileData => {
+//       if (!dbProfileData) {
+//         res.status(404).json({ message: 'No profile found with this id' });
+//         return;
+//       }
+
+//       const profile = dbProfileData.get({ plain: true });
+//          console.log('Profile', profile);
+//       res.render('profile', {
+//         profile,
+//         loggedIn: req.session.loggedIn
+//       });
+//     })
+//     .catch(err => {
+//       console.log(err);
+//       res.status(500).json(err);
+//     });
+// });
 
 router.get('/login', (req, res) => {
   if (req.session.loggedIn) {
@@ -82,7 +100,7 @@ router.get('/sign-up', (req, res) => {
   // console.log('logged in?')
   res.render('./partials/signup');
   if (req.session.loggedIn) {
-    res.render('/single-profile');
+    res.render('/profile');
     return;
   }
 });
@@ -102,21 +120,21 @@ router.get('/form', (req, res) => {
   console.log('Find friends page')
   res.render('./findFriends');
 });
-// router.get('/signup', (req, res) => {
+router.get('/signup', (req, res) => {
   
-//   res.render('partials/signup');
-// });
+  res.render('partials/signup');
+});
 
-// router.get('/profile', (req, res) => {
-//     res.render('profile', {layout: 'main2'});
-// });
+router.get('/profile', (req, res) => {
+    res.render('./profile');
+});
 
 
 router.get('/profile/:id', (req, res) => {
-  if (req.session.loggedIn) {
-    res.redirect('/profile');
-    return;
-  }
+  // if (req.session.loggedIn) {
+  //   res.redirect('/profile');
+  //   return;
+  // }
   console.log('============================ Profile page change success =====================================')
   res.render('single-profile');
 });
@@ -127,7 +145,7 @@ router.get('/gear', (req, res) => {
   //   return;
   // }
   console.log('Gear Checklist page')
-  res.render('./gear', {layout: 'main2'});
+  res.render('./gear');
 });
 
 

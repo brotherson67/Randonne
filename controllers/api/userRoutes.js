@@ -18,7 +18,8 @@ router.get('/:id', (req, res) => {
     attributes: { exclude: ['password'] },
     where: {
       id: req.params.id
-    },
+    }
+    ,
     attributes: [
       'username',
       'email'
@@ -66,7 +67,7 @@ router.post('/', (req, res) => {
         req.session.username = dbUserData.username;
         req.session.user_email = dbUserData.email;
         req.session.loggedIn = true;
-        console.log("POST - new user",dbUserData);
+        console.log("POST - new user", dbUserData);
   
         res.json(dbUserData);
       });
@@ -102,7 +103,7 @@ router.post('/login', (req, res) => {
       req.session.loggedIn = true;
   
       // res.json({ user: dbUserData, message: 'You are now logged in!' });
-      res.render('profile',{ user: dbUserData, message: 'You are now logged in!' });
+      res.render('profile', { user: dbUserData, message: 'You are now logged in!' });
     });
   });
 });
