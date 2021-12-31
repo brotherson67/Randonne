@@ -92,7 +92,7 @@ router.get('/map', (req, res) => {
   //   return;
   // }
   console.log('Map location required')
-  res.render('partials/map');
+  res.render('./map');
 });
 router.get('/form', (req, res) => {
   // if (req.session.loggedIn) {
@@ -102,10 +102,10 @@ router.get('/form', (req, res) => {
   console.log('Find friends page')
   res.render('./findFriends');
 });
-router.get('/signup', (req, res) => {
+// router.get('/signup', (req, res) => {
   
-  res.render('partials/signup');
-});
+//   res.render('partials/signup');
+// });
 
 // router.get('/profile', (req, res) => {
 //     res.render('profile', {layout: 'main2'});
