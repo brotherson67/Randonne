@@ -82,7 +82,7 @@ router.get('/sign-up', (req, res) => {
   // console.log('logged in?')
   res.render('./partials/signup');
   if (req.session.loggedIn) {
-    res.render('/profile');
+    res.render('/single-profile');
     return;
   }
 });
@@ -113,10 +113,10 @@ router.get('/form', (req, res) => {
 
 
 router.get('/profile/:id', (req, res) => {
-  // if (req.session.loggedIn) {
-  //   res.redirect('/profile');
-  //   return;
-  // }
+  if (req.session.loggedIn) {
+    res.redirect('/profile');
+    return;
+  }
   console.log('============================ Profile page change success =====================================')
   res.render('single-profile');
 });
