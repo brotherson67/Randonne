@@ -29,36 +29,7 @@ router.get('/', (req, res) => {
     
 });
 
-// get all matches for homepage -- change to get matches 
-// router.get('/', (req, res) => {
-//   console.log(req.session);
-//   console.log('======================');
-//   User.findAll({
-//     attributes: [
-//       'id',
-//       'username',
-//       'email'
-//     ],
-//     include: [
-//       {
-//         model: Profile,
-//         attributes: ['id'],
-//       },
-//     ]
-//   })
-//     .then(dbUserData => {
-//       const users = dbUserData.map(user => user.get({ plain: true }));
 
-//       res.render('homepage', {
-//         users,
-//         loggedIn: req.session.loggedIn
-//       });
-//     })
-//     .catch(err => {
-//       console.log(err);
-//       res.status(500).json(err);
-//     });
-// });
 // get single profile
 router.get('/profile', (req, res) => {
   let user = req.session.user_id
@@ -86,8 +57,8 @@ router.get('/profile', (req, res) => {
       }
 
       const profile = dbProfileData.get({ plain: true });
-         console.log('Profile',profile)
-      res.render('profile', {
+         console.log('Profile', profile)
+      res.render('single-profile', {
         profile,
         loggedIn: req.session.loggedIn
       });
@@ -108,15 +79,12 @@ router.get('/login', (req, res) => {
 });
 
 router.get('/sign-up', (req, res) => {
-  // if (req.session.loggedIn) {
-  //   res.redirect('/');
-  //   return;
-  // }
-  console.log('logged in?')
+  // console.log('logged in?')
   res.render('./partials/signup');
-      res.redirect('/friends');
+  if (req.session.loggedIn) {
+    res.render('/profile');
     return;
-
+  }
 });
 router.get('/map', (req, res) => {
   // if (req.session.loggedIn) {
