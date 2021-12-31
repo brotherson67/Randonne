@@ -127,7 +127,7 @@ router.get('/gear', (req, res) => {
   //   return;
   // }
   console.log('Gear Checklist page')
-  res.render('./gear');
+  res.render('./gear', {layout: 'main2'});
 });
 
 
