@@ -4,39 +4,39 @@ const { User, Profile  } = require('../models');
 
 // get all matches for homepage -- change to get matches 
 router.get('/', (req, res) => {
-  console.log(req.session);
-  console.log('=========HOME PAGE=============');
-  // User.findAll({
-  //   attributes: [
-  //     'id',
-  //     'username',
-  //     'email'
-  //   ],
-  //   include: [
-  //     {
-  //       model: Profile,
-  //       attributes: ['id'],
-  //     },
-  //   ]
-  // })
-  //   .then(dbUserData => {
-      // const users = dbUserData.map(user => user.get({ plain: true }));
+  console.log('======================');
+  User.findAll({
+    attributes: [
+      'id',
+      'username',
+      'email'
+    ],
+    include: [
+      {
+        model: Profile,
+        attributes: ['id'],
+      },
+    ]
+  })
+    .then(dbUserData => {
+      const users = dbUserData.map(user => user.get({ plain: true }));
 
       res.render('homepage', {
-    
+        users,
         loggedIn: req.session.loggedIn
-         })
-    
+      });
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(500).json(err);
+    });
 });
 
-
 // get single profile
-router.get('/profile', (req, res) => {
-  let user = req.session.user_id
-  console.log("GET",user)
+router.get('/profile/:id', (req, res) => {
   Profile.findOne({
     where: {
-      id: user
+      id: req.params.id
     },
     attributes: [
       'profile_image',
@@ -45,20 +45,19 @@ router.get('/profile', (req, res) => {
       'user_experience',
       'has_gear',
       'social',
-      'location'
-      // ,
-      // [sequelize.literal('(SELECT (*) FROM user WHERE profile.id = user.profile_id)')]
+      'location',
+      [sequelize.literal('(SELECT (*) FROM user WHERE profile.id = user.profile_id)')]
     ],
   })
     .then(dbProfileData => {
       if (!dbProfileData) {
-        res.status(404).json({ message: 'No profile found with this id' });
+        res.status(404).json({ message: 'No post found with this id' });
         return;
       }
 
       const profile = dbProfileData.get({ plain: true });
-         console.log('Profile', profile)
-      res.render('profile', {
+
+      res.render('./profile', {
         profile,
         loggedIn: req.session.loggedIn
       });
@@ -71,12 +70,13 @@ router.get('/profile', (req, res) => {
 
 router.get('/login', (req, res) => {
   if (req.session.loggedIn) {
-    res.render('/login');
+    res.redirect('/');
     return;
   }
   console.log('logged in?')
   res.render('./partials/login');
 });
+<<<<<<< HEAD
 
 router.get('/sign-up', (req, res) => {
   // console.log('logged in?')
@@ -131,4 +131,6 @@ router.get('/gear', (req, res) => {
 });
 
 
+=======
+>>>>>>> e792ce1 (commit after clone)
 module.exports = router;

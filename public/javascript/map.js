@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 // async function mapHandler(event) {
 //     event.preventDefault();
@@ -63,3 +64,5 @@ map2D.addControl(
 // });
 
 // modules.export = map;
+=======
+>>>>>>> e792ce1 (commit after clone)

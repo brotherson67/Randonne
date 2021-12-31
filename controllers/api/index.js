@@ -1,13 +1,11 @@
 const router = require('express').Router();
 
 const userRoutes = require('./userRoutes');
-const profileRoutes = require('./profileRoutes');
-const mapRoutes = require('./mapRoutes.js');
-// const findFriends = require('./findFiendsRoutes');
+const profileRoutes = require('./profileFormRoutes');
+// const messageRoutes = require('./messageRoutes.js');
 
 router.use('/profile', profileRoutes);
 router.use('/users', userRoutes);
-router.use('/map', mapRoutes);
-// router.use('/friends', findFriends);
+// router.use('/message', messageRoutes);
 
 module.exports = router;
