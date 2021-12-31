@@ -100,7 +100,7 @@ router.get('/form', (req, res) => {
   //   return;
   // }
   console.log('Find friends page')
-  res.render('findFriends');
+  res.render('findFriends', {layout:'main2'});
 });
 // router.get('/signup', (req, res) => {
   
