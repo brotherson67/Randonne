@@ -76,7 +76,6 @@ router.get('/login', (req, res) => {
   console.log('logged in?')
   res.render('./partials/login');
 });
-<<<<<<< HEAD
 
 router.get('/sign-up', (req, res) => {
   // console.log('logged in?')
@@ -131,6 +130,4 @@ router.get('/gear', (req, res) => {
 });
 
 
-=======
->>>>>>> e792ce1 (commit after clone)
 module.exports = router;
