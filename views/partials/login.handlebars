@@ -1,30 +1,31 @@
 
 <div>
-{{!-- {{#if loggedIn}} --}}
- 
-
-{{!-- {{else}} --}}
+{{#if loggedIn}}
+  <a href="/profile">profile</a>
+  <button id="logout" class="btn-no-style">logout</button>
+{{else}}
 <form id="login-form">
   <div class="login-wrap">
-    <h6 class="form-title"> Login </h6>
     <div>
-    <input type="text" id="email-login" placeholder="email"/>
+    <label for="email-login">email:</label>
+    <input type="text" id="email-login" />
   </div>
   <div>
-    <input type="password" id="password" placeholder="password"/>
+    <label for="password-signup">password:</label>
+    <input type="password" id="password-signup" />
   </div>
   <div>
     <button id="login-btn" type="submit">login</button>
   </div>
   </div>
 </form>
-{{!-- {{/if}} --}}
+{{/if}}
 </div>
-{{!-- {{#if loggedIn}} --}}
-  {{!-- <script src="/javascript/logout.js"></script> --}}
-{{!-- {{else}} --}}
+{{#if loggedIn}}
+  <script src="/javascript/logout.js"></script>
+{{else}}
   <script src="/javascript/login.js"></script>
-{{!-- {{/if}} --}}
+{{/if}}
 
 
-{{!-- <script src="/javascript/login.js"></script> --}}
+<script src="/javascript/login.js"></script>

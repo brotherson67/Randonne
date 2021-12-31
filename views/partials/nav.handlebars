@@ -1,54 +1,13 @@
-{{!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous"> --}}
-
-{{!-- <link rel="stylesheet" href="./styles.css"> --}}
-
-
-
 <nav class="navbar sticky-top navbar-light bg-light">
-        <h3>
-          <a id="title" href="/">Randonneé </a>
-        </h3>
-        <h6 id="yay">Climb with friends!</h6>
+        <h3>Randonne</h3>
+        <h6>Climb with friends!</h6>
           {{#if loggedIn}}
-          <a href="/logout"><button id="logout" class="btn-no-style">logout</button></a>
-          
-          {{else}}
-          <div id="menu">
-             <a href="/profile">Profile</a>
-             <a href="/login">Login</a>
-             <a href="/signup">Signup</a>
+          <button id="logout" class="btn-no-style">logout</button>
+            {{else}}
+          <a href="/login">login</a>
           {{/if}}
-             <a href="/gear">Gear Checklist</a>
-             <a href="/map">Map</a>
-             <a href="/form">Find a partner!</a>
-            </ul>
-          </div>
+
+          <button "modal-open">Find a partner!</button>  
       </nav>
 
-{{!-- <ul class="navbar sticky-top navbar-light bg-light justify-content-end">
-{{else}}
-    <li class="nav-item">
-    <a class="nav-link active" href="#">Profile</a>
-  </li>
-    <li class="nav-item">
-    <a class="nav-link active" href="#">Login</a>
-  </li>
-   <li class="nav-item">
-    <a class="nav-link active" href="#">Signup</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link active" href="#">Signup</a>
-  </li>
-  {{/if}}
-  <li class="nav-item">
-    <a class="nav-link" href="#">Gear Checklist</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="#">Map</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link disabled" href="#form">Find a Partner!</a>
-  </li>
-</ul> --}}
-
-
+      <script src="./javascript/profile-page.js"></script>

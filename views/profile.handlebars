@@ -1,47 +1,91 @@
 
-{{!-- {{> nav}} --}}
-<h2 id="welcome"> Welcome Climbers! </h2>
-=======
-<h1 id="welcome"> Welcome {{user.name}} </h1>
->>>>>>> daf2e2de5bd953b790814f91b09722250622e6c2
+<div id="question-modal">
+  <div class="modal-body">
+  <div class="modal-header">
+    <button type="button" id="modal-close">&times;</button>
+    <h2 class="modal-header">Answer these questions to find a climbing partner! </h2>
+  </div>
+  <div class="form-group">
+    <input id="name" type="text" class="form-control" placeholder="Name" />
+  </div>
+  <div class="form-group">
+    <input
+      id="photo"
+      type="text"
+      class="form-control"
+      placeholder="Link to profile photo"/>
+  </div>
+  <div class="form-group">
+    <label for="question1">I have a lot of climbing experience</label>
+    <select class="form-control" id="question1">
+      <option value="empty"></option>
+      <option value="1"></option>
+      <option value="2"></option>
+      <option value="3"></option>
+      <option value="4"></option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="question2">I like to climb outdoors</label>
+    <select class="form-control" id="question2">
+      <option value="empty"></option>
+      <option value="1">1 (Strongly disagree)</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4 (Strongly agree) </option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="question3">I have my own climbing gear</label>
+    <select class="form-control" id="question3">
+      <option value="empty"></option>
+      <option value="1">1 (Strongly disagree)</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4 (Strongly agree) </option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="question4">I like to climb to socialize</label>
+    <select class="form-control" id="question4">
+      <option value="empty"></option>
+      <option value="1">1 (Strongly disagree)</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4 (Strongly agree) </option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="question5"></label>
+    <select class="form-control" id="question5">
+        <input class="climb-location" type="text" name="location" placeholder="Where do you want to climb?">
+    </select>
+  </div>
+  <button id="profile-submit">Submit!</button>
+  </div>
+</div>
 
-<div id="profile-box" class="profile-card border-secondary mb-3">
+
+
+
 <div class="card" style="width: 18rem;">
-  <img src= {{ profile.profile_image}} class="card-img-top" style=" padding: 5px; width: 300px" alt="profile picture">
+  <img src="..." class="card-img-top" alt="...">
   <div class="card-body">
-    <h5 class="card-title">{{ user.profile.username }}</h5>
-    <p class="card-text">My preferences</p>
+    <h5 class="card-title">Card title</h5>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
   </div>
   <ul class="list-group list-group-flush">
-    <li id="username"class="list-group-item">Username: {{ user.username }}</li>
-    <li id="email"class="list-group-item">User email: {{ user.email }}</li>
-    <li id="location" class="list-group-item">User Location: {{profile.user_location}}</li>
-    <li id="phone" class="list-group-item">Phone number: {{profile.user_phone}}</li>
-    <li id="experience" class="list-group-item">Has experience climbing: {{profile.user_experience}}</li>
-   <li id="gear" class="list-group-item">Has Gear: {{profile.has_gear}}</li>
-  <img src= {{ profile_image }} class="card-img-top" alt="profile picture">
-
-<link rel="stylesheet" href="./styles.css">
-<div class="row">
-  <div class="col-7" style="p-1" id="profile-image"> <img src="./images/cave.png"></div>
-  <div class="col-5" id="info">
-    <div class="card mt-5" id="card-info" style="width: 500px; height: 700px; margin-top: 1%">
-  {{!-- <img class="card-img-top" id="profile-image" src="..." alt="Card image cap"> --}}
-  <div class="card-body">
-    <h5 class="card-title">My Beta </h5>
-    <img src={{user.profile_image}}>
-  </div>
-  <ul class="list-group list-group-flush">
-    <li class="list-group-item">Username: {{user.username}}</li>
-    <li class="list-group-item">Email: {{user.email}}</li>
-    <li class="list-group-item">Location: {{profile.user_location}}</li>
-    <li class="list-group-item">Experience: {{profile.user_experience}}</li>
-    <li class="list-group-item">Gear: {{profile.has_gear}}</li>
-
+    <li id="username"class="list-group-item">An item</li>
+    <li id="location" class="list-group-item">A second item</li>
+    <li id="phone" class="list-group-item">A third item</li>
+    <li id="experience" class="list-group-item">A third item</li>
+   <li id="gear" class="list-group-item">A third item</li>
   </ul>
-  </div>
-</div>
+  <div class="card-body">
+    <a href="#" class="card-link">Card link</a>
+    <a href="#" class="card-link">Another link</a>
   </div>
 </div>
 
-<script src="/javascript/profile.js"></script>
+
+<script src="/public/javascript/profile-page.js"></script>
