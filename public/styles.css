@@ -231,7 +231,8 @@ a {
 
 #welcome {
     position: absolute;
-    color: #465a3d;
+    color:#fff;
+    padding: 20px;
    
 }
 
