@@ -4,6 +4,7 @@ const { User, Profile  } = require('../models');
 
 // get all matches for homepage -- change to get matches 
 router.get('/', (req, res) => {
+  console.log(req.session);
   console.log('======================');
   User.findAll({
     attributes: [
@@ -45,19 +46,20 @@ router.get('/profile/:id', (req, res) => {
       'user_experience',
       'has_gear',
       'social',
-      'location',
-      [sequelize.literal('(SELECT (*) FROM user WHERE profile.id = user.profile_id)')]
+      'location'
+      // ,
+      // [sequelize.literal('(SELECT (*) FROM user WHERE profile.id = user.profile_id)')]
     ],
   })
     .then(dbProfileData => {
       if (!dbProfileData) {
-        res.status(404).json({ message: 'No post found with this id' });
+        res.status(404).json({ message: 'No profile found with this id' });
         return;
       }
 
       const profile = dbProfileData.get({ plain: true });
 
-      res.render('./profile', {
+      res.render('profile', {
         profile,
         loggedIn: req.session.loggedIn
       });
@@ -70,22 +72,23 @@ router.get('/profile/:id', (req, res) => {
 
 router.get('/login', (req, res) => {
   if (req.session.loggedIn) {
-    res.redirect('/');
+    res.render('/profile');
     return;
   }
   console.log('logged in?')
   res.render('./partials/login');
 });
-<<<<<<< HEAD
-=======
 
 router.get('/sign-up', (req, res) => {
-  // console.log('logged in?')
+  // if (req.session.loggedIn) {
+  //   res.redirect('/');
+  //   return;
+  // }
+  console.log('logged in?')
   res.render('./partials/signup');
-  if (req.session.loggedIn) {
-    res.render('/profile');
+      res.redirect('/friends');
     return;
-  }
+
 });
 router.get('/map', (req, res) => {
   // if (req.session.loggedIn) {
@@ -93,9 +96,9 @@ router.get('/map', (req, res) => {
   //   return;
   // }
   console.log('Map location required')
-  res.render('./map');
+  res.render('partials/map');
 });
-router.get('/form', (req, res) => {
+router.get('/friends', (req, res) => {
   // if (req.session.loggedIn) {
   //   res.redirect('/map');
   //   return;
@@ -103,14 +106,10 @@ router.get('/form', (req, res) => {
   console.log('Find friends page')
   res.render('./findFriends');
 });
-// router.get('/signup', (req, res) => {
-  
-//   res.render('partials/signup');
-// });
 
-// router.get('/profile', (req, res) => {
-//     res.render('profile', {layout: 'main2'});
-// });
+router.get('/profile', (req, res) => {
+    res.render('profile', {layout: 'main2'});
+});
 
 
 router.get('/profile/:id', (req, res) => {
@@ -132,5 +131,4 @@ router.get('/gear', (req, res) => {
 });
 
 
->>>>>>> 28fd9da28b9fca2db033179a99b71495b856a4dd
 module.exports = router;

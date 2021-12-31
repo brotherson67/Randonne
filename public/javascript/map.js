@@ -1,13 +1,10 @@
-<<<<<<< HEAD
-=======
 
 // async function mapHandler(event) {
 //     event.preventDefault();
 
    
 // }
-// var mapboxgl = require('mapbox-gl/dist/mapbox-gl.js');
- 
+
 
 mapboxgl.accessToken = 'pk.eyJ1IjoibWl0Y2hicm9kZXYiLCJhIjoiY2t4aDZneTVrMjZoNzJya3lodmpsYnQzMSJ9.vYeLQf6nI3N9Zq6Y2ejDIA';
 
@@ -61,4 +58,3 @@ map2D.addControl(
 // });
 
 // modules.export = map;
->>>>>>> 28fd9da28b9fca2db033179a99b71495b856a4dd
