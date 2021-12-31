@@ -1,7 +1,10 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 >>>>>>> 8d27e79 (Small changes to find friends page)
+=======
+>>>>>>> 327f1d8 (commit prior to pull)
 var q1 = document.getElementById('#question1');
 var q2 = document.getElementById('#question2');
 var q3 = document.getElementById('#question3');
