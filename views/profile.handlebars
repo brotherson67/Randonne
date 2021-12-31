@@ -4,13 +4,13 @@
 {{!-- {{> nav}} --}}
 <h2 id="welcome"> Welcome Climbers! </h2>
 
-   <link rel="stylesheet" href="/styles.css">
+   {{!-- <link rel="stylesheet" href="/styles.css"> --}}
 
 {{!-- {{> nav}} --}}
 
 
 
-<div id="profile-box" class="profile-card card border-secondary mb-3">
+{{!-- <div id="profile-box" class="profile-card card border-secondary mb-3">
   <h2 id="welcome"> Welcome Climbers! </h2>
 <div class="card" style="width: 18rem;">
   <img src= {{ profile.profile_image}} class="card-img-top" style=" padding: 5px; width: 300px" alt="profile picture">
@@ -25,6 +25,7 @@
     <h2 class="modal-header">Answer these questions to find a climbing partner! </h2>
 >>>>>>> e792ce1 (commit after clone)
   </div>
+<<<<<<< HEAD
   <div class="form-group">
     <input id="name" type="text" class="form-control" placeholder="Name" />
   </div>
@@ -85,6 +86,16 @@
   </div>
 </div>
 
+=======
+  <ul class="list-group list-group-flush">
+    <li id="username"class="list-group-item">Username: {{ user.username }}</li>
+    <li id="email"class="list-group-item">User email: {{ user.email }}</li>
+    <li id="location" class="list-group-item">User Location: {{profile.user_location}}</li>
+    <li id="phone" class="list-group-item">Phone number: {{profile.user_phone}}</li>
+    <li id="experience" class="list-group-item">Has experience climbing: {{profile.user_experience}}</li>
+   <li id="gear" class="list-group-item">Has Gear: {{profile.has_gear}}</li>
+  <img src= {{ profile_image }} class="card-img-top" alt="profile picture"> --}}
+>>>>>>> 2e467a64701d1ca62ecc512d60980b53ae250596
 
 
 
@@ -128,8 +139,11 @@
 =======
   </div>
 </div>
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> 2e467a64701d1ca62ecc512d60980b53ae250596
 
 >>>>>>> styles
 <script src="/public/javascript/profile-page.js"></script>

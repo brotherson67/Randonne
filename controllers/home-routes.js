@@ -34,6 +34,7 @@ router.get('/', (req, res) => {
 });
 
 // get single profile
+<<<<<<< HEAD
 router.get('/profile/:id', (req, res) => {
   Profile.findOne({
     where: {
@@ -68,6 +69,45 @@ router.get('/profile/:id', (req, res) => {
       res.status(500).json(err);
     });
 });
+=======
+// router.get('/profile', (req, res) => {
+//   let user = req.session.user_id
+//   console.log("GET",user)
+//   Profile.findOne({
+//     where: {
+//       id: user
+//     },
+//     attributes: [
+//       'profile_image',
+//       'user_location',
+//       'user_phone',
+//       'user_experience',
+//       'has_gear',
+//       'social',
+//       'location'
+//       // ,
+//       // [sequelize.literal('(SELECT (*) FROM user WHERE profile.id = user.profile_id)')]
+//     ],
+//   })
+//     .then(dbProfileData => {
+//       if (!dbProfileData) {
+//         res.status(404).json({ message: 'No profile found with this id' });
+//         return;
+//       }
+
+//       const profile = dbProfileData.get({ plain: true });
+//          console.log('Profile', profile)
+//       res.render('profile', {
+//         profile,
+//         loggedIn: req.session.loggedIn
+//       });
+//     })
+//     .catch(err => {
+//       console.log(err);
+//       res.status(500).json(err);
+//     });
+// });
+>>>>>>> 2e467a64701d1ca62ecc512d60980b53ae250596
 
 router.get('/login', (req, res) => {
   if (req.session.loggedIn) {
@@ -103,7 +143,7 @@ router.get('/friends', (req, res) => {
   //   return;
   // }
   console.log('Find friends page')
-  res.render('./findFriends');
+  res.render('findFriends', {layout:'main2'});
 });
 
 router.get('/profile', (req, res) => {
