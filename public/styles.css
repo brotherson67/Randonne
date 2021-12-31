@@ -336,3 +336,60 @@ a {
   display: flex;
   margin-left: 34%;
 }
+
+#copyrightBtn {
+  cursor: pointer;
+  border-radius: 5em;
+  color: #fff;
+  background: linear-gradient(to right, #465a3d, #86B049);
+  border: 0;
+  padding-left: 40px;
+  padding-right: 40px;
+  padding-bottom: 5px;
+  padding-top: 10px;
+  font-family: 'Ubuntu', sans-serif;
+  margin-left: 10%;
+  margin-top: 10px;
+  font-size: 13px;
+  box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.04);
+  display: flex;
+  margin-left: 34%;
+}
+
+#privacyPolicyBtn {
+  cursor: pointer;
+  border-radius: 5em;
+  color: #fff;
+  background: linear-gradient(to right, #465a3d, #86B049);
+  border: 0;
+  padding-left: 40px;
+  padding-right: 40px;
+  padding-bottom: 5px;
+  padding-top: 10px;
+  font-family: 'Ubuntu', sans-serif;
+  margin-left: 10%;
+  margin-top: 10px;
+  font-size: 13px;
+  box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.04);
+  display: flex;
+  margin-left: 34%;
+}
+
+#contactUsBtn {
+  cursor: pointer;
+  border-radius: 5em;
+  color: #fff;
+  background: linear-gradient(to right, #465a3d, #86B049);
+  border: 0;
+  padding-left: 40px;
+  padding-right: 40px;
+  padding-bottom: 5px;
+  padding-top: 10px;
+  font-family: 'Ubuntu', sans-serif;
+  margin-left: 10%;
+  margin-top: 10px;
+  font-size: 13px;
+  box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.04);
+  display: flex;
+  margin-left: 34%;
+}
