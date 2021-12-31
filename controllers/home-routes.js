@@ -4,6 +4,7 @@ const { User, Profile  } = require('../models');
 
 // get all matches for homepage -- change to get matches 
 router.get('/', (req, res) => {
+  console.log(req.session);
   console.log('======================');
   User.findAll({
     attributes: [
@@ -57,7 +58,7 @@ router.get('/profile/:id', (req, res) => {
 
       const profile = dbProfileData.get({ plain: true });
 
-      res.render('./profile', {
+      res.render('profile', {
         profile,
         loggedIn: req.session.loggedIn
       });
@@ -70,7 +71,7 @@ router.get('/profile/:id', (req, res) => {
 
 router.get('/login', (req, res) => {
   if (req.session.loggedIn) {
-    res.redirect('/');
+    res.render('/profile');
     return;
   }
   console.log('logged in?')
@@ -78,12 +79,15 @@ router.get('/login', (req, res) => {
 });
 
 router.get('/sign-up', (req, res) => {
-  // console.log('logged in?')
+  // if (req.session.loggedIn) {
+  //   res.redirect('/');
+  //   return;
+  // }
+  console.log('logged in?')
   res.render('./partials/signup');
-  if (req.session.loggedIn) {
-    res.render('/profile');
+      res.redirect('/friends');
     return;
-  }
+
 });
 router.get('/map', (req, res) => {
   // if (req.session.loggedIn) {
@@ -91,9 +95,9 @@ router.get('/map', (req, res) => {
   //   return;
   // }
   console.log('Map location required')
-  res.render('./map');
+  res.render('partials/map');
 });
-router.get('/form', (req, res) => {
+router.get('/friends', (req, res) => {
   // if (req.session.loggedIn) {
   //   res.redirect('/map');
   //   return;
@@ -101,14 +105,10 @@ router.get('/form', (req, res) => {
   console.log('Find friends page')
   res.render('./findFriends');
 });
-// router.get('/signup', (req, res) => {
-  
-//   res.render('partials/signup');
-// });
 
-// router.get('/profile', (req, res) => {
-//     res.render('profile', {layout: 'main2'});
-// });
+router.get('/profile', (req, res) => {
+    res.render('profile', {layout: 'main2'});
+});
 
 
 router.get('/profile/:id', (req, res) => {

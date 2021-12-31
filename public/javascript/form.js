@@ -1,26 +1,5 @@
-const profilePage = async function(event) {
-    event.preventDefault();
-    const usernameEl = document.getElementById('#username');
-    const locationEl = document.getElementById('#location');
-    const phoneEl = document.getElementById('#phone');
-    const experienceEl = document.getElementById('#experience');
-    const gearEL = document.getElementById('#gear');
 
 
-    const response = await fetch('api/profile', {
-        method: 'POST',
-        body: JSON.stringify({
-            username: usernameEl.value,
-            location: locationEl.value,
-            phone: phoneEl.value,
-            experience: experienceEl.value,
-            gear: gearEl.value,
-        }),
-        headers: { 'Content-Type': 'application/json' },
-    });
-
-   
-};
 
 
 var q1 = document.getElementById('#question1');
@@ -59,33 +38,36 @@ async function submitButton (event) {
 
 }};
 
-//get variables for modal
-var modal = document.getElementById('#question-modal');
-var btn = document.getElementById('#modal-open');
-var close = document.getElementById('#modal-close');
+// //get variables for modal
+// var modal = document.getElementById('#question-modal');
+// var btn = document.getElementById('#modal-open');
+// var close = document.getElementById('#modal-close');
 
-document.addEventListener("DOMContentLoaded", ()=> {
+// console.log(modal);
 
-async function openModal() {
-    modal.style.display = "block";
-    console.dir(modal);
-    btn.addEventListener('click', openModal);
-    console.log('button click');
+// document.addEventListener("DOMContentLoaded", ()=> {
 
-};
+// async function openModal() {
+//     modal.style.display = "block";
+//     console.log(modal);
+//     console.log('button click');
 
-openModal();
-
+// };
 
 
+// openModal();
 
-async function closeModal() {
-    modal.style.display('none');
-    close.addEventListener('click', closeModal);
-};
 
-closeModal();
-});
+
+
+// async function closeModal() {
+//     modal.style.display('none');
+//     close.addEventListener('click', closeModal);
+//     console.log("click")
+// };
+
+// closeModal();
+// });
 
 
 //close on outside click

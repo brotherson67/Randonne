@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Randonne</title>
-    <link rel="stylesheet" href="./styles.css">
+    <title>Randonnee</title>
+    <link rel="stylesheet" href="/public/styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
@@ -25,20 +25,30 @@
       </div> 
     </header>
     <main>
-          {{!-- {{{ body }}} --}}
+          {{{ body }}}
+          {{ profile }}
+           {{!-- {{> map }} --}}
     </main>
-      <footer>
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. A consectetur hic ipsa harum, pariatur officia perspiciatis quis dignissimos beatae accusamus placeat ratione omnis architecto voluptatibus eligendi! Minus ab a quo.
+
+   
+
+      <footer  class="navbar bottom navbar-light bg-light">
+          <a href="/"><button class="btn btn-success">Copyright</button></a>
+          <a href="/"><button class="btn btn-success">Privacy Policy</button></a>
+          <a href="/"><button class="btn btn-success">Contact Us</button></a>
+          <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. A consectetur hic ipsa harum, pariatur officia perspiciatis quis dignissimos beatae accusamus placeat ratione omnis architecto voluptatibus eligendi! Minus ab a quo.</p>
       </footer> 
    </div>
-   {{#if loggedIn}} 
+   {{!-- {{#if loggedIn}} --}}
+   
+    {{!-- {{/if}} --}}
+    <script src="/public/javascript/logout.js"></script>
     <script src='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.js'></script>
      <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.2/mapbox-gl-geocoder.min.js"></script>
-    <script src="/javascript/logout.js"></script>
-    <script src="/javascript/map.js"></script>
-    {{!-- <script src="/javascript/nav.js"></script> --}}
-   <script src="/public/javascript/logout.js"></script>
-    {{/if}}
+     
+      <script src="./javascript/profile.js"></script>
+      <script src="./javascript/map.js"></script>
+      <script src="./javascript/form.js"></script>
     </body>
 
   </html>

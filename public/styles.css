@@ -49,12 +49,23 @@ ul {
 
 }
 
-.hero-form button {
-    color:#465A3D;
-    Background-color: #fff;
-    border: 2px, solid;
-    padding: 10 px 20px;
-    font-size: 16 px;
+#signup-btn {
+    cursor: pointer;
+    border-radius: 5em;
+    color: #fff;
+    background: linear-gradient(to right, #465a3d, #86B049);
+    border: 0;
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-bottom: 5px;
+    padding-top: 10px;
+    font-family: 'Ubuntu', sans-serif;
+    margin-left: 10%;
+    margin-top: 10px;
+    font-size: 13px;
+    box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.04);
+    display: flex;
+    margin-left: 34%;
 }
 
 .login-wrap {
@@ -73,50 +84,103 @@ ul {
     background-color: #fff; 
 }
 
-#login-btn {
-    text-align: center;
-    margin: 0 0 16px;
-    box-sizing: border-box;
-    margin-bottom: 0;
-    border: #465A3D;
-    border-radius: 5px;
-    border: 1px solid;
-    margin: 10px 10px 10px 10px;    
+
+#question-modal {
+  position: absolute;
+  z-index: 1;
+  left: 20%;
+  top: 20%;
+  height: 60%;
+  width: 50%;
+  overflow: auto;
+  animation-name: modalopen;
+  animation-duration: 3s;
+  border-radius: 10px;
+  border-style: solid;
+  border-width: 3px;
+  border-radius: 15px;
+  display: none;
+}
+
+.modal-body {
+  background-color: #e7dfdd;
+  margin: 20% auto;
+  padding: 20px;
+  width: 20%;
+  animation-name: modalopen;
+  animation-duration: 3s;
+  padding: 20px;
+  float: left;
+  border-radius: 15px;
+  border-style: solid;
+  border-width: 0.5px;
+}
+
+.about-text {
+    color: #ab8024;
+    font-size: 30px;
+    margin: 8%;
+}
+
+#title {
+    color: #ab8024;
 }
 
 #question-modal {
     position: absolute;
-    z-index: 1;
-    left: 20%;
-    top: 20%;
-    height: 60%;
-    width: 50%;
-    overflow: auto;
-    animation-name: modalopen;
-    animation-duration: 3s;
-    border-radius: 10px;
-    border-style: solid;
-    border-width: 3px;
-    border-radius: 15px;
-    display: block;
+    color: #465a3d;
+   
 }
 
-.modal-body {
-    background-color:#E7DFDD;
-    margin: 20% auto;
-    padding: 20px;
-    width: 20%;
-    animation-name: modalopen;
-    animation-duration: 3s;
-    padding: 20px;
-    float: left;
-    border-radius: 15px;
-    border-style: solid;
-    border-width: .5px;
+/* .container {
+  display: flex;
+  flex-direction: column;
+
+} */
+
+.profile-card {
+  padding: 10%;
+  margin-left: 20%;
+  position: fixed;
+  bottom: 10%;
+  width: 40%;
+  height: 70%;
+}
+
+/* .background {
+  background: url("./images/topo.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+} */
+
+.profile-image {
+  width: 40%;
+  height: 40%;
+  border:4px solid #465a3d;
+  position: fixed;
+  bottom: 11%;
+  left: 5%;
+  border-radius: 10px;
+  box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
+  max-width: 40%;
+  max-height: 50%;
+
+}
+ #card-info li{
+  color: #86B049;
+}
+
+
+
+#info {
+  background-image: url("./images/topo.svg");
 }
 
 
 
 
 
-
+#map {
+  height: 100vw;
+  width: 100vw;
+}

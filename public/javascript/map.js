@@ -1,18 +1,11 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-
 // async function mapHandler(event) {
 //     event.preventDefault();
 
    
 // }
-// var mapboxgl = require('mapbox-gl/dist/mapbox-gl.js');
- 
+
 
 mapboxgl.accessToken = 'pk.eyJ1IjoibWl0Y2hicm9kZXYiLCJhIjoiY2t4aDZneTVrMjZoNzJya3lodmpsYnQzMSJ9.vYeLQf6nI3N9Zq6Y2ejDIA';
-=======
-mapboxgl.accessToken = 'pk.eyJ1IjoibWl0Y2hicm9kZXYiLCJhIjoiY2t4aDZrczUxNGtnazJvbXU3dHoxd21ydyJ9.xXOt9SslIV2ESyHEz3M8Qw';
->>>>>>> 327f1d8 (commit prior to pull)
 
 let coordinates = {
     latitude: "",
@@ -64,5 +57,3 @@ map2D.addControl(
 // });
 
 // modules.export = map;
-=======
->>>>>>> e792ce1 (commit after clone)

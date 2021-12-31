@@ -17,6 +17,26 @@ router.get('/profile/:id', (req, res) => {
     where: {
       id: req.params.id
     },
+    attributes: [
+      'profile_image',
+      'user_location',
+      'user_phone',
+      'user_experience',
+      'has_gear',
+      'social',
+      'location'
+    ],
+  })
+  .then(dbProfileData => {
+    if (!dbProfileData) {
+      res.status(404).json({ message: 'No Profile found with this id' });
+      return;
+    }
+      // serialize the data
+      const userProfile = dbProfileData.get({ plain: true });
+    // res.json(dbProfileData);
+    // pass data to template
+    res.render('single-profile', { userProfile });
   })
     .then(dbProfileData => {
       if (!dbProfileData) {

@@ -18,7 +18,12 @@ router.get('/:id', (req, res) => {
     attributes: { exclude: ['password'] },
     where: {
       id: req.params.id
+<<<<<<< HEAD
     },
+=======
+    }
+    ,
+>>>>>>> styles
     include: [
       {
         model: Profile,
@@ -94,10 +99,17 @@ router.post('/', (req, res) => {
 //       req.session.username = dbUserData.username;
 //       req.session.loggedIn = true;
   
+<<<<<<< HEAD
 //       res.json({ user: dbUserData, message: 'You are now logged in!' });
 //     });
 //   });
 // });
+=======
+      res.json({ user: dbUserData, message: 'You are now logged in!' });
+    });
+  });
+});
+>>>>>>> styles
 
 router.post('/login', async (req, res) => {
   try {

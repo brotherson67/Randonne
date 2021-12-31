@@ -1,13 +1,11 @@
-<div>You are on the find friends page</div>
-
- {{!-- <div id="question-modal" class="card"> --}}
-  <div class="card" id="partnerBox">
-    {{!-- <button type="button" id="modal-close">&times;</button> --}}
-    <h2 class="card-subtitle">Answer these questions to find a climbing partner! </h2>
-  
+<div id="question-modal">
+  <div class="modal-header">
+    <button type="button" id="modal-close">&times;</button>
+    <h2 class="modal-header">Answer these questions to find a climbing partner! </h2>
+  </div>
   <div class="form-group">
-    <input id="name" type="text" class="form-control" placeholder="Name"/>
- 
+    <input id="name" type="text" class="form-control" placeholder="Name" />
+  </div>
   <div class="form-group">
     <input
       id="photo"
@@ -15,7 +13,6 @@
       class="form-control"
       placeholder="Link to profile photo"/>
   </div>
-
   <div class="form-group">
     <label for="question1">I have a lot of climbing experience</label>
     <select class="form-control" id="question1">
@@ -26,7 +23,6 @@
       <option value="4"></option>
     </select>
   </div>
-
   <div class="form-group">
     <label for="question2">I like to climb outdoors</label>
     <select class="form-control" id="question2">
@@ -37,7 +33,6 @@
       <option value="4">4 (Strongly agree) </option>
     </select>
   </div>
-
   <div class="form-group">
     <label for="question3">I have my own climbing gear</label>
     <select class="form-control" id="question3">
@@ -48,7 +43,6 @@
       <option value="4">4 (Strongly agree) </option>
     </select>
   </div>
-
   <div class="form-group">
     <label for="question4">I like to climb to socialize</label>
     <select class="form-control" id="question4">
@@ -59,19 +53,15 @@
       <option value="4">4 (Strongly agree) </option>
     </select>
   </div>
-
   <div class="form-group">
     <label for="question5"></label>
     <select class="form-control" id="question5">
         <input class="climb-location" type="text" name="location" placeholder="Where do you want to climb?">
     </select>
   </div>
-
-  <button id="profile-submit" class="btn btn-success">Submit!</button>
-
-</div> 
+  <button id="profile-submit">Submit!</button>
 </div>
-</div>
+<<<<<<< HEAD
 
 <script src="/javascript/form.js"></script>
 {{!-- ======= --}}
@@ -137,3 +127,5 @@
 </div>
 <button id="profile-submit">Submit!</button>
 >>>>>>> 8d27e79 (Small changes to find friends page)
+=======
+>>>>>>> styles
