@@ -2,21 +2,22 @@
 
 
 {{!-- {{> nav}} --}}
-<h1 id="welcome"> Welcome {{user.name}} </h1>
+<h2 id="welcome"> Welcome Climbers! </h2>
 
-<div class="profile-card border-secondary mb-3">
+<div id="profile-box" class="profile-card border-secondary mb-3">
 <div class="card" style="width: 18rem;">
-  <img src= {{ profile_image }} class="card-img-top" alt="profile picture">
+  <img src= {{ profile.profile_image}} class="card-img-top" style=" padding: 5px; width: 300px" alt="profile picture">
   <div class="card-body">
-    <h5 class="card-title">{{name}}</h5>
+    <h5 class="card-title">{{ user.profile.username }}</h5>
     <p class="card-text">My preferences</p>
   </div>
   <ul class="list-group list-group-flush">
-    <li id="username"class="list-group-item">{{username}}</li>
-    <li id="location" class="list-group-item">{{location}}</li>
-    <li id="phone" class="list-group-item">{{phone}}</li>
-    <li id="experience" class="list-group-item">{{experience}}</li>
-   <li id="gear" class="list-group-item">{{gear}}</li>
+    <li id="username"class="list-group-item">Username: {{ user.username }}</li>
+    <li id="email"class="list-group-item">User email: {{ user.email }}</li>
+    <li id="location" class="list-group-item">User Location: {{profile.user_location}}</li>
+    <li id="phone" class="list-group-item">Phone number: {{profile.user_phone}}</li>
+    <li id="experience" class="list-group-item">Has experience climbing: {{profile.user_experience}}</li>
+   <li id="gear" class="list-group-item">Has Gear: {{profile.has_gear}}</li>
   </ul>
  </div>
 </div>

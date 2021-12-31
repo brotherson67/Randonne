@@ -58,7 +58,7 @@ router.get('/profile', (req, res) => {
 
       const profile = dbProfileData.get({ plain: true });
          console.log('Profile', profile)
-      res.render('single-profile', {
+      res.render('profile', {
         profile,
         loggedIn: req.session.loggedIn
       });
@@ -107,9 +107,9 @@ router.get('/signup', (req, res) => {
   res.render('partials/signup');
 });
 
-router.get('/profile', (req, res) => {
-    res.render('profile', {layout: 'main2'});
-});
+// router.get('/profile', (req, res) => {
+//     res.render('profile', {layout: 'main2'});
+// });
 
 
 router.get('/profile/:id', (req, res) => {

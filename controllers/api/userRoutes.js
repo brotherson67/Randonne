@@ -18,7 +18,11 @@ router.get('/:id', (req, res) => {
     attributes: { exclude: ['password'] },
     where: {
       id: req.params.id
-    }
+    },
+    attributes: [
+      'username',
+      'email'
+    ]
     ,
     include: [
       {

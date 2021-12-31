@@ -2,6 +2,7 @@
 async function loginFormHandler(event) {
   event.preventDefault();
   
+  // const username = document.querySelector('#username-login').value.trim();
   const email = document.querySelector('#email-login').value.trim();
   const password = document.querySelector('#password-login').value.trim();
   
@@ -9,6 +10,7 @@ async function loginFormHandler(event) {
       const response = await fetch('/api/users/login', {
         method: 'post',
         body: JSON.stringify({
+          // username,
           email,
           password
         }),

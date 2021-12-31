@@ -256,6 +256,17 @@ a {
   border-width: 0.5px;
 }
 
+#profile-box {
+  background-color: #e7dfdd;
+  margin: 10% auto;
+  padding: 20px;
+  /* width: 20%; */
+  /* float: left; */
+  border-radius: 15px;
+  border-style: solid;
+  border-width: 0.5px;
+}
+
 #username-signup {
   width: 76%;
   color: rgb(38, 50, 56);
