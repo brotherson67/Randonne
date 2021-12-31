@@ -1,15 +1,19 @@
 
 {{!-- {{> nav}} --}}
 <h2 id="welcome"> Welcome Climbers! </h2>
-=======
-<h1 id="welcome"> Welcome {{user.name}} </h1>
->>>>>>> daf2e2de5bd953b790814f91b09722250622e6c2
 
-<div id="profile-box" class="profile-card border-secondary mb-3">
+   <link rel="stylesheet" href="/styles.css">
+
+{{!-- {{> nav}} --}}
+
+
+
+<div id="profile-box" class="profile-card card border-secondary mb-3">
+  <h2 id="welcome"> Welcome Climbers! </h2>
 <div class="card" style="width: 18rem;">
   <img src= {{ profile.profile_image}} class="card-img-top" style=" padding: 5px; width: 300px" alt="profile picture">
   <div class="card-body">
-    <h5 class="card-title">{{ user.profile.username }}</h5>
+    <h5 class="card-title">{{ user.username }}</h5>
     <p class="card-text">My preferences</p>
   </div>
   <ul class="list-group list-group-flush">
