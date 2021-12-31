@@ -76,4 +76,61 @@ router.get('/login', (req, res) => {
   console.log('logged in?')
   res.render('./partials/login');
 });
+<<<<<<< HEAD
+=======
+
+router.get('/sign-up', (req, res) => {
+  // console.log('logged in?')
+  res.render('./partials/signup');
+  if (req.session.loggedIn) {
+    res.render('/profile');
+    return;
+  }
+});
+router.get('/map', (req, res) => {
+  // if (req.session.loggedIn) {
+  //   res.redirect('/map');
+  //   return;
+  // }
+  console.log('Map location required')
+  res.render('./map');
+});
+router.get('/form', (req, res) => {
+  // if (req.session.loggedIn) {
+  //   res.redirect('/map');
+  //   return;
+  // }
+  console.log('Find friends page')
+  res.render('./findFriends');
+});
+// router.get('/signup', (req, res) => {
+  
+//   res.render('partials/signup');
+// });
+
+// router.get('/profile', (req, res) => {
+//     res.render('profile', {layout: 'main2'});
+// });
+
+
+router.get('/profile/:id', (req, res) => {
+  // if (req.session.loggedIn) {
+  //   res.redirect('/profile');
+  //   return;
+  // }
+  console.log('============================ Profile page change success =====================================')
+  res.render('single-profile');
+});
+
+router.get('/gear', (req, res) => {
+  // if (req.session.loggedIn) {
+  //   res.redirect('/gear');
+  //   return;
+  // }
+  console.log('Gear Checklist page')
+  res.render('./gear', {layout: 'main2'});
+});
+
+
+>>>>>>> 28fd9da28b9fca2db033179a99b71495b856a4dd
 module.exports = router;
