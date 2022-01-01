@@ -5,11 +5,6 @@ var q3 = document.getElementById('#question3');
 var q4 = document.getElementById('#question4');
 var q5 = document.getElementById('#question5');
 
-
-
-// var submitBtn = document.getElementById("#profile-submit")
-// submitBtn.addEventListener('click', submitButton);
-
 async function submitButton (event) {
     event.preventDefault();
 
@@ -35,6 +30,8 @@ async function submitButton (event) {
 
 }};
 
+var submitBtn = document.getElementById("profile-submit")
+submitBtn.addEventListener("click", submitButton);
 // //get variables for modal
 // var modal = document.getElementById('#question-modal');
 // var btn = document.getElementById('#modal-open');
