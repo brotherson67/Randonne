@@ -67,3 +67,49 @@
 </div>
 
 <script src="/javascript/profile.js"></script> --}}
+
+// //get variables for modal
+// var modal = document.getElementById('#question-modal');
+// var btn = document.getElementById('#modal-open');
+// var close = document.getElementById('#modal-close');
+
+// console.log(modal);
+
+// document.addEventListener("DOMContentLoaded", ()=> {
+
+// async function openModal() {
+//     modal.style.display = "block";
+//     console.log(modal);
+//     console.log('button click');
+
+// };
+
+
+// openModal();
+
+
+
+
+// async function closeModal() {
+//     modal.style.display('none');
+//     close.addEventListener('click', closeModal);
+//     console.log("click")
+// };
+
+// closeModal();
+// });
+
+
+//close on outside click
+// async function outsideModal(event) {
+  
+//     if (event.target.closest(window)){
+//         return;    
+//     }
+//     else if (!event.target.closest(".modal")) {
+//        modal.style.display = 'none'
+//     }
+//     document.addEventListener('click', outsideModal);
+// }
+
+// outsideModal();
