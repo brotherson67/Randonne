@@ -288,12 +288,17 @@ a {
 
 #partnerBox {
   padding: 25px;
+  
 }
 
 #partnerBox .form-group{
   padding: 25px;
+  
 }
-
+#background-box{
+  padding: 35px;
+  background-image: url("./images/topo.svg");
+}
 #card-box {
   background-color: #e7dfdd;
   margin: 5% auto;
@@ -315,6 +320,7 @@ a {
   border-style: solid;
   border-width: 0.5px;
 }
+
 
 #username-signup {
   width: 76%;
