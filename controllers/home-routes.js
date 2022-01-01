@@ -118,7 +118,7 @@ router.get('/form', (req, res) => {
   //   return;
   // }
   console.log('Find friends page')
-  res.render('./findFriends');
+  res.render('findFriends', {layout:'main2'});
 });
 router.get('/signup', (req, res) => {
   
@@ -127,6 +127,7 @@ router.get('/signup', (req, res) => {
 
 router.get('/profile', (req, res) => {
     res.render('./profile');
+    // res.render('profile', {layout: 'main2'});
 });
 
 
