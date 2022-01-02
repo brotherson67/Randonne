@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Profile } = require('../../models');
+const { Profile, User } = require('../../models');
 
 // Get all Pros
 router.get('/', (req, res) => {
@@ -11,11 +11,12 @@ router.get('/', (req, res) => {
     });
 });
 // // GET a single Profile profile
-router.get('/profile/:id', (req, res) => {
+router.get('/:id', (req, res) => {
   Profile.findOne({
     where: {
       id: req.params.id
-    },
+    }
+    ,
     attributes: [
       'profile_image',
       'user_location',
@@ -25,6 +26,15 @@ router.get('/profile/:id', (req, res) => {
       'social',
       'location'
     ],
+    include: [
+      {
+        model: User,
+        attributes: [
+          'username',
+          'email'
+        ]
+      }
+    ]
   })
   .then(dbProfileData => {
     if (!dbProfileData) {
@@ -32,10 +42,10 @@ router.get('/profile/:id', (req, res) => {
       return;
     }
       // serialize the data
-      const userProfile = dbProfileData.get({ plain: true });
-    // res.json(dbProfileData);
+      // const profile = dbProfileData.get({ plain: true });
+    res.json(dbProfileData);
     // pass data to template
-    res.render('single-profile', { userProfile });
+    // res.render('profile', { profile });
   })
   .catch(err => {
     console.log(err);
@@ -45,7 +55,7 @@ router.get('/profile/:id', (req, res) => {
 });
 
 // // Create a Pro
-router.post('/profile', (req, res) => {
+router.post('/', (req, res) => {
   // expects {Profname: 'Plaindemon', email: 'plain@demon.com', password: 'password0000'}
   Profile.create({
     profile_image: req.body.profile_image,
@@ -65,7 +75,7 @@ router.post('/profile', (req, res) => {
         req.session.Gear = dbProfileData.has_gear;
 
         req.session.loggedIn = true;
-  
+        console.log("POST - new profile", dbProfileData);
         res.json(dbProfileData);
       });
     })
@@ -87,19 +97,17 @@ router.post('/profile', (req, res) => {
       return;
     }
 
-    const validPassword = dbProfileData.checkPassword(req.body.password);
-
-    if (!validPassword) {
-      res.status(400).json({ message: 'Incorrect password!' });
-      return;
-    }
-
     req.session.save(() => {
       req.session.profile_id = dbProfileData.id;
       req.session.profileName = dbProfileData.ProfileName;
+      req.session.Profile_location = dbProfileData.user_location;
+      req.session.Profile_phone = dbProfileData.user_phone;
+      req.session.Experience = dbProfileData.user_experience;
+      req.session.Gear = dbProfileData.has_gear;
+
       req.session.loggedIn = true;
   
-      res.json({ Profile: dbProfileData, message: 'You are now logged in!' });
+      res.render('profile', { profile: dbProfileData, message: 'You are now logged in!' });
     });
   });
 });

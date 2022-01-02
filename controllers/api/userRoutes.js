@@ -20,6 +20,11 @@ router.get('/:id', (req, res) => {
       id: req.params.id
     }
     ,
+    attributes: [
+      'username',
+      'email'
+    ]
+    ,
     include: [
       {
         model: Profile,
@@ -60,7 +65,9 @@ router.post('/', (req, res) => {
       req.session.save(() => {
         req.session.user_id = dbUserData.id;
         req.session.username = dbUserData.username;
+        req.session.user_email = dbUserData.email;
         req.session.loggedIn = true;
+        console.log("POST - new user", dbUserData);
   
         res.json(dbUserData);
       });
@@ -95,7 +102,8 @@ router.post('/login', (req, res) => {
       req.session.username = dbUserData.username;
       req.session.loggedIn = true;
   
-      res.json({ user: dbUserData, message: 'You are now logged in!' });
+      // res.json({ user: dbUserData, message: 'You are now logged in!' });
+      res.render('profile', { user: dbUserData, message: 'You are now logged in!' });
     });
   });
 });

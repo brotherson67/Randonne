@@ -123,7 +123,7 @@ a {
     margin-left: 34%;
 }
 
-#signup-btn {
+#login-btn {
     cursor: pointer;
     border-radius: 5em;
     color: #fff;
@@ -188,7 +188,7 @@ a {
 }
 
 
-#question-modal {
+/* #question-modal {
   position: absolute;
   z-index: 1;
   left: 20%;
@@ -217,7 +217,7 @@ a {
   border-radius: 15px;
   border-style: solid;
   border-width: 0.5px;
-}
+} */
 
 .about-text {
     color: #ab8024;
@@ -231,7 +231,8 @@ a {
 
 #welcome {
     position: absolute;
-    color: #465a3d;
+    color:#fff;
+    padding: 20px;
    
 }
 
@@ -250,11 +251,12 @@ a {
   height: 70%;
 }
 
-/* .background {
-  /* background: url("./images/topo.svg"); */
-  background-repeat: no-repeat;
+/* /* .background {
+  background: url("./images/topo.svg"); */
+ /* background-repeat: no-repeat;
   background-size: cover;
-} */
+}  */
+
 
 .profile-image {
   width: 40%;
@@ -279,11 +281,213 @@ a {
   background-image: url("./images/topo.svg");
 }
 
-
-
-
-
 #map {
   height: 100vw;
   width: 100vw;
+}
+
+#partnerBox {
+  padding: 25px;
+  
+}
+
+#partnerBox .form-group{
+  padding: 25px;
+  
+}
+#background-box{
+  padding: 35px;
+  background-image: url("./images/topo.svg");
+}
+#card-box {
+  background-color: #e7dfdd;
+  margin: 5% auto;
+  padding: 20px;
+  width: 20%;
+  /* float: left; */
+  border-radius: 15px;
+  border-style: solid;
+  border-width: 0.5px;
+}
+
+#profile-box {
+  background-color: #e7dfdd;
+  margin: 10% auto;
+  padding: 20px;
+  /* width: 20%; */
+  /* float: left; */
+  border-radius: 15px;
+  border-style: solid;
+  border-width: 0.5px;
+}
+
+
+#username-signup {
+  width: 76%;
+  color: rgb(38, 50, 56);
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 1px;
+  background: rgba(136, 126, 126, 0.04);
+  padding: 10px 20px;
+  border: none;
+  border-radius: 20px;
+  outline: none;
+  box-sizing: border-box;
+  border: 2px solid rgba(0, 0, 0, 0.02);
+  margin-top: 20px;
+  margin-bottom: 50px;
+  margin-left: 46px;
+  text-align: center;
+  margin-bottom: 27px;
+  font-family: "Ubuntu", sans-serif;
+}
+
+#email-signup {
+  width: 76%;
+  color: rgb(38, 50, 56);
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 1px;
+  background: rgba(136, 126, 126, 0.04);
+  padding: 10px 20px;
+  border: none;
+  border-radius: 20px;
+  outline: none;
+  box-sizing: border-box;
+  border: 2px solid rgba(0, 0, 0, 0.02);
+  margin-bottom: 50px;
+  margin-left: 46px;
+  text-align: center;
+  margin-bottom: 27px;
+  font-family: "Ubuntu", sans-serif;
+}
+
+#password-signup {
+  width: 76%;
+  color: rgb(38, 50, 56);
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 1px;
+  background: rgba(136, 126, 126, 0.04);
+  padding: 10px 20px;
+  border: none;
+  border-radius: 20px;
+  outline: none;
+  box-sizing: border-box;
+  border: 2px solid rgba(0, 0, 0, 0.02);
+  margin-top: 20px;
+  margin-bottom: 50px;
+  margin-left: 46px;
+  text-align: center;
+  margin-bottom: 27px;
+  font-family: "Ubuntu", sans-serif;
+}
+
+#signup-btn {
+  cursor: pointer;
+  border-radius: 5em;
+  color: #fff;
+  background: linear-gradient(to right, #465a3d, #86B049);
+  border: 0;
+  padding-left: 40px;
+  padding-right: 40px;
+  padding-bottom: 5px;
+  padding-top: 10px;
+  font-family: 'Ubuntu', sans-serif;
+  margin-left: 10%;
+  margin-top: 10px;
+  font-size: 13px;
+  box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.04);
+  display: flex;
+  margin-left: 34%;
+}
+
+#copyrightBtn {
+  cursor: pointer;
+  border-radius: 5em;
+  color: #fff;
+  background: linear-gradient(to right, #465a3d, #86B049);
+  border: 0;
+  padding-left: 40px;
+  padding-right: 40px;
+  padding-bottom: 5px;
+  padding-top: 10px;
+  font-family: 'Ubuntu', sans-serif;
+  margin-left: 10%;
+  margin-top: 10px;
+  font-size: 13px;
+  box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.04);
+  display: flex;
+  margin-left: 34%;
+}
+
+#privacyPolicyBtn {
+  cursor: pointer;
+  border-radius: 5em;
+  color: #fff;
+  background: linear-gradient(to right, #465a3d, #86B049);
+  border: 0;
+  padding-left: 40px;
+  padding-right: 40px;
+  padding-bottom: 5px;
+  padding-top: 10px;
+  font-family: 'Ubuntu', sans-serif;
+  margin-left: 10%;
+  margin-top: 10px;
+  font-size: 13px;
+  box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.04);
+  display: flex;
+  margin-left: 34%;
+}
+
+#contactUsBtn {
+  cursor: pointer;
+  border-radius: 5em;
+  color: #fff;
+  background: linear-gradient(to right, #465a3d, #86B049);
+  border: 0;
+  padding-left: 40px;
+  padding-right: 40px;
+  padding-bottom: 5px;
+  padding-top: 10px;
+  font-family: 'Ubuntu', sans-serif;
+  margin-left: 10%;
+  margin-top: 10px;
+  font-size: 13px;
+  box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.04);
+  display: flex;
+  margin-left: 34%;
+}
+
+#partnerBox {
+  box-shadow: 1px 1px 3px #000;
+  width: 60%;
+  height: 40%;
+  justify-content: end;
+  margin-right: 30%;
+}
+
+#profile-submit{
+  cursor: pointer;
+  border-radius: 5em;
+  color: #fff;
+  background: linear-gradient(to right, #465a3d, #86B049);
+  border: 0;
+  padding-left: 40px;
+  padding-right: 40px;
+  padding-bottom: 5px;
+  padding-top: 10px;
+  font-family: 'Ubuntu', sans-serif;
+  margin-left: 10%;
+  margin-top: 10px;
+  font-size: 13px;
+  box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.04);
+  display: flex;
+  margin-left: 40%;
+}
+
+.card-subtitle{
+  color: #ab8024;
+  margin-left: 10%;
 }
