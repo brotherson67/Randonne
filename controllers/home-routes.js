@@ -12,7 +12,6 @@ router.get('/', (req, res) => {
     
 });
 
-
 // get single profile - working w handlebars
 router.get('/profile', (req, res) => {
   let user = req.session.user_id
@@ -49,43 +48,6 @@ router.get('/profile', (req, res) => {
       res.status(500).json(err);
     });
 });
-
-// putting second profile route for getting all profiles -- not working
-// router.get('/profile-all', (req, res) => {
-//   let user = req.session.user_id
-//   console.log("GET", user)
-//   Profile.findAll({
-//     where: {
-//       id: req.session.id
-//     },
-//     attributes: [
-//       'profile_image',
-//       'user_location',
-//       'user_phone',
-//       'user_experience',
-//       'has_gear',
-//       'social',
-//       'location'
-//     ],
-//   })
-//     .then(dbProfileData => {
-//       if (!dbProfileData) {
-//         res.status(404).json({ message: 'No profile found with this id' });
-//         return;
-//       }
-
-//       const profile = dbProfileData.get({ plain: true });
-//          console.log('Profile', profile);
-//       res.render('profile', {
-//         profile,
-//         loggedIn: req.session.loggedIn
-//       });
-//     })
-//     .catch(err => {
-//       console.log(err);
-//       res.status(500).json(err);
-//     });
-// });
 
 router.get('/login', (req, res) => {
   if (req.session.loggedIn) {
@@ -147,6 +109,10 @@ router.get('/gear', (req, res) => {
   // }
   console.log('Gear Checklist page')
   res.render('./gear');
+});
+
+router.get('/copyright', (req, res) => {
+  res.render('./copyright')
 });
 
 
