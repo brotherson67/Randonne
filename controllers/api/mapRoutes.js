@@ -1,5 +1,3 @@
-// BECAUSE THE MAP IS INSERTED THROUGHT THE home-routes PAGE, THIS FILE MAY BE DEPRECIATED
-
 const router = require('express').Router();
 
 
