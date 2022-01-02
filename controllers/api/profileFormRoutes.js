@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Profile } = require('../../models');
+const { Profile, User } = require('../../models');
 
 // Get all Pros
 router.get('/', (req, res) => {
@@ -11,28 +11,51 @@ router.get('/', (req, res) => {
     });
 });
 // // GET a single Profile profile
-router.get('/profile/:id', (req, res) => {
+router.get('/:id', (req, res) => {
   Profile.findOne({
-    attributes: { exclude: ['password'] },
     where: {
       id: req.params.id
-    },
-  })
-    .then(dbProfileData => {
-      if (!dbProfileData) {
-        res.status(404).json({ message: 'No Profile found with this id' });
-        return;
+    }
+    ,
+    attributes: [
+      'profile_image',
+      'user_location',
+      'user_phone',
+      'user_experience',
+      'has_gear',
+      'social',
+      'location'
+    ],
+    include: [
+      {
+        model: User,
+        attributes: [
+          'username',
+          'email'
+        ]
       }
-      res.json(dbProfileData);
-    })
-    .catch(err => {
-      console.log(err);
-      res.status(500).json(err);
-    });
+    ]
+  })
+  .then(dbProfileData => {
+    if (!dbProfileData) {
+      res.status(404).json({ message: 'No Profile found with this id' });
+      return;
+    }
+      // serialize the data
+      // const profile = dbProfileData.get({ plain: true });
+    res.json(dbProfileData);
+    // pass data to template
+    // res.render('profile', { profile });
+  })
+  .catch(err => {
+    console.log(err);
+    res.status(500).json(err);
+  });
+
 });
 
 // // Create a Pro
-router.post('/profile', (req, res) => {
+router.post('/', (req, res) => {
   // expects {Profname: 'Plaindemon', email: 'plain@demon.com', password: 'password0000'}
   Profile.create({
     profile_image: req.body.profile_image,
@@ -52,7 +75,7 @@ router.post('/profile', (req, res) => {
         req.session.Gear = dbProfileData.has_gear;
 
         req.session.loggedIn = true;
-  
+        console.log("POST - new profile", dbProfileData);
         res.json(dbProfileData);
       });
     })
@@ -70,23 +93,21 @@ router.post('/profile', (req, res) => {
     }
   }).then(dbProfileData => {
     if (!dbProfileData) {
-      res.status(400).json({ message: 'No Profil with that email address!' });
-      return;
-    }
-
-    const validPassword = dbProfileData.checkPassword(req.body.password);
-
-    if (!validPassword) {
-      res.status(400).json({ message: 'Incorrect password!' });
+      res.status(400).json({ message: 'No Profile with that email address!' });
       return;
     }
 
     req.session.save(() => {
-      req.session.Profile_id = dbProfileData.id;
-      req.session.ProfileName = dbProfileData.Profilename;
+      req.session.profile_id = dbProfileData.id;
+      req.session.profileName = dbProfileData.ProfileName;
+      req.session.Profile_location = dbProfileData.user_location;
+      req.session.Profile_phone = dbProfileData.user_phone;
+      req.session.Experience = dbProfileData.user_experience;
+      req.session.Gear = dbProfileData.has_gear;
+
       req.session.loggedIn = true;
   
-      res.json({ Profile: dbProfileData, message: 'You are now logged in!' });
+      res.render('profile', { profile: dbProfileData, message: 'You are now logged in!' });
     });
   });
 });
