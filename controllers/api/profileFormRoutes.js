@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const { Profile, User } = require('../../models');
 
-// Get all Pros
+// Get all Profiles
 router.get('/', (req, res) => {
   Profile.findAll()
     .then(dbProfileData => res.json(dbProfileData))

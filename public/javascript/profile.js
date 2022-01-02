@@ -1,4 +1,4 @@
-const profilePage = async function(event) {
+const profilePage2 = async function(event) {
     event.preventDefault();
     const usernameEl = document.getElementById('#username');
     // const emailEl = document.getElementById('#email');
