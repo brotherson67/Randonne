@@ -1,6 +1,3 @@
-<link rel="stylesheet" href="./styles.css">
-
-
 <div>
 {{#if loggedIn}}
 <a href="/profile">profile</a>
@@ -8,18 +5,18 @@
 {{else}}
 
 
-<form id="login-form">
-  <div class="login-wrap">
+<form id="signup-form">
+  <div class="signup-wrap">
     <h6 class="form-title"> Signup </h6>
         <div>
-  <input type="text" id="user-login" placeholder="username"/>
+  <input type="text" id="username-signup" placeholder="username"/>
   </div>
 
     <div>
-    <input type="text" id="email-login" placeholder="email"/>
+    <input type="text" id="email-signup" placeholder="email"/>
   </div>
   <div>
-    <input type="password" id="password" placeholder="password"/>
+    <input type="password" id="password-signup" placeholder="password"/>
   </div>
   <div>
     <button id="signup-btn" type="submit">Signup</button>
@@ -28,12 +25,8 @@
 </form>
 {{!-- {{/if}} --}}
 </div>
-{{!-- {{#if loggedIn}} --}}
-  <script src="/javascript/logout.js"></script>
-{{!-- {{else}} --}}
-  <script src="/javascript/login.js"></script>
-{{!-- {{/if}} --}}
+
 <br><br><br>
-<script src="/public/javascript/signup.js"></script>
+<script src="/javascript/signup.js"></script>
 {{/if}}
 {{!-- </div> --}}

@@ -1,7 +1,3 @@
-
-
-
-
 var q1 = document.getElementById('#question1');
 var q2 = document.getElementById('#question2');
 var q3 = document.getElementById('#question3');
@@ -35,7 +31,6 @@ async function submitButton (event) {
 
 var submitBtn = document.getElementById("profile-submit")
 submitBtn.addEventListener("click", submitButton);
-
 
 
 
