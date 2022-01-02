@@ -50,10 +50,10 @@ router.get('/profile', (req, res) => {
 });
 
 router.get('/login', (req, res) => {
-  if (req.session.loggedIn) {
-    res.render('/login');
-    return;
-  }
+  // if (req.session.loggedIn) {
+  //   res.render('/');
+  //   return;
+  // }
   console.log('logged in?')
   res.render('./partials/login');
 });
@@ -99,7 +99,7 @@ router.get('/profile/:id', (req, res) => {
   //   return;
   // }
   console.log('============================ Profile page change success =====================================')
-  res.render('single-profile');
+  res.render('all-profile', {layout:'main2'});
 });
 
 router.get('/gear', (req, res) => {
