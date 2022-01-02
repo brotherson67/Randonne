@@ -8,7 +8,7 @@ const profilePage = async function(event) {
 
 
     const response = await fetch('api/profile', {
-        method: 'POST',
+        method: 'post',
         body: JSON.stringify({
             username: usernameEl.value,
             location: locationEl.value,

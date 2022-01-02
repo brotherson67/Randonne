@@ -18,7 +18,17 @@ router.get('/:id', (req, res) => {
     attributes: { exclude: ['password'] },
     where: {
       id: req.params.id
+<<<<<<< HEAD
     },
+=======
+    }
+    ,
+    attributes: [
+      'username',
+      'email'
+    ]
+    ,
+>>>>>>> fe33b2e03a484d3850840473bc1a30586d8e8fe2
     include: [
       {
         model: Profile,
@@ -60,6 +70,10 @@ router.post('/', (req, res) => {
         req.session.user_id = dbUserData.id;
         req.session.username = dbUserData.username;
         req.session.loggedIn = true;
+<<<<<<< HEAD
+=======
+        console.log("POST - new user", dbUserData);
+>>>>>>> fe33b2e03a484d3850840473bc1a30586d8e8fe2
   
         res.json(dbUserData);
       });
@@ -94,10 +108,18 @@ router.post('/', (req, res) => {
 //       req.session.username = dbUserData.username;
 //       req.session.loggedIn = true;
   
+<<<<<<< HEAD
 //       res.json({ user: dbUserData, message: 'You are now logged in!' });
 //     });
 //   });
 // });
+=======
+      // res.json({ user: dbUserData, message: 'You are now logged in!' });
+      res.render('profile', { user: dbUserData, message: 'You are now logged in!' });
+    });
+  });
+});
+>>>>>>> fe33b2e03a484d3850840473bc1a30586d8e8fe2
 
 router.post('/login', async (req, res) => {
   try {
