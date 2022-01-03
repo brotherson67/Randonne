@@ -499,3 +499,14 @@ a {
   flex-direction: column;
 }
 
+.contact {
+  margin: 2vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.contact h2 {
+  margin-left: auto;
+  margin-right: auto;
+}

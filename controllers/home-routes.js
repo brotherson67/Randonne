@@ -126,5 +126,8 @@ router.get('/privacy', (req, res) => {
   res.render('./privacy', {layout: 'main2'});
 });
 
+router.get('/contact', (req, res) => {
+  res.render('./contactUs', {layout: 'main2'});
+});
 
 module.exports = router;
