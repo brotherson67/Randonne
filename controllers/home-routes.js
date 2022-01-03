@@ -2,7 +2,7 @@ const router = require('express').Router();
 const sequelize = require('../config/connection');
 const { User, Profile  } = require('../models');
 
-// get all matches for homepage -- change to get matches 
+// get homepage 
 router.get('/', (req, res) => {
   console.log(req.session);
   console.log('=========HOME PAGE=============');
@@ -11,14 +11,13 @@ router.get('/', (req, res) => {
   })
     
 });
-
 // get single profile - working w handlebars
 router.get('/profile', (req, res) => {
   let user = req.session.user_id
-  console.log("GET", user)
+  console.log("GET",user)
   Profile.findOne({
     where: {
-      id: req.session.id
+      id: user
     },
     attributes: [
       'profile_image',
@@ -28,6 +27,8 @@ router.get('/profile', (req, res) => {
       'has_gear',
       'social',
       'location'
+      // ,
+      // [sequelize.literal('(SELECT (*) FROM user WHERE profile.id = user.profile_id)')]
     ],
   })
     .then(dbProfileData => {
@@ -37,7 +38,7 @@ router.get('/profile', (req, res) => {
       }
 
       const profile = dbProfileData.get({ plain: true });
-         console.log('Profile', profile);
+         console.log('Profile', profile)
       res.render('profile', {
         profile,
         loggedIn: req.session.loggedIn
@@ -59,20 +60,13 @@ router.get('/login', (req, res) => {
 });
 router.get('/logout', (req, res) => {
   // if (req.session.loggedIn) {
-  //   res.render('/');
+  //   res.render('/homepage');
   //   return;
   // }
   console.log('logged in?')
-  res.render('/');
+  res.render('./partials/logout');
 });
-router.get('/sign-up', (req, res) => {
-  // console.log('logged in?')
-  res.render('./partials/signup');
-  if (req.session.loggedIn) {
-    res.render('/profile');
-    return;
-  }
-});
+
 router.get('/map', (req, res) => {
   // if (req.session.loggedIn) {
   //   res.redirect('/map');
@@ -90,9 +84,13 @@ router.get('/form', (req, res) => {
   res.render('findFriends', {layout:'main2'});
 });
 router.get('/signup', (req, res) => {
-  
   res.render('partials/signup');
+  if (req.session.loggedIn) {
+    res.render('/profile');
+    return;
+  }
 });
+
 
 router.get('/profile', (req, res) => {
     res.render('./profile');
@@ -106,7 +104,7 @@ router.get('/profile/:id', (req, res) => {
   //   return;
   // }
   console.log('============================ Profile page change success =====================================')
-  res.render('all-profile', {layout:'main2'});
+  res.render('profile', {layout:'main2'});
 });
 
 router.get('/gear', (req, res) => {
@@ -125,6 +123,46 @@ router.get('/copyright', (req, res) => {
 router.get('/privacy', (req, res) => {
   res.render('./privacy', {layout: 'main2'});
 });
+
+router.get('/contact', (req, res) => {
+  res.render('./contactUs', {layout: 'main2'});
+});
+
+router.get('/submission', async (req, res) => {
+  // req.body.id find by pk (req.body.id)
+  const profileData = await Profile.findByPk(req.session.user_id);
+  console.log(profileData);
+  const newProfile = profileData.get({ plain: true })
+  console.log(newProfile);
+
+  res.render('submissionForm'
+  , newProfile
+  );
+  
+});
+
+router.get('/all-profile', (req, res) => {
+
+  Profile.findAll({
+
+      include: [
+          User
+      ]
+  })
+      .then(dbProfileData => {
+          const profs = dbProfileData.map(profs => profs.get({ plain: true }));
+
+          res.render('all-profile', {
+              profs
+          });
+      })
+      .catch(err => {
+          console.log(err);
+          res.status(500).json(err);
+      });
+});
+
+
 
 
 module.exports = router;

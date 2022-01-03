@@ -21,6 +21,7 @@ async function signupFormHandler(event) {
       if (response.ok) {
         // location.redirect("/profile");
         console.log('success');
+        document.location.replace('./map')
       } else {
         alert(response.statusText);
       }
