@@ -19,13 +19,5 @@ const profilePage = async function(event) {
         }),
         headers: { 'Content-Type': 'application/json' },
     });
-    // const response2 = await fetch('api/user', {
-    //     method: 'POST',
-    //     body: JSON.stringify({
-    //         username: usernameEl.value,
-    //         email: emailEl.value
-    //     }),
-    //     headers: { 'Content-Type': 'application/json' },
-    // });
    
 };
