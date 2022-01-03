@@ -469,3 +469,9 @@ a {
 .card-title {
   color: #86B049;
 }
+
+.errPage {
+  color: rgb(166,114,67);
+  text-align: center;
+  font-size: 6vw;
+}
