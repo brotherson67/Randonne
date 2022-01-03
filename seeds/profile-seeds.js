@@ -3,7 +3,7 @@ const { User, Profile } = require('../models');
 
 const profiledata = [
     {
-        profile_image: 'https://images.pexels.com/photos/3031397/pexels-photo-3031397.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+        profile_image: 'https://coloradomountainschool.com/wp-content/uploads/2018/04/Rock-Climbing-in-Boulder-Canyon-Colorado.jpg',
         user_location: 'slc',
         user_phone: 1234567890,
         user_experience: true,
@@ -13,7 +13,7 @@ const profiledata = [
         score: 9
     },
     {
-        profile_image: 'https://st.depositphotos.com/2218212/2938/i/600/depositphotos_29387653-stock-photo-facebook-profile.jpg',
+        profile_image: 'https://outdoorgearlab-mvnab3pwrvp3t0.stackpathdns.com/photos/15/81/279616_31645_L2.jpg',
         user_location: 'kamas',
         user_phone: 134526785,
         user_experience: true,
@@ -32,7 +32,7 @@ const profiledata = [
         location: 596785
     },
     {
-        profile_image: 'https://image.shutterstock.com/mosaic_250/2780032/1667439913/stock-photo-headshot-portrait-of-smiling-millennial-male-employee-talk-on-video-call-or-web-conference-in-1667439913.jpg',
+        profile_image: 'https://www.marinij.com/wp-content/uploads/2021/08/MIJ-L-CLIMBING-0821-01.jpg',
         user_location: 'slc',
         user_phone: 543672789,
         user_experience: true,
@@ -59,7 +59,7 @@ const profiledata = [
         location: 596785
     },
     {
-        profile_image: 'https://image.shutterstock.com/image-photo/handsome-man-portrait-260nw-1266937855.jpg',
+        profile_image: 'https://media.timesfreepress.com/img/photos/2020/08/21/1598032599_Belcher_Web_gs_t1070_h9b4b1c54e5fdc980bbcdb528723a0aa48d122e2a.jpg',
         user_location: 'logan',
         user_phone: 2635464563,
         user_experience: true,
@@ -68,7 +68,7 @@ const profiledata = [
         location: 596785
     },
     {
-        profile_image: 'https://images.pexels.com/photos/1080213/pexels-photo-1080213.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
+        profile_image: 'https://i.natgeofe.com/n/e5480624-48f3-44e7-8ff1-a8d8a7a08c49/h_20.93123346_square.JPG',
         user_location: 'slc',
         user_phone: 3452342345,
         user_experience: true,
