@@ -95,8 +95,8 @@ router.get('/signup', (req, res) => {
 });
 
 router.get('/profile', (req, res) => {
-    res.render('./profile');
-    // res.render('profile', {layout: 'main2'});
+    // res.render('/profile');
+    res.render('profile', {layout: 'main2'});
 });
 
 
