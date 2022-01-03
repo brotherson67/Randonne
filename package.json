@@ -2,7 +2,8 @@
   "name": "randonne",
   "version": "1.0.0",
   "engines": {
-    "node": "16.13"
+    "node": "16.13",
+    "npm": "8.1.0"
   },
   "description": "## Our sooper kewl klimbin ape",
   "main": "server.js",
