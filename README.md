@@ -33,11 +33,10 @@
   -- N/A
 
   ## Languages used:
-  -- javascript, HTML, CSS
+  -- JavaScript, HTML, CSS, Handlebars
 
   ## Other technologies used
   - Sequelize
-  - Handlebars
   - Express.js
   - Express-session
   - Bycrypt
