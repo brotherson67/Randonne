@@ -35,7 +35,7 @@ Profile.init(
         location: {
             type: DataTypes.STRING,
         },
-      score: {
+        score: {
           type: DataTypes.INTEGER,
           allowNull: true
       }

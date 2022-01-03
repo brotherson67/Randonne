@@ -6,7 +6,7 @@
 //     try {
 //       const profileData = await Profile.findAll({
 //         where: {
-//           userId: req.session.userId,
+//           userId: req.session.user_id,
 //         },
 //       });
 //   console.log('LOGGED IN');
@@ -26,7 +26,7 @@
 // router.get('/submission', withAuth, async (req, res) => {
 //   try {
     
-//     const profileData = await Profile.findByPk(req.session.userId)
+//     const profileData = await Profile.findByPk(req.session.user_id)
 //     console.log(profileData);
 //     const newProfile = profileData.get({plain:true})
 //     console.log(newProfile);

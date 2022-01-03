@@ -19,5 +19,13 @@ const profilePage = async function(event) {
         }),
         headers: { 'Content-Type': 'application/json' },
     });
+    if (response.ok) {
+        document.location.replace('/profile');
+        // console.log('logged in');
+        // alert("log in success")
+      } else {
+        alert(response.statusText);
+        // console.log("login failed")
+      }
    
 };

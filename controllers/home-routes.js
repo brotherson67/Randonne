@@ -12,10 +12,47 @@ router.get('/', (req, res) => {
     
 });
 
+router.get('/profile', (req, res) => {
+  let user = req.session.user_id
+  console.log("GET",user)
+  Profile.findOne({
+    where: {
+      id: user
+    },
+    attributes: [
+      'profile_image',
+      'user_location',
+      'user_phone',
+      'user_experience',
+      'has_gear',
+      'social',
+      'location'
+      // ,
+      // [sequelize.literal('(SELECT (*) FROM user WHERE profile.id = user.profile_id)')]
+    ],
+  })
+    .then(dbProfileData => {
+      if (!dbProfileData) {
+        res.status(404).json({ message: 'No profile found with this id' });
+        return;
+      }
+
+      const profile = dbProfileData.get({ plain: true });
+         console.log('Profile', profile)
+      res.render('profile', {
+        profile,
+        loggedIn: req.session.loggedIn
+      });
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(500).json(err);
+    });
+});
 // get single profile - working w handlebars
 // router.get('/profile', (req, res) => {
 //   let user = req.session.user_id
-//   console.log("GET",user)
+//   console.log("GET", user)
 //   Profile.findOne({
 //     where: {
 //       id: req.session.id
@@ -127,14 +164,17 @@ router.get('/privacy', (req, res) => {
 router.get('/contact', (req, res) => {
   res.render('./contactUs', {layout: 'main2'});
 });
+
 router.get('/submission', async (req, res) => {
   //req.body.id find by pk (req.body.id)
-  const profileData = await Profile.findByPk(1)
-  console.log(profileData);
-  const newProfile = profileData.get({plain:true})
-  console.log(newProfile);
+  // const profileData = await Profile.findByPk(1);
+  // console.log(profileData);
+  // const newProfile = profileData.get({ plain: true })
+  // console.log(newProfile);
 
-  res.render('submissionForm', newProfile);
+  res.render('submissionForm'
+  // , newProfile
+  );
   
 });
 
