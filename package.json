@@ -8,9 +8,8 @@
   "main": "server.js",
   "scripts": {
     "test": "jest",
-    "seeds": "node seeds/index.js",
-    "build": "next build",
-    "start": "next start -p $PORT"
+    "start": "node server.js",
+    "seeds": "node seeds/index.js"
   },
   "repository": {
     "type": "git",
