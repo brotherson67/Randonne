@@ -167,7 +167,7 @@ router.delete('/:id', (req, res) => {
 
 router.put('/:id', async (req, res) => {
   try {
-    const client = await Client.update(
+    const client = await Profile.update(
       {
         score: req.body.score,
 

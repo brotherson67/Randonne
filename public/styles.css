@@ -499,3 +499,14 @@ a {
   flex-direction: column;
 }
 
+.score {
+  color: #ab8024;
+}
+
+.spanscore {
+  color: #86B049;
+}
+
+.card-title {
+  color: #86B049;
+}
