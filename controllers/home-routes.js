@@ -119,7 +119,11 @@ router.get('/gear', (req, res) => {
 });
 
 router.get('/copyright', (req, res) => {
-  res.render('./copyright', {layout:'main2'})
+  res.render('./copyright', {layout:'main2'});
+});
+
+router.get('/privacy', (req, res) => {
+  res.render('./privacy', {layout: 'main2'});
 });
 
 
