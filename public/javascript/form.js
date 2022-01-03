@@ -30,6 +30,7 @@ async function submitButton(event) {
             location: q5.value.trim()
         };
         console.log(newProfile);
+        console.log(newProfile.score);
         //use a put route to update the score column of the currently logged in user 
     }
    
