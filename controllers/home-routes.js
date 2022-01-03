@@ -167,7 +167,7 @@ router.get('/contact', (req, res) => {
 
 router.get('/submission', async (req, res) => {
   // req.body.id find by pk (req.body.id)
-  const profileData = await Profile.findByPk(1);
+  const profileData = await Profile.findByPk(req.session.user_id);
   console.log(profileData);
   const newProfile = profileData.get({ plain: true })
   console.log(newProfile);

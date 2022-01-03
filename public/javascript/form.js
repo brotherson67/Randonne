@@ -12,7 +12,6 @@ async function submitButton(event) {
     var name = document.getElementById('name');
     var image = document.getElementById('photo');
     var valid = true;
-    console.log(name);
     if (name.value === "" || image.value === "") {
         valid = false;
     } else if (q1.value === "" || q2.value === "" || q3.value === "" || q4.value === "" || q5.value === "") {
