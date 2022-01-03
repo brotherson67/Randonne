@@ -48,9 +48,9 @@ router.get('/profile', (req, res) => {
     })
     .catch(err => {
       console.log(err);
-      res.status(500)
-      .render('./error')  
-      // .json(err);
+      // res.status(500)
+      res.render('./error')  
+      .json(err);
     });
 });
 
@@ -94,7 +94,7 @@ router.get('/signup', (req, res) => {
     return;
   }
   else {
-    res.render('/error')
+    res.redirect('/error')
   }
 });
 router.get('/profile', (req, res) => {
@@ -133,10 +133,7 @@ router.get('/submission', async (req, res) => {
   const newProfile = profileData.get({ plain: true })
   console.log(newProfile);
 
-  res.render('submissionForm'
-  , newProfile
-  );
-  
+  res.render('submissionForm', newProfile);
 });
 router.get('/all-profile', (req, res) => {
 
