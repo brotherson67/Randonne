@@ -63,7 +63,7 @@ router.get('/logout', (req, res) => {
   //   return;
   // }
   console.log('logged in?')
-  res.render('/');
+  res.render('/logout');
 });
 router.get('/sign-up', (req, res) => {
   // console.log('logged in?')
