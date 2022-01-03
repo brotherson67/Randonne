@@ -4,12 +4,13 @@
   "engines": {
     "node": "16.13"
   },
-  "description": "## Description:   enter description here",
+  "description": "## Our sooper kewl klimbin ape",
   "main": "server.js",
   "scripts": {
     "test": "jest",
-    "start": "node server.js",
-    "seeds": "node seeds/index.js"
+    "seeds": "node seeds/index.js",
+    "build": "next build",
+    "start": "nex start -p $PORT"
   },
   "repository": {
     "type": "git",
