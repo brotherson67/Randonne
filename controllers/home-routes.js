@@ -93,9 +93,6 @@ router.get('/signup', (req, res) => {
     res.render('/profile');
     return;
   }
-  else {
-    res.redirect('/error')
-  }
 });
 router.get('/profile', (req, res) => {
     res.render('./profile');
