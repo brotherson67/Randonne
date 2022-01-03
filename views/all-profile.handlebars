@@ -1,7 +1,25 @@
  <link rel="stylesheet" href="./styles.css">
 
-
+{{#each profs}}
 <div class="row">
+  <div class="col-4">
+    <div class="card mt-5" id="card-info" style="width: 300px; height: 500px; margin-top: 1%">
+  <div class="card-body">
+    <h5 class="card-title">My Beta </h5>
+<img src={{ profile_image }} style="width: 250px; height: auto; margin-top:">
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">Username: {{user.username }}</li>
+    <li class="list-group-item">Email: {{user.email}}</li>
+    <li class="list-group-item">Location: {{user_location}}</li>
+    <li class="list-group-item">Experience: {{user_experience }}</li>
+    <li class="list-group-item">Gear: {{ has_gear }}</li>
+      </ul>
+ </div>
+</div>
+ {{/each}}
+
+{{!-- <div class="row">
   <div class="col-4">
     <div class="card mt-5" id="card-info" style="width: 300px; height: 500px; margin-top: 1%">
   <div class="card-body">
@@ -16,8 +34,8 @@
     <li class="list-group-item">Gear: {{ profile.has_gear }}</li>
   </ul>
  </div>
-</div>
-  <div class="col-4">
+</div> --}}
+  {{!-- <div class="col-4">
     <div class="card mt-5 mb-5" id="card-info" style="width: 300px; height: 500px; margin-top: 1%">
   <div class="card-body">
     <h5 class="card-title">My Beta </h5>
@@ -138,7 +156,7 @@
     <li class="list-group-item">Gear: I have all the gear for indoors</li>
   </ul>
  </div>
-</div>
+</div> --}}
 
 
 {{!-- <script src="/javascript/profile.js"></script> --}}
