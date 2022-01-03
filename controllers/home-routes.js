@@ -126,5 +126,18 @@ router.get('/privacy', (req, res) => {
   res.render('./privacy', {layout: 'main2'});
 });
 
+// router.get('/submission', async (req, res) => {
+//   //req.body.id find by pk (req.body.id)
+//   const profileData = await Profile.findByPk(1)
+//   console.log(profileData);
+//   const newProfile = profileData.get({plain:true})
+//   console.log(newProfile);
+
+//   res.render('submissionForm', newProfile);
+  
+// });
+
+
+
 
 module.exports = router;

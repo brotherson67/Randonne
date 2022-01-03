@@ -35,13 +35,10 @@ Profile.init(
         location: {
             type: DataTypes.STRING,
         },
-        // user_id: {
-        //     type: DataTypes.INTEGER,
-        //     references: {
-        //         model: 'user',
-        //         key: 'id'
-        //     }
-        // }
+      score: {
+          type: DataTypes.INTEGER,
+          allowNull: true
+      }
     },
     {
         sequelize,

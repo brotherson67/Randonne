@@ -9,7 +9,8 @@ const profiledata = [
         user_experience: true,
         has_gear: true,
         social: true,
-        location: 596785
+        location: 596785,
+        score: 9
     },
     {
         profile_image: 'https://st.depositphotos.com/2218212/2938/i/600/depositphotos_29387653-stock-photo-facebook-profile.jpg',
@@ -18,7 +19,8 @@ const profiledata = [
         user_experience: true,
         has_gear: true,
         social: true,
-        location: 596785
+        location: 596785,
+        score: 8
     },
     {
         profile_image: 'https://thumbs.dreamstime.com/b/head-shot-portrait-social-networks-dating-application-profile-picture-attractive-young-happy-indian-arabic-mixed-race-woman-203598050.jpg',
