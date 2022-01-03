@@ -178,6 +178,27 @@ router.get('/submission', async (req, res) => {
   
 });
 
+router.get('/all-profile', (req, res) => {
+
+  Profile.findAll({
+
+      include: [
+          User
+      ]
+  })
+      .then(dbProfileData => {
+          const profs = dbProfileData.map(profs => profs.get({ plain: true }));
+
+          res.render('all-profile', {
+              profs
+          });
+      })
+      .catch(err => {
+          console.log(err);
+          res.status(500).json(err);
+      });
+});
+
 
 
 
