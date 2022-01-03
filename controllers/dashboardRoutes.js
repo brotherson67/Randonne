@@ -1,43 +1,43 @@
-// const router = require('express').Router();
-// const { Profile } = require('../models/');
-// const withAuth = require('../utils/auth');
+const router = require('express').Router();
+const { Profile } = require('../models/');
+const withAuth = require('../utils/auth');
 
-// router.get('/', withAuth, async (req, res) => {
-//     try {
-//       const profileData = await Profile.findAll({
-//         where: {
-//           userId: req.session.user_id,
-//         },
-//       });
-//   console.log('LOGGED IN');
-//     //   const profiles = profileData.map((profile) => profile.get({ plain: true }));
+router.get('/', withAuth, async (req, res) => {
+    try {
+      const profileData = await Profile.findAll({
+        where: {
+          userId: req.session.user_id,
+        },
+      });
+  console.log('LOGGED IN');
+      const profiles = profileData.map((profile) => profile.get({ plain: true }));
   
-//       res.render('submission', {
-//         layout: 'main2',
-//         // profiles,
-//       });
+      res.render('submission', {
+        layout: 'main2',
+        profiles,
+      });
 
-//     } catch (err) {
-//         console.log('not logged in');
-//       res.redirect('login');
-//     }
-//   });
+    } catch (err) {
+        console.log('not logged in');
+      res.redirect('login');
+    }
+  });
 
-// router.get('/submission', withAuth, async (req, res) => {
-//   try {
+router.get('/submission', withAuth, async (req, res) => {
+  try {
     
-//     const profileData = await Profile.findByPk(req.session.user_id)
-//     console.log(profileData);
-//     const newProfile = profileData.get({plain:true})
-//     console.log(newProfile);
+    const profileData = await Profile.findByPk(req.session.user_id)
+    console.log(profileData);
+    const newProfile = profileData.get({plain:true})
+    console.log(newProfile);
   
-//     res.render('submissionForm', { layout:"main2", newProfile});
+    res.render('submissionForm', { layout:"main2", newProfile});
   
 
-//   } catch (err) {
-//     res.redirect('login');
-//   }
-// });
+  } catch (err) {
+    res.redirect('login');
+  }
+});
 
 
-// module.exports = router;
+module.exports = router;
