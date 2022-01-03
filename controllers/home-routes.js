@@ -49,24 +49,22 @@ router.get('/profile', (req, res) => {
     });
 });
 
-router.get('/profile/:id', (req, res) => {
+router.get('/login', (req, res) => {
   // if (req.session.loggedIn) {
-  //   res.redirect('/profile');
+  //   res.render('/');
   //   return;
   // }
-  console.log('============================ Profile page change success =====================================')
-  res.render('single-profile');
-});
-
-router.get('/login', (req, res) => {
-  if (req.session.loggedIn) {
-    res.render('/login');
-    return;
-  }
   console.log('logged in?')
   res.render('./partials/login');
 });
-
+router.get('/logout', (req, res) => {
+  // if (req.session.loggedIn) {
+  //   res.render('/');
+  //   return;
+  // }
+  console.log('logged in?')
+  res.render('/');
+});
 router.get('/sign-up', (req, res) => {
   // console.log('logged in?')
   res.render('./partials/signup');
@@ -101,6 +99,16 @@ router.get('/profile', (req, res) => {
     // res.render('profile', {layout: 'main2'});
 });
 
+
+router.get('/profile/:id', (req, res) => {
+  // if (req.session.loggedIn) {
+  //   res.redirect('/profile');
+  //   return;
+  // }
+  console.log('============================ Profile page change success =====================================')
+  res.render('all-profile', {layout:'main2'});
+});
+
 router.get('/gear', (req, res) => {
   // if (req.session.loggedIn) {
   //   res.redirect('/gear');
@@ -111,8 +119,12 @@ router.get('/gear', (req, res) => {
 });
 
 router.get('/copyright', (req, res) => {
-  res.render('./copyright')
-})
+  res.render('./copyright', {layout:'main2'});
+});
+
+router.get('/privacy', (req, res) => {
+  res.render('./privacy', {layout: 'main2'});
+});
 
 
 module.exports = router;

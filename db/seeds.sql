@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 -- INSERT INTO user (username) 
+=======
+-- INSERT INTO user (username, email, password)
+>>>>>>> 4cba384d8def5744abc7613c0926d5770cfdc751
 -- VALUES
 --     ('plaindemon','plain@demon.com' ,'demonplain1'),
 --     ('blueshark', 'blue@shark.com','sharkblue1' ),
@@ -12,12 +16,12 @@
 --     ('lock_gear', 'lock@gear.com' , 'gearlock1');
 
 
--- selects all from the users table
+-- -- selects all from the users table
 -- SELECT * FROM user;
 
--- deletes from the users table
--- DELETE FROM user
--- WHERE user_name = "blueshark";
+-- -- deletes from the users table
+-- -- DELETE FROM user
+-- -- WHERE user_name = "blueshark";
 
 -- INSERT INTO profile (profile_image, user_location, user_phone, user_experience, has_gear, social, location) 
 -- VALUES
@@ -35,7 +39,11 @@
 
 
 
+<<<<<<< HEAD
 -- selects all from experience table
+=======
+-- -- selects all from experience table
+>>>>>>> 4cba384d8def5744abc7613c0926d5770cfdc751
 -- SELECT * FROM profile;
 
 

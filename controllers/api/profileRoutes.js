@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const { Profile, User } = require('../../models');
 
-// Get all Profiles
+// Get all Pros
 router.get('/', (req, res) => {
   Profile.findAll()
     .then(dbProfileData => res.json(dbProfileData))
@@ -166,3 +166,4 @@ router.delete('/:id', (req, res) => {
 
 
 module.exports = router;
+

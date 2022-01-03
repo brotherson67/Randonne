@@ -1,7 +1,8 @@
-const profilePage = async function(event) {
+const allProfiles = async function(event) {
     event.preventDefault();
     const usernameEl = document.getElementById('#username');
     // const emailEl = document.getElementById('#email');
+
     const locationEl = document.getElementById('#location');
     const phoneEl = document.getElementById('#phone');
     const experienceEl = document.getElementById('#experience');
@@ -9,7 +10,7 @@ const profilePage = async function(event) {
 
 
     const response = await fetch('api/profile', {
-        method: 'post',
+        method: 'get',
         body: JSON.stringify({
             username: usernameEl.value,
             location: locationEl.value,
@@ -19,7 +20,8 @@ const profilePage = async function(event) {
         }),
         headers: { 'Content-Type': 'application/json' },
     });
-    // const response2 = await fetch('api/user', {
+
+    // const userResponse = await fetch('api/user', {
     //     method: 'POST',
     //     body: JSON.stringify({
     //         username: usernameEl.value,

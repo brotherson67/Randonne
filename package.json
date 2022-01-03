@@ -1,11 +1,16 @@
 {
   "name": "randonne",
   "version": "1.0.0",
+  "engines" : {
+    "node": "17.0.1",
+    "npm": "8.1.0"
+  },
   "description": "## Description:   enter description here",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "test": "jest",
-    "start": "node server.js"
+    "start": "node server.js",
+    "seeds": "node seeds/index.js"
   },
   "repository": {
     "type": "git",
@@ -22,6 +27,7 @@
     "jest": "^27.4.5"
   },
   "dependencies": {
+    "@mapbox/mapbox-gl-geocoder": "^4.7.4",
     "bcrypt": "^5.0.1",
     "connect-session-sequelize": "^7.1.2",
     "dotenv": "^10.0.0",
@@ -29,9 +35,13 @@
     "express-handlebars": "^6.0.2",
     "express-session": "^1.17.2",
     "handlebars": "^4.7.7",
+    "mapbox-gl": "^2.6.1",
     "mysql": "^2.18.1",
     "mysql2": "^2.3.3",
     "seed": "^0.4.4",
-    "sequelize": "^6.12.2"
+    "sequelize": "^6.12.4"
+  },
+  "env": {
+    "SECRET_KEY": ""
   }
 }
