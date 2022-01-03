@@ -19,11 +19,9 @@
 <body>
   <div class ="wrapper">
     <header>
-     {{> nav }}
-     
-       <div class="card">
-         <img id="heroimg" class="card-img-top" src="./images/climbing-partners.png" alt="three climbers bouldering" style="">
-          
+      {{> nav }}
+      <div class="card">
+        <img id="heroimg" class="card-img-top" src="./images/climbing-partners.png" alt="three climbers bouldering">
       </div> 
     </header>
     <main>
@@ -35,7 +33,7 @@
           <input id="map_api" value={{MAPBOX_API_TOKEN}} hidden />
     </main>
 
-     {{> footer}}
+    {{> footer}}
    </div>
     
     <script src='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.js'></script>
