@@ -8,7 +8,108 @@
     * messages or message board
     * climber experience 
     * set climbing parties 
+    * 
+
+-- code for typeformm
+<button data-tf-slider="m6Q8fgEI" data-tf-width="550" data-tf-iframe-props="title=Membership Application (copy)" style="all:unset;font-family:Helvetica,Arial,sans-serif;display:inline-block;max-width:100%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;background-color:#0445AF;color:#FFFFFF;font-size:20px;border-radius:25px;padding:0 33px;font-weight:bold;height:50px;cursor:pointer;line-height:50px;text-align:center;margin:0;text-decoration:none;">Signup</button>
+
+// get all matches for homepage -- change to get matches 
+// router.get('/', (req, res) => {
+//   console.log(req.session);
+//   console.log('======================');
+//   User.findAll({
+//     attributes: [
+//       'id',
+//       'username',
+//       'email'
+//     ],
+//     include: [
+//       {
+//         model: Profile,
+//         attributes: ['id'],
+//       },
+//     ]
+//   })
+//     .then(dbUserData => {
+//       const users = dbUserData.map(user => user.get({ plain: true }));
+
+//       res.render('homepage', {
+//         users,
+//         loggedIn: req.session.loggedIn
+//       });
+//     })
+//     .catch(err => {
+//       console.log(err);
+//       res.status(500).json(err);
+//     });
+// });
+
+{{!-- 
+<div class="row">
+  <div class="col-7" style="p-1" id="profile-image"> <img src="./images/cave.png"></div>
+  <div class="col-5" id="info">
+    <div class="card mt-5" id="card-info" style="width: 500px; height: 700px; margin-top: 1%">
+  {{!-- <img class="card-img-top" id="profile-image" src="..." alt="Card image cap"> --}}
+  <div class="card-body">
+    <h5 class="card-title">My Beta </h5>
+    <img src={{user.profile_image}}>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">Username: {{user.username}}</li>
+    <li class="list-group-item">Email: {{user.email}}</li>
+    <li class="list-group-item">Location: {{profile.user_location}}</li>
+    <li class="list-group-item">Experience: {{profile.user_experience}}</li>
+    <li class="list-group-item">Gear: {{profile.has_gear}}</li>
+  </ul>
+  </div>
+</div>
+  </div>
+</div>
+
+<script src="/javascript/profile.js"></script> --}}
+
+// //get variables for modal
+// var modal = document.getElementById('#question-modal');
+// var btn = document.getElementById('#modal-open');
+// var close = document.getElementById('#modal-close');
+
+// console.log(modal);
+
+// document.addEventListener("DOMContentLoaded", ()=> {
+
+// async function openModal() {
+//     modal.style.display = "block";
+//     console.log(modal);
+//     console.log('button click');
+
+// };
+
+
+// openModal();
 
 
 
 
+// async function closeModal() {
+//     modal.style.display('none');
+//     close.addEventListener('click', closeModal);
+//     console.log("click")
+// };
+
+// closeModal();
+// });
+
+
+//close on outside click
+// async function outsideModal(event) {
+  
+//     if (event.target.closest(window)){
+//         return;    
+//     }
+//     else if (!event.target.closest(".modal")) {
+//        modal.style.display = 'none'
+//     }
+//     document.addEventListener('click', outsideModal);
+// }
+
+// outsideModal();

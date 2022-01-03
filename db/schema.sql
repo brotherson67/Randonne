@@ -10,16 +10,19 @@ CREATE DATABASE climbing_db;
 USE climbing_db;
 
 --  drops all the tables if they exist then creates the tables
--- DROP TABLE IF EXISTS user;
--- DROP TABLE IF EXISTS gear;
--- DROP TABLE IF EXISTS social;
--- DROP TABLE IF EXISTS work;
+DROP TABLE IF EXISTS user;
+DROP TABLE IF EXISTS profile;
+
+
+
 
 -- A table is composed of rows and columns. A column represents a field. A row represents a record.
 
 -- CREATE TABLE user(
 --   id INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY,
---   user_name VARCHAR(30) NOT NULL,
+--   username VARCHAR(30) NOT NULL,
+--   email VARCHAR(30) NOT NULL,
+--   password VARCHAR(100) NOT NULL,
 --   created_at DATETIME DEFAULT CURRENT_TIMESTAMP
 -- );
 
@@ -41,17 +44,28 @@ USE climbing_db;
 --   locking_carabiners BOOLEAN NOT NULL
 -- );
 
-CREATE TABLE social(
-  id INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  social_level INTEGER NOT NULL,
-  description TEXT
-);
+-- CREATE TABLE social(
+--   id INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY,
+--   social_level INTEGER NOT NULL,
+--   description TEXT
+-- );
 
-CREATE TABLE work(
-  id INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  schedule VARCHAR(30) NOT NULL,
-  description TEXT
-);
+-- CREATE TABLE work(
+--   id INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY,
+--   schedule VARCHAR(30) NOT NULL,
+--   description TEXT
+-- );
+
+-- CREATE TABLE profile(
+--     id INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY,
+--     profile_image VARCHAR(30) NOT NULL,
+--     user_location VARCHAR(30) NOT NULL,
+--     user_phone INTEGER,
+--     user_experience BOOLEAN,
+--     has_gear BOOLEAN NOT NULL,
+--     social BOOLEAN NOT NULL,
+--     location VARCHAR(30)
+-- );
 
 
 -- A query is a request for data from a database table or a combination of tables.
