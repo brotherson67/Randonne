@@ -129,5 +129,18 @@ router.get('/privacy', (req, res) => {
 router.get('/contact', (req, res) => {
   res.render('./contactUs', {layout: 'main2'});
 });
+router.get('/submission', async (req, res) => {
+  //req.body.id find by pk (req.body.id)
+  const profileData = await Profile.findByPk(1)
+  console.log(profileData);
+  const newProfile = profileData.get({plain:true})
+  console.log(newProfile);
+
+  res.render('submissionForm', newProfile);
+  
+});
+
+
+
 
 module.exports = router;
