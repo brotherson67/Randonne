@@ -19,7 +19,8 @@
   <div class="form-group">
     <label for="question1">I have a lot of climbing experience</label>
     <select class="form-control" id="question1">
-      <option value="empty">I'm a newbie!</option>
+      <option value="0"></option>
+      <option value="0">I'm a newbie!</option>
       <option value="1">I climb a little bit</option>
       <option value="2">I've been climbing for a year or so</option>
       <option value="3">I've been climbing for a few years and know my stuff</option>
@@ -30,7 +31,7 @@
   <div class="form-group">
     <label for="question2">I like to climb outdoors</label>
     <select class="form-control" id="question2">
-      <option value="empty"></option>
+      <option value="0"></option>
       <option value="1">I'm new so I'd feel comfortable starting in the gym</option>
       <option value="2">I'm new but I'd like to start outdoors!</option>
       <option value="3">I climb hard in the gym</option>
@@ -41,7 +42,7 @@
   <div class="form-group">
     <label for="question3">I have my own climbing gear</label>
     <select class="form-control" id="question3">
-      <option value="empty"></option>
+      <option value="0"></option>
       <option value="1">I don't have anything yet</option>
       <option value="2">I have the basics</option>
       <option value="3">I have the basics and a rope and some quickdraws</option>
@@ -52,7 +53,7 @@
   <div class="form-group">
     <label for="question4">I like to climb to socialize</label>
     <select class="form-control" id="question4">
-      <option value="empty"></option>
+      <option value="0"></option>
       <option value="1">I like to take it seriously</option>
       <option value="2">I like to take it seriously but I also like to socialize</option>
       <option value="3">I climb to meet people</option>
@@ -62,12 +63,12 @@
 
   <div class="form-group">
     <label for="question5"></label>
-    <select class="form-control" id="question5">
-        <input class="climb-location" type="text" name="location" placeholder="Where do you want to climb?">
-    </select>
+        <input id="question5" class="climb-location" type="text" name="location" placeholder="Where do you want to climb?">
   </div>
 
-  <button id="profile-submit" class="btn btn-success">Submit!</button>
+  {{!-- <a href="/submission"> <button id="profile-submit" class="btn btn-success">Submit!</button></a> --}}
+  <a href="/submission"><button id="profile-submit" class="btn">Submit</button></a>
+
 
 </div> 
 </div>

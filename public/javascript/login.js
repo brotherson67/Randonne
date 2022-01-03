@@ -10,14 +10,14 @@ async function loginFormHandler(event) {
         method: 'post',
         body: JSON.stringify({
           // username,
-          email,
-          password
+          email: email,
+          password: password
         }),
         headers: { 'Content-Type': 'application/json' }
       });
   
       if (response.ok) {
-        document.location.replace('/');
+        document.location.replace('/dashboard');
         // console.log('logged in');
         // alert("log in success")
       } else {
