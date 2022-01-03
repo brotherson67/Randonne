@@ -112,7 +112,7 @@ router.get('/gear', (req, res) => {
 });
 
 router.get('/copyright', (req, res) => {
-  res.render('./copyright')
+  res.render('./copyright', {layout:'main2'})
 });
 
 
