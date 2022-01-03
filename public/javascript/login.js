@@ -18,11 +18,11 @@ async function loginFormHandler(event) {
   
       if (response.ok) {
         document.location.replace('/');
-        console.log('logged in');
-        alert("log in success")
+        // console.log('logged in');
+        // alert("log in success")
       } else {
         alert(response.statusText);
-        console.log("login failed")
+        // console.log("login failed")
       }
     }
     

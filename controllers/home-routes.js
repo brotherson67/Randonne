@@ -57,7 +57,14 @@ router.get('/login', (req, res) => {
   console.log('logged in?')
   res.render('./partials/login');
 });
-
+router.get('/logout', (req, res) => {
+  // if (req.session.loggedIn) {
+  //   res.render('/');
+  //   return;
+  // }
+  console.log('logged in?')
+  res.render('/');
+});
 router.get('/sign-up', (req, res) => {
   // console.log('logged in?')
   res.render('./partials/signup');
