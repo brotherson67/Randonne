@@ -110,5 +110,9 @@ router.get('/gear', (req, res) => {
   res.render('./gear');
 });
 
+router.get('/copyright', (req, res) => {
+  res.render('./copyright')
+})
+
 
 module.exports = router;
