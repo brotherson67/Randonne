@@ -7,7 +7,8 @@ router.get('/', (req, res) => {
   console.log(req.session);
   console.log('=========HOME PAGE=============');
   res.render('homepage', {
-    loggedIn: req.session.loggedIn
+    loggedIn: req.session.loggedIn,
+    MAPBOX_API_TOKEN: process.env.MAPBOX_API_TOKEN
   })
     
 });
@@ -73,7 +74,9 @@ router.get('/map', (req, res) => {
   //   return;
   // }
   console.log('Map location required')
-  res.render('./map');
+  res.render('./map', {
+    MAPBOX_API_TOKEN: process.env.MAPBOX_API_TOKEN
+  });
 });
 router.get('/form', (req, res) => {
   // if (req.session.loggedIn) {
