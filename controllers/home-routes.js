@@ -11,7 +11,7 @@ router.get('/', (req, res) => {
   })
     
 });
-
+// get single profile - working w handlebars
 router.get('/profile', (req, res) => {
   let user = req.session.user_id
   console.log("GET",user)
@@ -49,7 +49,7 @@ router.get('/profile', (req, res) => {
       res.status(500).json(err);
     });
 });
-// get single profile - working w handlebars
+// get single profile - not working w handlebars
 // router.get('/profile', (req, res) => {
 //   let user = req.session.user_id
 //   console.log("GET", user)
@@ -135,14 +135,14 @@ router.get('/profile', (req, res) => {
 });
 
 
-// router.get('/profile/:id', (req, res) => {
-//   // if (req.session.loggedIn) {
-//   //   res.redirect('/profile');
-//   //   return;
-//   // }
-//   console.log('============================ Profile page change success =====================================')
-//   res.render('profile', {layout:'main2'});
-// });
+router.get('/profile/:id', (req, res) => {
+  // if (req.session.loggedIn) {
+  //   res.redirect('/profile');
+  //   return;
+  // }
+  console.log('============================ Profile page change success =====================================')
+  res.render('profile', {layout:'main2'});
+});
 
 router.get('/gear', (req, res) => {
   // if (req.session.loggedIn) {
@@ -166,14 +166,14 @@ router.get('/contact', (req, res) => {
 });
 
 router.get('/submission', async (req, res) => {
-  //req.body.id find by pk (req.body.id)
-  // const profileData = await Profile.findByPk(1);
-  // console.log(profileData);
-  // const newProfile = profileData.get({ plain: true })
-  // console.log(newProfile);
+  // req.body.id find by pk (req.body.id)
+  const profileData = await Profile.findByPk(1);
+  console.log(profileData);
+  const newProfile = profileData.get({ plain: true })
+  console.log(newProfile);
 
   res.render('submissionForm'
-  // , newProfile
+  , newProfile
   );
   
 });
