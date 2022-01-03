@@ -284,6 +284,7 @@ a {
 #map {
   height: 100vw;
   width: 100vw;
+  display: flex;
 }
 
 #partnerBox {
@@ -491,3 +492,10 @@ a {
   color: #ab8024;
   margin-left: 10%;
 }
+
+#quote{
+  display: grid;
+  float: right;
+  flex-direction: column;
+}
+
