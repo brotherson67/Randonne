@@ -1,6 +1,9 @@
 {
   "name": "randonne",
   "version": "1.0.0",
+  "engines" : {
+    "node": "17.0.1"
+  },
   "description": "## Description:   enter description here",
   "main": "server.js",
   "scripts": {
