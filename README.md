@@ -21,15 +21,13 @@
   - SO THAT I can climb with people with similar climbing goals 
 
   ## Visuals 
-  <img src='./public/images/login.png>
-  <img src='./public/images/profile.png>
-  <img src='./public/images/form.png>
+  <img src='./public/images/login.png'>
+  <img src='./public/images/profile.png'>
+  <img src='./public/images/form.png'>
 
 
   ## Github
-  -- [](https://github.com/)
-  -- [](https://github.com/)
-  -- [](https://github.com/)
+  -- https://github.com/brotherson67/Randonne
 
   ## License
   -- N/A
