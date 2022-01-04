@@ -92,10 +92,10 @@ router.get('/form', (req, res) => {
 });
 router.get('/signup', (req, res) => {
   res.render('partials/signup');
-  if (req.session.loggedIn) {
-    res.render('/profile');
-    return;
-  }
+  // if (req.session.loggedIn) {
+  //   res.render('/profile');
+  //   return;
+  // }
 });
 router.get('/profile', (req, res) => {
     res.render('./profile');
