@@ -21,7 +21,11 @@ async function signupFormHandler(event) {
       if (response.ok) {
         location.redirect("/profile/.this");
         console.log('success');
+<<<<<<< HEAD
         // document.location.replace('./map')
+=======
+        document.location.replace('/profile')
+>>>>>>> 74f7987850f3d93b61b073239511865601ec1ff7
       } else {
         alert(response.statusText);
       }
