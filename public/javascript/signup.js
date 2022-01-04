@@ -21,12 +21,19 @@ async function signupFormHandler(event) {
       if (response.ok) {
         // location.redirect("/profile");
         console.log('success');
-        document.location.replace('./map')
+        document.location.replace('/profile')
+        // document.location.replace('./map')
+
+        document.location.replace("/all-profile");
+        console.log('success');
+        // document.location.replace('./map'
+        // location.redirect("/profile/.this");
+        console.log('success');
+        // document.location.replace('/profile')
+
       } else {
         alert(response.statusText);
       }
     }
-  
-
   }
 document.querySelector('#signup-form').addEventListener('submit', signupFormHandler);
