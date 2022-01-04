@@ -28,6 +28,8 @@
 
   ## Github
   -- https://github.com/brotherson67/Randonne
+  ## Deployed
+  https://enigmatic-bayou-07532.herokuapp.com/all-profile
 
   ## License
   -- N/A

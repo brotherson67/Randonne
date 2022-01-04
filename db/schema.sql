@@ -44,17 +44,28 @@ CREATE TABLE gear(
   locking_carabiners BOOLEAN NOT NULL
 );
 
-CREATE TABLE social(
-  id INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  social_level INTEGER NOT NULL,
-  description TEXT
-);
+-- CREATE TABLE social(
+--   id INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY,
+--   social_level INTEGER NOT NULL,
+--   description TEXT
+-- );
 
-CREATE TABLE work(
-  id INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  schedule VARCHAR(30) NOT NULL,
-  description TEXT
-);
+-- CREATE TABLE work(
+--   id INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY,
+--   schedule VARCHAR(30) NOT NULL,
+--   description TEXT
+-- );
+
+-- CREATE TABLE profile(
+--     id INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY,
+--     profile_image VARCHAR(30) NOT NULL,
+--     user_location VARCHAR(30) NOT NULL,
+--     user_phone INTEGER,
+--     user_experience BOOLEAN,
+--     has_gear BOOLEAN NOT NULL,
+--     social BOOLEAN NOT NULL,
+--     location VARCHAR(30)
+-- );
 
 CREATE TABLE profile(
     id INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY,
