@@ -162,5 +162,3 @@ router.get('/error', (req, res) => {
 
 
 module.exports = router;
-
-// testing
