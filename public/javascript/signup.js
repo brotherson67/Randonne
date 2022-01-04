@@ -19,9 +19,9 @@ async function signupFormHandler(event) {
       console.log(response,"POST");
        // check the response status
       if (response.ok) {
-        // location.redirect("/profile");
+        document.location.replace("./findFriends");
         console.log('success');
-        document.location.replace('./map')
+        // document.location.replace('./map')
       } else {
         alert(response.statusText);
       }
