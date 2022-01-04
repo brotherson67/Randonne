@@ -7,7 +7,8 @@ router.get('/', (req, res) => {
   console.log(req.session);
   console.log('=========HOME PAGE=============');
   res.render('homepage', {
-    loggedIn: req.session.loggedIn
+    loggedIn: req.session.loggedIn,
+    MAPBOX_API_TOKEN: process.env.MAPBOX_API_TOKEN
   })
     
 });
@@ -33,7 +34,9 @@ router.get('/profile', (req, res) => {
   })
     .then(dbProfileData => {
       if (!dbProfileData) {
-        res.status(404).json({ message: 'No profile found with this id' });
+        res.status(404)
+          .render('./error')
+          // .json({ message: 'No profile found with this id' });
         return;
       }
 
@@ -46,7 +49,9 @@ router.get('/profile', (req, res) => {
     })
     .catch(err => {
       console.log(err);
-      res.status(500).json(err);
+      // res.status(500)
+      res.render('./error')  
+      .json(err);
     });
 });
 
@@ -73,7 +78,9 @@ router.get('/map', (req, res) => {
   //   return;
   // }
   console.log('Map location required')
-  res.render('./map');
+  res.render('./map', {
+    MAPBOX_API_TOKEN: process.env.MAPBOX_API_TOKEN
+  });
 });
 router.get('/form', (req, res) => {
   // if (req.session.loggedIn) {
@@ -90,14 +97,10 @@ router.get('/signup', (req, res) => {
     return;
   }
 });
-
-
 router.get('/profile', (req, res) => {
     res.render('./profile');
     // res.render('profile', {layout: 'main2'});
 });
-
-
 router.get('/profile/:id', (req, res) => {
   // if (req.session.loggedIn) {
   //   res.redirect('/profile');
@@ -106,7 +109,6 @@ router.get('/profile/:id', (req, res) => {
   console.log('============================ Profile page change success =====================================')
   res.render('profile', {layout:'main2'});
 });
-
 router.get('/gear', (req, res) => {
   // if (req.session.loggedIn) {
   //   res.redirect('/gear');
@@ -115,19 +117,15 @@ router.get('/gear', (req, res) => {
   console.log('Gear Checklist page')
   res.render('./gear');
 });
-
 router.get('/copyright', (req, res) => {
   res.render('./copyright', {layout:'main2'});
 });
-
 router.get('/privacy', (req, res) => {
   res.render('./privacy', {layout: 'main2'});
 });
-
 router.get('/contact', (req, res) => {
   res.render('./contactUs', {layout: 'main2'});
 });
-
 router.get('/submission', async (req, res) => {
   // req.body.id find by pk (req.body.id)
   const profileData = await Profile.findByPk(req.session.user_id);
@@ -135,12 +133,8 @@ router.get('/submission', async (req, res) => {
   const newProfile = profileData.get({ plain: true })
   console.log(newProfile);
 
-  res.render('submissionForm'
-  , newProfile
-  );
-  
+  res.render('submissionForm', newProfile);
 });
-
 router.get('/all-profile', (req, res) => {
 
   Profile.findAll({
@@ -161,7 +155,9 @@ router.get('/all-profile', (req, res) => {
           res.status(500).json(err);
       });
 });
-
+router.get('/error', (req, res) => {
+  res.render('./error')
+})
 
 
 

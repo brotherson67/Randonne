@@ -22,7 +22,8 @@ async function loginFormHandler(event) {
         // console.log('logged in');
         // alert("log in success")
       } else {
-        alert(response.statusText);
+        document.location.replace('/error')
+        // alert(response.statusText);
         // console.log("login failed")
       }
     }

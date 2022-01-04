@@ -6,8 +6,15 @@
 // }
 // var mapboxgl = require('mapbox-gl/dist/mapbox-gl.js');
  
+// require('dotenv').config();
 
-mapboxgl.accessToken = 'pk.eyJ1IjoibWl0Y2hicm9kZXYiLCJhIjoiY2t4aDZneTVrMjZoNzJya3lodmpsYnQzMSJ9.vYeLQf6nI3N9Zq6Y2ejDIA';
+const mapboxToken =  document.getElementById("map_api").value;
+console.log(mapboxToken);
+mapboxgl.accessToken = mapboxToken;
+
+// mapboxgl.accessToken = '';
+
+// use local storage to store the mapbox token and then have it save to the sessions
 
 let coordinates = {
     latitude: "",
