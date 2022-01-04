@@ -5,27 +5,6 @@
 
    {{!-- <link rel="stylesheet" href="/styles.css"> --}}
 
-{{!-- {{> nav}} --}}
-
-
-
-{{!-- <div id="profile-box" class="profile-card card border-secondary mb-3">
-  <h2 id="welcome"> Welcome Climbers! </h2>
-<div class="card" style="width: 18rem;">
-  <img src= {{ profile.profile_image}} class="card-img-top" style=" padding: 5px; width: 300px" alt="profile picture">
-  <div class="card-body">
-    <h5 class="card-title">{{ user.username }}</h5>
-    <p class="card-text">My preferences</p>
-  </div>
-  <ul class="list-group list-group-flush">
-    <li id="username"class="list-group-item">Username: {{ user.username }}</li>
-    <li id="email"class="list-group-item">User email: {{ user.email }}</li>
-    <li id="location" class="list-group-item">User Location: {{profile.user_location}}</li>
-    <li id="phone" class="list-group-item">Phone number: {{profile.user_phone}}</li>
-    <li id="experience" class="list-group-item">Has experience climbing: {{profile.user_experience}}</li>
-   <li id="gear" class="list-group-item">Has Gear: {{profile.has_gear}}</li>
-  <img src= {{ profile_image }} class="card-img-top" alt="profile picture"> --}}
-
 <link rel="stylesheet" href="./styles.css">
 <div class="row">
   <div class="col-7" style="p-1" id="profile-image"> <img src="./images/cave.png"></div>
@@ -34,7 +13,7 @@
   {{!-- <img class="card-img-top" id="profile-image" src="..." alt="Card image cap"> --}}
   <div class="card-body">
     <h5 class="card-title">My Beta </h5>
-    <img src={{ profile.profile_image }} style="width: 500px; height: auto; margin-top:">
+    <img src={{ profile.profile_image }} style="width: 300px; height: auto; margin-top:">
   </div>
   <ul class="list-group list-group-flush">
     <li class="list-group-item">Username: {{user.username}}</li>
@@ -42,13 +21,13 @@
     <li class="list-group-item">Location: {{profile.user_location}}</li>
     <li class="list-group-item">Experience: {{profile.user_experience}}</li>
     <li class="list-group-item">Gear: {{profile.has_gear}}</li>
-
   </ul>
  </div>
 </div>
+ 
 
 
-{{!-- <script src="/javascript/profile.js"></script> --}}
+<script src="/javascript/profile.js"></script>
 
 
 

@@ -35,6 +35,7 @@ Profile.init(
         location: {
             type: DataTypes.STRING,
         },
+<<<<<<< HEAD
         // user_id: {
         //     type: DataTypes.INTEGER,
         //     references: {
@@ -42,6 +43,12 @@ Profile.init(
         //         key: 'id'
         //     }
         // }
+=======
+        score: {
+          type: DataTypes.INTEGER,
+          allowNull: true
+      }
+>>>>>>> c8b8aa5daff8101796c1c0b561f08efbc91b5d2d
     },
     {
         sequelize,

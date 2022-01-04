@@ -24,7 +24,12 @@ router.get('/:id', (req, res) => {
       'user_experience',
       'has_gear',
       'social',
+<<<<<<< HEAD
       'location'
+=======
+      'location',
+      'score'
+>>>>>>> c8b8aa5daff8101796c1c0b561f08efbc91b5d2d
     ],
     include: [
       {
@@ -163,6 +168,26 @@ router.delete('/:id', (req, res) => {
       res.status(500).json(err);
     });
 });
+
+router.put('/:id', async (req, res) => {
+  try {
+    const client = await Profile.update(
+      {
+        score: req.body.score,
+
+      },
+      {
+        where: {
+          id: req.params.id,
+        },
+      }
+    );
+    res.status(200).json(client);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
 
 
 module.exports = router;

@@ -19,13 +19,13 @@ const profilePage = async function(event) {
         }),
         headers: { 'Content-Type': 'application/json' },
     });
-    // const response2 = await fetch('api/user', {
-    //     method: 'POST',
-    //     body: JSON.stringify({
-    //         username: usernameEl.value,
-    //         email: emailEl.value
-    //     }),
-    //     headers: { 'Content-Type': 'application/json' },
-    // });
+    if (response.ok) {
+        document.location.replace('/profile');
+        // console.log('logged in');
+        // alert("log in success")
+      } else {
+        alert(response.statusText);
+        // console.log("login failed")
+      }
    
 };
