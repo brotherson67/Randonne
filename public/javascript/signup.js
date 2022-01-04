@@ -29,7 +29,7 @@ async function signupFormHandler(event) {
 >>>>>>> parent of 86ac6c5 (pushing to dev)
 =======
 
-        document.location.replace("./findFriends");
+        document.location.replace("/all-profile");
         console.log('success');
         // document.location.replace('./map'
         // location.redirect("/profile/.this");
