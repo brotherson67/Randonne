@@ -19,15 +19,10 @@ async function signupFormHandler(event) {
       console.log(response,"POST");
        // check the response status
       if (response.ok) {
-<<<<<<< HEAD
         // location.redirect("/profile");
         console.log('success');
-<<<<<<< HEAD
         document.location.replace('/profile')
-=======
-        document.location.replace('./map')
->>>>>>> parent of 86ac6c5 (pushing to dev)
-=======
+        // document.location.replace('./map')
 
         document.location.replace("/all-profile");
         console.log('success');
@@ -36,7 +31,6 @@ async function signupFormHandler(event) {
         console.log('success');
         // document.location.replace('/profile')
 
->>>>>>> 92620659f0baf600b388bf77a2ef0c035e0ea694
       } else {
         alert(response.statusText);
       }
