@@ -19,9 +19,13 @@ async function signupFormHandler(event) {
       console.log(response,"POST");
        // check the response status
       if (response.ok) {
-        location.redirect("/profile/.this");
+        // location.redirect("/profile");
         console.log('success');
+<<<<<<< HEAD
         document.location.replace('/profile')
+=======
+        document.location.replace('./map')
+>>>>>>> parent of 86ac6c5 (pushing to dev)
       } else {
         alert(response.statusText);
       }
